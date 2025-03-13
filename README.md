@@ -55,19 +55,20 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new eBay\Sell\Metadata\Api\CountryApi(
+$apiInstance = new eBay\Sell\Metadata\Api\CompatibilitiesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$country_code = 'country_code_example'; // string | This path parameter specifies the two-letter <a href=\"https://www.iso.org/iso-3166-country-codes.html \" title=\"https://www.iso.org \" target=\"_blank\">ISO 3166</a> country code for the country whose jurisdictions you want to retrieve.<br><br><span class=\"tablenote\"><b>Note:</b> Sales-tax tables are available only for the US and Canada marketplaces. Therefore, the only supported values are:<ul><li><code>US</code></li><li><code>CA</code></li></ul></span>
+$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/api-docs/sell/metadata/overview.html#requirements\" target=\"_blank \">Metadata API requirements and restrictions</a> for supported values.
+$specification_request = new \eBay\Sell\Metadata\Model\SpecificationRequest(); // \eBay\Sell\Metadata\Model\SpecificationRequest | This type defines the properties and specifications to use to search for compatibilities.
 
 try {
-    $result = $apiInstance->getSalesTaxJurisdictions($country_code);
+    $result = $apiInstance->getCompatibilitiesBySpecification($x_ebay_c_marketplace_id, $specification_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountryApi->getSalesTaxJurisdictions: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CompatibilitiesApi->getCompatibilitiesBySpecification: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -78,6 +79,11 @@ All URIs are relative to *https://api.ebay.com/sell/metadata/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*CompatibilitiesApi* | [**getCompatibilitiesBySpecification**](docs/Api/CompatibilitiesApi.md#getcompatibilitiesbyspecification) | **POST** /compatibilities/get_compatibilities_by_specification | 
+*CompatibilitiesApi* | [**getCompatibilityPropertyNames**](docs/Api/CompatibilitiesApi.md#getcompatibilitypropertynames) | **POST** /compatibilities/get_compatibility_property_names | 
+*CompatibilitiesApi* | [**getCompatibilityPropertyValues**](docs/Api/CompatibilitiesApi.md#getcompatibilitypropertyvalues) | **POST** /compatibilities/get_compatibility_property_values | 
+*CompatibilitiesApi* | [**getMultiCompatibilityPropertyValues**](docs/Api/CompatibilitiesApi.md#getmulticompatibilitypropertyvalues) | **POST** /compatibilities/get_multi_compatibility_property_values | 
+*CompatibilitiesApi* | [**getProductCompatibilities**](docs/Api/CompatibilitiesApi.md#getproductcompatibilities) | **POST** /compatibilities/get_product_compatibilities | 
 *CountryApi* | [**getSalesTaxJurisdictions**](docs/Api/CountryApi.md#getsalestaxjurisdictions) | **GET** /country/{countryCode}/sales_tax_jurisdiction | 
 *MarketplaceApi* | [**getAutomotivePartsCompatibilityPolicies**](docs/Api/MarketplaceApi.md#getautomotivepartscompatibilitypolicies) | **GET** /marketplace/{marketplace_id}/get_automotive_parts_compatibility_policies | 
 *MarketplaceApi* | [**getExtendedProducerResponsibilityPolicies**](docs/Api/MarketplaceApi.md#getextendedproducerresponsibilitypolicies) | **GET** /marketplace/{marketplace_id}/get_extended_producer_responsibility_policies | 
@@ -93,6 +99,9 @@ Class | Method | HTTP request | Description
 
 - [AutomotivePartsCompatibilityPolicy](docs/Model/AutomotivePartsCompatibilityPolicy.md)
 - [AutomotivePartsCompatibilityPolicyResponse](docs/Model/AutomotivePartsCompatibilityPolicyResponse.md)
+- [Compatibility](docs/Model/Compatibility.md)
+- [CompatibilityDetails](docs/Model/CompatibilityDetails.md)
+- [DisabledProductFilter](docs/Model/DisabledProductFilter.md)
 - [Error](docs/Model/Error.md)
 - [ErrorParameter](docs/Model/ErrorParameter.md)
 - [ExtendedProducerResponsibility](docs/Model/ExtendedProducerResponsibility.md)
@@ -109,12 +118,29 @@ Class | Method | HTTP request | Description
 - [ItemConditionPolicyResponse](docs/Model/ItemConditionPolicyResponse.md)
 - [ListingStructurePolicy](docs/Model/ListingStructurePolicy.md)
 - [ListingStructurePolicyResponse](docs/Model/ListingStructurePolicyResponse.md)
+- [MultiCompatibilityPropertyValuesRequest](docs/Model/MultiCompatibilityPropertyValuesRequest.md)
+- [MultiCompatibilityPropertyValuesResponse](docs/Model/MultiCompatibilityPropertyValuesResponse.md)
 - [NegotiatedPricePolicy](docs/Model/NegotiatedPricePolicy.md)
 - [NegotiatedPricePolicyResponse](docs/Model/NegotiatedPricePolicyResponse.md)
+- [Pagination](docs/Model/Pagination.md)
+- [PaginationInput](docs/Model/PaginationInput.md)
 - [Pictogram](docs/Model/Pictogram.md)
+- [ProductIdentifier](docs/Model/ProductIdentifier.md)
+- [ProductRequest](docs/Model/ProductRequest.md)
+- [ProductResponse](docs/Model/ProductResponse.md)
+- [ProductResponseCompatibilityDetails](docs/Model/ProductResponseCompatibilityDetails.md)
 - [ProductSafetyLabelPictogram](docs/Model/ProductSafetyLabelPictogram.md)
 - [ProductSafetyLabelStatement](docs/Model/ProductSafetyLabelStatement.md)
 - [ProductSafetyLabelsResponse](docs/Model/ProductSafetyLabelsResponse.md)
+- [PropertyFilterInner](docs/Model/PropertyFilterInner.md)
+- [PropertyNamesRequest](docs/Model/PropertyNamesRequest.md)
+- [PropertyNamesResponse](docs/Model/PropertyNamesResponse.md)
+- [PropertyNamesResponseProperties](docs/Model/PropertyNamesResponseProperties.md)
+- [PropertyNamesResponsePropertyNameMetadata](docs/Model/PropertyNamesResponsePropertyNameMetadata.md)
+- [PropertyNamesResponsePropertyNames](docs/Model/PropertyNamesResponsePropertyNames.md)
+- [PropertyValues](docs/Model/PropertyValues.md)
+- [PropertyValuesRequest](docs/Model/PropertyValuesRequest.md)
+- [PropertyValuesResponse](docs/Model/PropertyValuesResponse.md)
 - [RegulatoryAttribute](docs/Model/RegulatoryAttribute.md)
 - [RegulatoryPolicy](docs/Model/RegulatoryPolicy.md)
 - [RegulatoryPolicyResponse](docs/Model/RegulatoryPolicyResponse.md)
@@ -124,6 +150,10 @@ Class | Method | HTTP request | Description
 - [SalesTaxJurisdiction](docs/Model/SalesTaxJurisdiction.md)
 - [SalesTaxJurisdictions](docs/Model/SalesTaxJurisdictions.md)
 - [SignalWord](docs/Model/SignalWord.md)
+- [SortOrderInner](docs/Model/SortOrderInner.md)
+- [SortOrderProperties](docs/Model/SortOrderProperties.md)
+- [SpecificationRequest](docs/Model/SpecificationRequest.md)
+- [SpecificationResponse](docs/Model/SpecificationResponse.md)
 - [TimeDuration](docs/Model/TimeDuration.md)
 
 ## Authorization
@@ -162,6 +192,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `v1.8.0`
-    - Generator version: `7.10.0`
+- API version: `v1.9.0`
+    - Generator version: `7.12.0`
 - Build package: `org.openapitools.codegen.languages.PhpNextgenClientCodegen`

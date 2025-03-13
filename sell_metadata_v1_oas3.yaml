@@ -7,7 +7,7 @@ info:
   license:
     name: eBay API License Agreement
     url: https://developer.ebay.com/join/api-license-agreement
-  version: v1.8.0
+  version: v1.9.0
 servers:
   - url: https://api.ebay.com{basePath}
     description: Production
@@ -539,6 +539,361 @@ paths:
       security:
         - api_auth:
             - https://api.ebay.com/oauth/api_scope
+  /compatibilities/get_compatibilities_by_specification:
+    post:
+      tags:
+        - compatibilities
+      description: This method is used to retrieve all compatible application name-value pairs for a part based on the provided specification(s).<br><br>The part's relevant dimensions and/or characteristics can be provided through the <b>specifications</b> container. For example, when retrieving compatible application name-value pairs for a tire, the tire's dimensions (such as the section width or rim diameter) should be provided.<br><br>By default, all compatible application name-value pairs for the specifications are returned. You can limit the size of the result set by using the <b>compatibilityPropertyFilters</b> array to specify the properties (such as make, model, year, or trim) you wish to be included in the response.<br><br><span class="tablenote"><b>Note:</b> The <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames" target="_blank ">getCompatibilityPropertyNames</a> and <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyValues" target="_blank ">getCompatibilityPropertyValues</a> methods can be used to retrieve valid property names and values that can be used as the name-value pairs to define specifications.</span>
+      operationId: getCompatibilitiesBySpecification
+      parameters:
+        - name: X-EBAY-C-MARKETPLACE-ID
+          in: header
+          description: This header identifies the seller's eBay marketplace.<br><br>See <a href="/api-docs/sell/metadata/overview.html#requirements" target="_blank ">Metadata API requirements and restrictions</a> for supported values.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: This type defines the properties and specifications to use to search for compatibilities.
+        content:
+          application/json:
+            schema:
+              description: This type defines the properties and specifications to use to search for compatibilities.
+              $ref: '#/components/schemas/SpecificationRequest'
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpecificationResponse'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '47000':
+                domain: API
+                category: REQUEST
+                description: Item compatibilities are not enabled for category ID {{category_id}} or invalid propertyFilter.
+              '47002':
+                domain: API
+                category: REQUEST
+                description: The category {{category_id}} specified in the request does not support compatibilities.
+              '47003':
+                domain: API
+                category: REQUEST
+                description: A required field is missing from the request.
+              '47004':
+                domain: API
+                category: REQUEST
+                description: Invalid data supplied in the request.
+              '47005':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request is invalid.
+              '47006':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request does not support compatibility.
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '46000':
+                domain: API
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope
+  /compatibilities/get_compatibility_property_names:
+    post:
+      tags:
+        - compatibilities
+      description: This method is used to retrieve product compatibility property names for the specified compatibility-enabled category.<br><br>Compatibility property names can be used alongside the corresponding compatibility property value (retrieved using the <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyValues" target="_blank ">getCompatibilityPropertyValues</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property names is required in the request body.<br><br>By default, all property names within the compatibility category of the specified compatibility-enable category are returned. You can limit the size of the result set by using the <b>dataset</b> array to specify the types of properties you want returned.
+      operationId: getCompatibilityPropertyNames
+      parameters:
+        - name: X-EBAY-C-MARKETPLACE-ID
+          in: header
+          description: This header identifies the seller's eBay marketplace.<br><br>See <a href="/api-docs/sell/metadata/overview.html#requirements" target="_blank ">Metadata API requirements and restrictions</a> for supported values.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: This type defines the properties used to retrieve compatibility property names.
+        content:
+          application/json:
+            schema:
+              description: This type defines the properties used to retrieve compatibility property names.
+              $ref: '#/components/schemas/PropertyNamesRequest'
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyNamesResponse'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '47000':
+                domain: API
+                category: REQUEST
+                description: Item compatibilities are not enabled for category ID {{category_id}} or invalid propertyFilter.
+              '47001':
+                domain: API
+                category: REQUEST
+                description: The category {{category_id}} specified in the request is not a valid eBay category for the marketplace.
+              '47002':
+                domain: API
+                category: REQUEST
+                description: The category {{category_id}} specified in the request does not support compatibilities.
+              '47003':
+                domain: API
+                category: REQUEST
+                description: A required field is missing from the request.
+              '47004':
+                domain: API
+                category: REQUEST
+                description: Invalid data supplied in the request.
+              '47005':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request is invalid.
+              '47006':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request does not support compatibility.
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '46000':
+                domain: API
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope
+  /compatibilities/get_compatibility_property_values:
+    post:
+      tags:
+        - compatibilities
+      description: This method is used to retrieve product compatibility property values associated with a single property name, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames" target="_blank ">getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyName</b> for which you wish to retrieve associated values.<br><br>By default, all property values associated with the specified <b>propertyName</b> are returned. You can limit the size of the result set by using the <b>propertyFilter</b> array. Only property values associated with the specified name-value pairs will be returned.
+      operationId: getCompatibilityPropertyValues
+      parameters:
+        - name: X-EBAY-C-MARKETPLACE-ID
+          in: header
+          description: This header identifies the seller's eBay marketplace.<br><br>See <a href="/api-docs/sell/metadata/overview.html#requirements" target="_blank ">Metadata API requirements and restrictions</a> for supported values.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: This type defines the category ID and property name for which to retrieve values.
+        content:
+          application/json:
+            schema:
+              description: This type defines the category ID and property name for which to retrieve values.
+              $ref: '#/components/schemas/PropertyValuesRequest'
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyValuesResponse'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '47000':
+                domain: API
+                category: REQUEST
+                description: Item compatibilities are not enabled for category ID {{category_id}} or invalid propertyFilter.
+              '47002':
+                domain: API
+                category: REQUEST
+                description: The category {{category_id}} specified in the request does not support compatibilities.
+              '47003':
+                domain: API
+                category: REQUEST
+                description: A required field is missing from the request.
+              '47004':
+                domain: API
+                category: REQUEST
+                description: Invalid data supplied in the request.
+              '47005':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request is invalid.
+              '47006':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request does not support compatibility.
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '46000':
+                domain: API
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope
+  /compatibilities/get_multi_compatibility_property_values:
+    post:
+      tags:
+        - compatibilities
+      description: This method is used to retrieve product compatibility property values associated with multiple property names, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames" target="_blank ">getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyNames</b> for which you wish to retrieve associated property values. The <b>propertyFilter</b> array is also required to constrain the output. Only property values associated with the specified name-value pairs will be returned.
+      operationId: getMultiCompatibilityPropertyValues
+      parameters:
+        - name: X-EBAY-C-MARKETPLACE-ID
+          in: header
+          description: This header identifies the seller's eBay marketplace.<br><br>See <a href="/api-docs/sell/metadata/overview.html#requirements" target="_blank ">Metadata API requirements and restrictions</a> for supported values.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: This type defines the category ID and property names for which to retrieve values.
+        content:
+          application/json:
+            schema:
+              description: This type defines the category ID and property names for which to retrieve values.
+              $ref: '#/components/schemas/MultiCompatibilityPropertyValuesRequest'
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultiCompatibilityPropertyValuesResponse'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '47000':
+                domain: API
+                category: REQUEST
+                description: Item compatibilities are not enabled for category ID {{category_id}} or invalid propertyFilter.
+              '47002':
+                domain: API
+                category: REQUEST
+                description: The category {{category_id}} specified in the request does not support compatibilities.
+              '47003':
+                domain: API
+                category: REQUEST
+                description: A required field is missing from the request.
+              '47004':
+                domain: API
+                category: REQUEST
+                description: Invalid data supplied in the request.
+              '47005':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request is invalid.
+              '47006':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request does not support compatibility.
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '46000':
+                domain: API
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope
+  /compatibilities/get_product_compatibilities:
+    post:
+      tags:
+        - compatibilities
+      description: This method is used to retrieve all available item compatibility details for the specified product.<br><br>Item compatibility details can be used to see the properties for which an item is compatible. For example, if you are searching for a part for a specific vehicle, you can use this method to see the years, engine, and/or trim for which the part is compatible. Item compatibility details are returned as name-value pairs.<br><br>The product for which to retrieve item compatibility details must be provided through the <b>productIdentifier</b> field. This value can be either an eBay specific identifier (such as an ePID) or an external identifier (such as a UPC).<br><br>By default, all available item compatibility details for the specified product are returned. You can limit the size of the result set using the <b>dataset</b> or <b>datasetPropertyName</b> fields to specify the types of properties you want returned in the response. The <b>applicationPropertyFilter</b> array can also be used so that only parts compatible with the specified name-value pairs are returned.
+      operationId: getProductCompatibilities
+      parameters:
+        - name: X-EBAY-C-MARKETPLACE-ID
+          in: header
+          description: This header identifies the seller's eBay marketplace.<br><br>See <a href="/api-docs/sell/metadata/overview.html#requirements" target="_blank ">Metadata API requirements and restrictions</a> for supported values.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: This type defines properties for which to find compatibilities.
+        content:
+          application/json:
+            schema:
+              description: This type defines properties for which to find compatibilities.
+              $ref: '#/components/schemas/ProductRequest'
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          x-response-codes:
+            errors:
+              '47000':
+                domain: API
+                category: REQUEST
+                description: Item compatibilities are not enabled for category ID {{category_id}} or invalid propertyFilter.
+              '47003':
+                domain: API
+                category: REQUEST
+                description: A required field is missing from the request.
+              '47004':
+                domain: API
+                category: REQUEST
+                description: Invalid data supplied in the request.
+              '47005':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request is invalid.
+              '47006':
+                domain: API
+                category: REQUEST
+                description: The marketplace id {{marketplaceId}} specified in the request does not support compatibility.
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal Server Error
+          x-response-codes:
+            errors:
+              '46000':
+                domain: API
+                category: APPLICATION
+                description: There was a problem with an eBay internal system or process. Contact eBay developer support for assistance.
+      security:
+        - api_auth:
+            - https://api.ebay.com/oauth/api_scope
   /country/{countryCode}/sales_tax_jurisdiction:
     get:
       tags:
@@ -625,6 +980,35 @@ components:
           description: A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
           items:
             $ref: '#/components/schemas/Error'
+    Compatibility:
+      type: object
+      properties:
+        compatibilityDetails:
+          type: array
+          description: This array returns a list of compatibility details associated with the specified property name(s).
+          items:
+            $ref: '#/components/schemas/CompatibilityDetails'
+      description: This type defines the property names and values that are compatible with the property name values specified in the request.
+    CompatibilityDetails:
+      type: object
+      properties:
+        propertyName:
+          type: string
+          description: The name of the property being described.
+        propertyValue:
+          type: string
+          description: The value for the property specified in the <b>propertyName</b> field.
+      description: This type defines the compatible property names and values associated with the product.
+    DisabledProductFilter:
+      type: object
+      properties:
+        excludeForEbayReviews:
+          type: boolean
+          description: Specifies whether to filter out products excluded for eBay reviews.<br><br>If set to <code>true</code>, items excluded from eBay reviews are not returned.
+        excludeForEbaySelling:
+          type: boolean
+          description: Specifies whether to filter out products excluded for eBay selling.<br><br>If set to <code>true</code>, items excluded from eBay selling are not returned.
+      description: This type defines the booleans used to determine if a product is excluded from eBay selling and/or review.
     Error:
       type: object
       properties:
@@ -901,6 +1285,35 @@ components:
           description: A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
           items:
             $ref: '#/components/schemas/Error'
+    MultiCompatibilityPropertyValuesRequest:
+      type: object
+      properties:
+        categoryId:
+          type: string
+          description: The unique identifier of the eBay leaf category for which to retrieve property values.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+        propertyFilters:
+          type: array
+          description: This array can be used to specify the compatibility properties used to limit the result set. Only values associated with the specified name-value pairs will be returned in the response.<br><br>For example, if the <b>propertyName</b> is set to <code>Year</code> and the <b>propertyValue</b> is set to <code>2022</code>, only compatible vehicles from 2022 will be returned.<br><br>At least one property name-value pair must be used.
+          items:
+            $ref: '#/components/schemas/PropertyFilterInner'
+        propertyNames:
+          type: array
+          description: This comma-delimited array specifies the names of the properties for which to retrieve associated property values.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category.
+          items:
+            type: string
+      description: This type defines the request fields used in the <b>getMultiCompatibilityPropertyValues</b> method.
+    MultiCompatibilityPropertyValuesResponse:
+      type: object
+      properties:
+        compatibilities:
+          type: array
+          description: This container defines the compatibility details associated with the specified property name value(s).
+          items:
+            $ref: '#/components/schemas/Compatibility'
+        metadataVersion:
+          type: string
+          description: The version number of the metadata. This version is upticked whenever there are compatibility name changes for the specified marketplace.
+      description: This type defines the response fields for the <b>getMultiCompatibilityPropertyValues</b> method.
     NegotiatedPricePolicy:
       type: object
       properties:
@@ -932,6 +1345,38 @@ components:
           description: A list of the warnings that were generated as a result of the request. This field is not returned if no warnings were generated by the request.
           items:
             $ref: '#/components/schemas/Error'
+    Pagination:
+      type: object
+      properties:
+        count:
+          type: integer
+          description: The number of results showing on the current page of results.
+          format: int32
+        limit:
+          type: integer
+          description: The max number of entries that can be returned on a single page.
+          format: int32
+        offset:
+          type: integer
+          description: The number of items that will be skipped in the result set before returning the first item in the paginated response.
+          format: int32
+        total:
+          type: integer
+          description: The total number of results in a result set.
+          format: int32
+      description: This type defines the pagination settings for a result set.
+    PaginationInput:
+      type: object
+      properties:
+        limit:
+          type: integer
+          description: The max number of items, from the current result set, returned on a single page.<br><br><span class="tablenote"><b>Note:</b> For <b>getProductCompatibilities</b>, the max value is 100. If no <b>limit</b> is specified, this field defaults to the max value.</span>
+          format: int32
+        offset:
+          type: integer
+          description: The number of items that will be skipped in the result set before returning the first item in the paginated response.<br><br>Combine <b>offset</b> with <b>limit</b> to control the items returned in the response. For example, if you supply an offset of 10 and a limit of 20, the first page of the response contains items 11-30 from the complete result set.<br><br><b>Default:</b> 0
+          format: int32
+      description: This type defines the fields used to control the pagination of the result set.
     Pictogram:
       type: object
       properties:
@@ -945,6 +1390,84 @@ components:
           type: string
           description: The URL of the pictogram.
       description: A type that describes pictograms for hazardous materials labels.
+    ProductIdentifier:
+      type: object
+      properties:
+        ean:
+          type: string
+          description: The EAN of the item, if applicable. EAN is the European Article Number, a barcode standard for retail product labeling primarily used outside of North America.
+        epid:
+          type: string
+          description: The ePID (eBay Product Identifier) of the item, if applicable. ePID is a unique identifier used by eBay to track products in its catalog.<br><br>Use the <a href="/api-docs/commerce/catalog/resources/product/methods/getProduct" target="_blank ">getProduct</a> method of the Catalog API to retrieve the ePID of an item.
+        isbn:
+          type: string
+          description: The ISBN of the item, if applicable. ISBN is the International Standard Book Number, a unique identifier for books.
+        productId:
+          type: string
+          description: The product ID of the item, if applicable. The product ID is a general term for a unique identifier assigned to a product.
+        upc:
+          type: string
+          description: The UPC of the item, if applicable. UPC stands for Universal Product Code, a unique identifier for products, primarily in North America.
+      description: This type defines the supported product identifiers.
+    ProductRequest:
+      type: object
+      properties:
+        applicationPropertyFilters:
+          type: array
+          description: This array is used to filter the properties of an application, such as a vehicle's make or model, that will be returned in the response.<br><br>Application property filters are specified as name-value pairs. Only products compatible with these name-value pairs will be returned.
+          items:
+            $ref: '#/components/schemas/PropertyFilterInner'
+        dataset:
+          type: array
+          description: 'This array defines the type of properties that are returned for the catalog-enabled category.<br><br>For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>dataPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><br><b>Default:</b> <code>DisplayableSearchResults</code>'
+          items:
+            type: string
+        datasetPropertyName:
+          type: array
+          description: This comma-delimted array can be used to define the specific property name(s) that will be returned in the response.<br><br>For example, if you specify <code>Engine</code>, the result set will only contain engines that are compatible with the input criteria.<br><br><span class="tablenote"><b>Note:</b> This array cannot be used alongside <b>dataset</b>. If both are used, an error will occur.</span>
+          items:
+            type: string
+        disabledProductFilter:
+          description: 'This container can be used to specify whether or not to filter out products which are disabled for selling on eBay and/or disabled for product review. '
+          $ref: '#/components/schemas/DisabledProductFilter'
+        paginationInput:
+          description: This container controls the pagination of the result set.
+          $ref: '#/components/schemas/PaginationInput'
+        productIdentifier:
+          description: This container is used to provide unique identifier for the product. The product identifier consists of an identifier type and value, and are unique across all sites.
+          $ref: '#/components/schemas/ProductIdentifier'
+        sortOrders:
+          type: array
+          description: This array controls the sort order of compatibility properties.
+          items:
+            $ref: '#/components/schemas/SortOrderInner'
+      description: This type defines the request fields for the <b>getProductCompatibilities</b> method.
+    ProductResponse:
+      type: object
+      properties:
+        compatibilityDetails:
+          type: array
+          description: This container provides compatibility details for the specified product.
+          items:
+            $ref: '#/components/schemas/ProductResponseCompatibilityDetails'
+        pagination:
+          description: This container returns the pagination settings for the result set.
+          $ref: '#/components/schemas/Pagination'
+      description: This type defines the response fields for the <b>getProductCompatibilities</b> method.
+    ProductResponseCompatibilityDetails:
+      type: object
+      properties:
+        noteDetails:
+          type: array
+          description: This array returns additional comments about the corresponding product in the form of name-value pairs.
+          items:
+            $ref: '#/components/schemas/PropertyFilterInner'
+        productDetails:
+          type: array
+          description: 'This array returns details about the product in the form of name-value pairs. '
+          items:
+            $ref: '#/components/schemas/PropertyValues'
+      description: This type defines the compatibility details for a product.
     ProductSafetyLabelPictogram:
       type: object
       properties:
@@ -982,6 +1505,122 @@ components:
           items:
             $ref: '#/components/schemas/ProductSafetyLabelStatement'
       description: A type that defines the response fields for the <b>getProductSafetyLabels</b> method.
+    PropertyFilterInner:
+      type: object
+      properties:
+        propertyName:
+          type: string
+          description: The name of the property being described.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category. Use the <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames" target="_blank ">getCompatibilityPropertyNames</a> method to retrieve valid property names for a specified category.
+        propertyValue:
+          type: string
+          description: The value for the property specified in the <b>properyName</b> field.<br><br>For example, if the <b>propertyName</b> is <code>Make</code>, then the <b>propertyValue</b> will be the specific make of the vehicle, such as <code>Toyota</code>. Use the <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyValues" target="_blank ">getCompatibilityPropertyValues</a> to retreive valid property values associated with a specified property name.
+        unitOfMeasurement:
+          type: string
+          description: The unit of measurement of the property being described, if applicable.
+        url:
+          type: string
+          description: The URL associated with the property being described, if applicable.
+      description: This type is used to define the available compatibility property filters.
+    PropertyNamesRequest:
+      type: object
+      properties:
+        categoryId:
+          type: string
+          description: The unique identifier of the eBay leaf category for which to retrieve compatibility property names. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+        dataset:
+          type: array
+          description: 'This array defines the properties that will be returned for the compatibility-enabled category.<br><br> For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><b>Default:</b> <code>DisplayableSearchResults</code>'
+          items:
+            type: string
+      description: This type defines the request fields for the <b>getCompatibilityPropertyNames</b> method.
+    PropertyNamesResponse:
+      type: object
+      properties:
+        categoryId:
+          type: string
+          description: The unique identifier of the eBay category specified in the request.
+        properties:
+          type: array
+          description: This array contains all of the properties for the specified category.
+          items:
+            $ref: '#/components/schemas/PropertyNamesResponseProperties'
+      description: This type defines the fields returned in the <b>getCompatibilityPropertyNames</b> method.
+    PropertyNamesResponseProperties:
+      type: object
+      properties:
+        dataset:
+          type: string
+          description: 'This field defines the types of properties are returned for the specified catalog-enabled category.<br><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul>'
+        propertyNames:
+          type: array
+          description: This array specifies the names of the properties associated with the specified category in the specified marketplace.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category.
+          items:
+            $ref: '#/components/schemas/PropertyNamesResponsePropertyNames'
+      description: This type defines the properties and dataset for a specified category.
+    PropertyNamesResponsePropertyNameMetadata:
+      type: object
+      properties:
+        displaySequence:
+          type: integer
+          description: The numeric value indicating the ordering position of the property.
+          format: int32
+      description: This type defines the property name metadata.
+    PropertyNamesResponsePropertyNames:
+      type: object
+      properties:
+        propertyDisplayName:
+          type: string
+          description: The display name of a property. This is the localized name of the compatible property.
+        propertyName:
+          type: string
+          description: The canonical name of a property. This value is used as part of the name-value pairs used to specify compatibility.
+        propertyNameMetadata:
+          description: The metadata for a property.
+          $ref: '#/components/schemas/PropertyNamesResponsePropertyNameMetadata'
+      description: This type defines the fields associated with a property name.
+    PropertyValues:
+      type: object
+      properties:
+        propertyName:
+          type: string
+          description: The name of the property.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category.
+        propertyValue:
+          type: string
+          description: The value for the property specified in the <b>properyName</b> field.<br><br>For example, if the <b>propertyName</b> is <code>make</code>, then the <b>propertyValue</b> will be the specific make of the vehicle, such as <code>Toyota</code>.
+      description: This type defines the name-value pair associated with a property value.
+    PropertyValuesRequest:
+      type: object
+      properties:
+        categoryId:
+          type: string
+          description: The unique identifier of the eBay leaf category for which to retrieve compatibility property values. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility.
+        propertyFilters:
+          type: array
+          description: This array can be used to specify the compatibility properties used limit the result set. Only values associated with the specified name-value pairs will be returned in the response.<br><br>For example, if the <b>propertyName</b> is set to <code>Make</code> and the <b>propertyValue</b> is set to <code>Honda</code>, only compatible Honda vehicles will be returned.
+          items:
+            $ref: '#/components/schemas/PropertyFilterInner'
+        propertyName:
+          type: string
+          description: This field specifies the name of the property for which to retrieve associated property values.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category. Use the <a href="/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames" target="_blank ">getCompatibilityPropertyNames</a> method to retrieve valid property names for a specified category.
+        sortOrder:
+          type: string
+          description: This field specifies the sort order for the property values in the result set.<br><br><b>Valid values:</b><ul><li><code>Ascending</code></li><li>Descending</li></ul><span class="tablenote"><b>Note:</b> If no search order is specified, values are sorted in ascending order.</span>
+      description: This type defines the request fields used in the <b>getCompatibilityPropertyValues</b> method.
+    PropertyValuesResponse:
+      type: object
+      properties:
+        metadataVersion:
+          type: string
+          description: The version number of the metadata. This version is upticked whenever there are compatibility name changes for the specified marketplace.
+        propertyName:
+          type: string
+          description: The name of the property specified in the request.
+        propertyValues:
+          type: array
+          description: This array specifies the property values associated with the specified <b>propertyName</b>, in the specified category.
+          items:
+            type: string
+      description: This type defines the response fields used in the <b>getCompatibilityPropertyValues</b> method.
     RegulatoryAttribute:
       type: object
       properties:
@@ -1111,6 +1750,74 @@ components:
           type: string
           description: The description of the signal word localized to the default language of the marketplace. For more information, see <a href='/api-docs/sell/static/metadata/feature-regulatorhazmatcontainer.html#Signal'>Signal word information</a>.
       description: A type that describes signal words for hazardous materials labels.
+    SortOrderInner:
+      type: object
+      properties:
+        sortOrder:
+          description: This container is used to define the property to be used in the sorting.
+          $ref: '#/components/schemas/SortOrderProperties'
+        sortPriority:
+          type: string
+          description: The priority of the specified sort order provided.<br><br>For example, when a property is assigned <code>Sort1</code>, its values are sorted first. Values for the property assigned <code>Sort2</code> are sorted second, and so on.<br><br><b>Valid values</b>:<ul><li><code>Sort1</code></li><li><code>Sort2</code></li><li><code>Sort3</code></li><li><code>Sort4</code></li><li><code>Sort5</code></li></ul>
+      description: This type is used to provide the sort order of compatibility properties returned in the response.
+    SortOrderProperties:
+      type: object
+      properties:
+        order:
+          type: string
+          description: Defines the order of the sort.<br><br><b>Valid values</b>:<ul><li><code>Ascending</code></li><li><code>Descending</code></li></ul>
+        propertyName:
+          type: string
+          description: The name of the searchable property to be used for sorting.<br><br>For example, typical vehicle property names are 'Make', 'Model', 'Year', 'Engine', and 'Trim', but will vary based on the eBay marketplace and the eBay category.
+      description: 'This type is used to define the property to be used in sorting. '
+    SpecificationRequest:
+      type: object
+      properties:
+        categoryId:
+          type: string
+          description: 'The unique identifier of the eBay leaf category for which compatibility details are being retrieved. This category must be a valid eBay category on the specified eBay marketplace, and the category must support parts compatibility for cars, trucks, or motorcycles.<br><br>Use the <a href="/api-docs/sell/metadata/resources/marketplace/methods/getAutomotivePartsCompatibilityPolicies" target="_blank ">getAutomotivePartsCompatibilityPolicies</a> method to retrieve a list of categories that support parts compatibility by specification. For the categories in the response that support compatibility by specification, you’ll see <code>SPECIFICATIONS</code> as the value for the <b>compatibilityBasedOn</b> field '
+        compatibilityPropertyFilters:
+          type: array
+          description: This comma-delimited array can be used to restrict the number of compatible application name-value pairs returned in the response by specifying the properties that the seller wishes to be included in the response.<br><br>Only compatible applications with the specified properties will be returned. Properties that can be specified here include make, model, year, and trim.
+          items:
+            $ref: '#/components/schemas/PropertyFilterInner'
+        dataset:
+          type: string
+          description: 'This field can be used to define the type of properties that will be returned in the response.<br><br> For example, if you specify <code>Searchable</code>, the compatibility details will contain properties that can be used to search for products, such as make or model.<br><br><span class="tablenote"><b>Note:</b> This field cannot be used alongside <b>dataPropertyName</b>. If both are used, an error will occur.</span><br><b>Valid values:</b><ul><li><code>DisplayableProductDetails</code>: Properties for use in a user interface to describe products.</li><li><code>DisplayableSearchResults</code>: Properties for use in results for product searches.</li><li><code>Searchable</code>: Properties for use in searches.</li><li><code>Sortable</code>: Properties that are suitable for sorting.</li></ul><b>Default value:</b> <code>DisplayableSearchResults</code>'
+        datasetPropertyName:
+          type: array
+          description: This comma-delimited array can be used to define the specific property name(s) that will be returned in the response.<br><br>For example, if you specify <code>Engine</code>, the result set will only contain engines that are compatible with the input criteria.<br><br><span class="tablenote"><b>Note:</b> This array cannot be used alongside <b>dataset</b>. If both are used, an error will occur.</span>
+          items:
+            type: string
+        exactMatch:
+          type: boolean
+          description: This boolean can be used to specify that the compatibilities returned in the response are to be defined by an exact match on the input value of specification properties.<br><br>By default, an expanded compatibility match is done when it applies, such as for Load Index, where a compatible vehicle is one that has a load index requirement that is less than or equal to the input. By specifying this field as <code>true</code>, only exact matches are returned.
+        paginationInput:
+          description: '<div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Pagination is not yet supported by this method. If this container is included in the request, it will be ignored.</p></div>'
+          $ref: '#/components/schemas/PaginationInput'
+        sortOrders:
+          type: array
+          description: This array specifies the sorting order of the compatibility properties. Any of the searchable properties can be used to specify search order. Up to 5 levels of sort order may be specified.<br><br><span class="tablenote"><b>Note:</b> If no sort order is specified through this field, the default sort order of <b>popularity descending</b> is applied.</span>
+          items:
+            $ref: '#/components/schemas/SortOrderInner'
+        specifications:
+          type: array
+          description: This array defines the specifications of the part, in the form of name-value pairs, for which compatible applications will be retrieved.
+          items:
+            $ref: '#/components/schemas/PropertyFilterInner'
+      description: This type provides the properties and specifications to use to search for compatibilities.
+    SpecificationResponse:
+      type: object
+      properties:
+        compatibilityDetails:
+          type: array
+          description: This container returns the list of all compatible application name-value pairs for the given filter criteria.
+          items:
+            $ref: '#/components/schemas/Compatibility'
+        pagination:
+          description: '<div class="msgbox_important"><p class="msgbox_importantInDiv" data-mc-autonum="&lt;b&gt;&lt;span style=&quot;color: #dd1e31;&quot; class=&quot;mcFormatColor&quot;&gt;Important! &lt;/span&gt;&lt;/b&gt;"><span class="autonumber"><span><b><span style="color: #dd1e31;" class="mcFormatColor">Important!</span></b></span></span> Not currently returned. For future use. </p></div> <!-- This container returns the pagination settings for the result set.-->'
+          $ref: '#/components/schemas/Pagination'
+      description: This type defines the fields used in the <b>getCompatibilitiesBySpecification</b> response.
     TimeDuration:
       type: object
       properties:
