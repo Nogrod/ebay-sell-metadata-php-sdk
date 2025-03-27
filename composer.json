@@ -14,8 +14,8 @@
     "license": "unlicense",
     "authors": [
         {
-            "name": "Nogrod",
-            "email": "strikeomania@gmail.com"
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
         }
     ],
     "require": {
