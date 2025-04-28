@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ItemConditionDescriptorConstraint
  *
@@ -548,7 +549,7 @@ class ItemConditionDescriptorConstraint implements ModelInterface, ArrayAccess, 
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

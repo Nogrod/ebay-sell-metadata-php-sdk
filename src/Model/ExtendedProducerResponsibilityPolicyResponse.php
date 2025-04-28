@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ExtendedProducerResponsibilityPolicyResponse
  *
@@ -412,7 +413,7 @@ class ExtendedProducerResponsibilityPolicyResponse implements ModelInterface, Ar
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

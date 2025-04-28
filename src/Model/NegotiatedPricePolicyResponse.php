@@ -1,4 +1,5 @@
 <?php
+
 /**
  * NegotiatedPricePolicyResponse
  *
@@ -411,7 +412,7 @@ class NegotiatedPricePolicyResponse implements ModelInterface, ArrayAccess, Json
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MarketplaceApi
  * PHP version 8.1
@@ -161,8 +162,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getAutomotivePartsCompatibilityPolicies'][0]
-    ): \eBay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse
-    {
+    ): \eBay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse {
         list($response) = $this->getAutomotivePartsCompatibilityPoliciesWithHttpInfo($marketplace_id, $filter, $contentType);
         return $response;
     }
@@ -182,8 +182,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getAutomotivePartsCompatibilityPolicies'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAutomotivePartsCompatibilityPoliciesRequest($marketplace_id, $filter, $contentType);
 
         try {
@@ -209,9 +208,9 @@ class MarketplaceApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -253,7 +252,7 @@ class MarketplaceApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -309,8 +308,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getAutomotivePartsCompatibilityPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAutomotivePartsCompatibilityPoliciesAsyncWithHttpInfo($marketplace_id, $filter, $contentType)
             ->then(
                 function ($response) {
@@ -333,8 +331,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getAutomotivePartsCompatibilityPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse';
         $request = $this->getAutomotivePartsCompatibilityPoliciesRequest($marketplace_id, $filter, $contentType);
 
@@ -342,7 +339,7 @@ class MarketplaceApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -388,8 +385,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getAutomotivePartsCompatibilityPolicies'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'marketplace_id' is set
         if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {
@@ -504,8 +500,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getExtendedProducerResponsibilityPolicies'][0]
-    ): \eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse
-    {
+    ): \eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse {
         list($response) = $this->getExtendedProducerResponsibilityPoliciesWithHttpInfo($marketplace_id, $filter, $contentType);
         return $response;
     }
@@ -525,8 +520,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getExtendedProducerResponsibilityPolicies'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getExtendedProducerResponsibilityPoliciesRequest($marketplace_id, $filter, $contentType);
 
         try {
@@ -552,9 +546,9 @@ class MarketplaceApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -596,7 +590,7 @@ class MarketplaceApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -652,8 +646,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getExtendedProducerResponsibilityPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getExtendedProducerResponsibilityPoliciesAsyncWithHttpInfo($marketplace_id, $filter, $contentType)
             ->then(
                 function ($response) {
@@ -676,8 +669,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getExtendedProducerResponsibilityPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse';
         $request = $this->getExtendedProducerResponsibilityPoliciesRequest($marketplace_id, $filter, $contentType);
 
@@ -685,7 +677,7 @@ class MarketplaceApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -731,8 +723,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getExtendedProducerResponsibilityPolicies'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'marketplace_id' is set
         if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {
@@ -845,8 +836,7 @@ class MarketplaceApi
     public function getHazardousMaterialsLabels(
         string $marketplace_id,
         string $contentType = self::contentTypes['getHazardousMaterialsLabels'][0]
-    ): \eBay\Sell\Metadata\Model\HazardousMaterialDetailsResponse
-    {
+    ): \eBay\Sell\Metadata\Model\HazardousMaterialDetailsResponse {
         list($response) = $this->getHazardousMaterialsLabelsWithHttpInfo($marketplace_id, $contentType);
         return $response;
     }
@@ -864,8 +854,7 @@ class MarketplaceApi
     public function getHazardousMaterialsLabelsWithHttpInfo(
         string $marketplace_id,
         string $contentType = self::contentTypes['getHazardousMaterialsLabels'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getHazardousMaterialsLabelsRequest($marketplace_id, $contentType);
 
         try {
@@ -891,9 +880,9 @@ class MarketplaceApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\HazardousMaterialDetailsResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\HazardousMaterialDetailsResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -935,7 +924,7 @@ class MarketplaceApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\HazardousMaterialDetailsResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -989,8 +978,7 @@ class MarketplaceApi
     public function getHazardousMaterialsLabelsAsync(
         string $marketplace_id,
         string $contentType = self::contentTypes['getHazardousMaterialsLabels'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getHazardousMaterialsLabelsAsyncWithHttpInfo($marketplace_id, $contentType)
             ->then(
                 function ($response) {
@@ -1011,8 +999,7 @@ class MarketplaceApi
     public function getHazardousMaterialsLabelsAsyncWithHttpInfo(
         string $marketplace_id,
         string $contentType = self::contentTypes['getHazardousMaterialsLabels'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\HazardousMaterialDetailsResponse';
         $request = $this->getHazardousMaterialsLabelsRequest($marketplace_id, $contentType);
 
@@ -1020,7 +1007,7 @@ class MarketplaceApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1064,8 +1051,7 @@ class MarketplaceApi
     public function getHazardousMaterialsLabelsRequest(
         string $marketplace_id,
         string $contentType = self::contentTypes['getHazardousMaterialsLabels'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'marketplace_id' is set
         if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {
@@ -1170,8 +1156,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getItemConditionPolicies'][0]
-    ): \eBay\Sell\Metadata\Model\ItemConditionPolicyResponse
-    {
+    ): \eBay\Sell\Metadata\Model\ItemConditionPolicyResponse {
         list($response) = $this->getItemConditionPoliciesWithHttpInfo($marketplace_id, $filter, $contentType);
         return $response;
     }
@@ -1191,8 +1176,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getItemConditionPolicies'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getItemConditionPoliciesRequest($marketplace_id, $filter, $contentType);
 
         try {
@@ -1218,9 +1202,9 @@ class MarketplaceApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\ItemConditionPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\ItemConditionPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1262,7 +1246,7 @@ class MarketplaceApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\ItemConditionPolicyResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -1318,8 +1302,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getItemConditionPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getItemConditionPoliciesAsyncWithHttpInfo($marketplace_id, $filter, $contentType)
             ->then(
                 function ($response) {
@@ -1342,8 +1325,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getItemConditionPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\ItemConditionPolicyResponse';
         $request = $this->getItemConditionPoliciesRequest($marketplace_id, $filter, $contentType);
 
@@ -1351,7 +1333,7 @@ class MarketplaceApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1397,8 +1379,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getItemConditionPolicies'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'marketplace_id' is set
         if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {
@@ -1513,8 +1494,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getListingStructurePolicies'][0]
-    ): \eBay\Sell\Metadata\Model\ListingStructurePolicyResponse
-    {
+    ): \eBay\Sell\Metadata\Model\ListingStructurePolicyResponse {
         list($response) = $this->getListingStructurePoliciesWithHttpInfo($marketplace_id, $filter, $contentType);
         return $response;
     }
@@ -1534,8 +1514,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getListingStructurePolicies'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getListingStructurePoliciesRequest($marketplace_id, $filter, $contentType);
 
         try {
@@ -1561,9 +1540,9 @@ class MarketplaceApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\ListingStructurePolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\ListingStructurePolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1605,7 +1584,7 @@ class MarketplaceApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\ListingStructurePolicyResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -1661,8 +1640,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getListingStructurePolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getListingStructurePoliciesAsyncWithHttpInfo($marketplace_id, $filter, $contentType)
             ->then(
                 function ($response) {
@@ -1685,8 +1663,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getListingStructurePolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\ListingStructurePolicyResponse';
         $request = $this->getListingStructurePoliciesRequest($marketplace_id, $filter, $contentType);
 
@@ -1694,7 +1671,7 @@ class MarketplaceApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1740,8 +1717,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getListingStructurePolicies'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'marketplace_id' is set
         if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {
@@ -1856,8 +1832,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getNegotiatedPricePolicies'][0]
-    ): \eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse
-    {
+    ): \eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse {
         list($response) = $this->getNegotiatedPricePoliciesWithHttpInfo($marketplace_id, $filter, $contentType);
         return $response;
     }
@@ -1877,8 +1852,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getNegotiatedPricePolicies'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getNegotiatedPricePoliciesRequest($marketplace_id, $filter, $contentType);
 
         try {
@@ -1904,9 +1878,9 @@ class MarketplaceApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1948,7 +1922,7 @@ class MarketplaceApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -2004,8 +1978,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getNegotiatedPricePolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getNegotiatedPricePoliciesAsyncWithHttpInfo($marketplace_id, $filter, $contentType)
             ->then(
                 function ($response) {
@@ -2028,8 +2001,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getNegotiatedPricePolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse';
         $request = $this->getNegotiatedPricePoliciesRequest($marketplace_id, $filter, $contentType);
 
@@ -2037,7 +2009,7 @@ class MarketplaceApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2083,8 +2055,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getNegotiatedPricePolicies'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'marketplace_id' is set
         if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {
@@ -2197,8 +2168,7 @@ class MarketplaceApi
     public function getProductSafetyLabels(
         string $marketplace_id,
         string $contentType = self::contentTypes['getProductSafetyLabels'][0]
-    ): \eBay\Sell\Metadata\Model\ProductSafetyLabelsResponse
-    {
+    ): \eBay\Sell\Metadata\Model\ProductSafetyLabelsResponse {
         list($response) = $this->getProductSafetyLabelsWithHttpInfo($marketplace_id, $contentType);
         return $response;
     }
@@ -2216,8 +2186,7 @@ class MarketplaceApi
     public function getProductSafetyLabelsWithHttpInfo(
         string $marketplace_id,
         string $contentType = self::contentTypes['getProductSafetyLabels'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getProductSafetyLabelsRequest($marketplace_id, $contentType);
 
         try {
@@ -2243,9 +2212,9 @@ class MarketplaceApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\ProductSafetyLabelsResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\ProductSafetyLabelsResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2287,7 +2256,7 @@ class MarketplaceApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\ProductSafetyLabelsResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -2341,8 +2310,7 @@ class MarketplaceApi
     public function getProductSafetyLabelsAsync(
         string $marketplace_id,
         string $contentType = self::contentTypes['getProductSafetyLabels'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getProductSafetyLabelsAsyncWithHttpInfo($marketplace_id, $contentType)
             ->then(
                 function ($response) {
@@ -2363,8 +2331,7 @@ class MarketplaceApi
     public function getProductSafetyLabelsAsyncWithHttpInfo(
         string $marketplace_id,
         string $contentType = self::contentTypes['getProductSafetyLabels'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\ProductSafetyLabelsResponse';
         $request = $this->getProductSafetyLabelsRequest($marketplace_id, $contentType);
 
@@ -2372,7 +2339,7 @@ class MarketplaceApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2416,8 +2383,7 @@ class MarketplaceApi
     public function getProductSafetyLabelsRequest(
         string $marketplace_id,
         string $contentType = self::contentTypes['getProductSafetyLabels'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'marketplace_id' is set
         if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {
@@ -2522,8 +2488,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getRegulatoryPolicies'][0]
-    ): \eBay\Sell\Metadata\Model\RegulatoryPolicyResponse
-    {
+    ): \eBay\Sell\Metadata\Model\RegulatoryPolicyResponse {
         list($response) = $this->getRegulatoryPoliciesWithHttpInfo($marketplace_id, $filter, $contentType);
         return $response;
     }
@@ -2543,8 +2508,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getRegulatoryPolicies'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getRegulatoryPoliciesRequest($marketplace_id, $filter, $contentType);
 
         try {
@@ -2570,9 +2534,9 @@ class MarketplaceApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\RegulatoryPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\RegulatoryPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2614,7 +2578,7 @@ class MarketplaceApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\RegulatoryPolicyResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -2670,8 +2634,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getRegulatoryPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getRegulatoryPoliciesAsyncWithHttpInfo($marketplace_id, $filter, $contentType)
             ->then(
                 function ($response) {
@@ -2694,8 +2657,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getRegulatoryPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\RegulatoryPolicyResponse';
         $request = $this->getRegulatoryPoliciesRequest($marketplace_id, $filter, $contentType);
 
@@ -2703,7 +2665,7 @@ class MarketplaceApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2749,8 +2711,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getRegulatoryPolicies'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'marketplace_id' is set
         if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {
@@ -2865,8 +2826,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getReturnPolicies'][0]
-    ): \eBay\Sell\Metadata\Model\ReturnPolicyResponse
-    {
+    ): \eBay\Sell\Metadata\Model\ReturnPolicyResponse {
         list($response) = $this->getReturnPoliciesWithHttpInfo($marketplace_id, $filter, $contentType);
         return $response;
     }
@@ -2886,8 +2846,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getReturnPolicies'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getReturnPoliciesRequest($marketplace_id, $filter, $contentType);
 
         try {
@@ -2913,9 +2872,9 @@ class MarketplaceApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\ReturnPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\ReturnPolicyResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2957,7 +2916,7 @@ class MarketplaceApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\ReturnPolicyResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -3013,8 +2972,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getReturnPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getReturnPoliciesAsyncWithHttpInfo($marketplace_id, $filter, $contentType)
             ->then(
                 function ($response) {
@@ -3037,8 +2995,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getReturnPolicies'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\ReturnPolicyResponse';
         $request = $this->getReturnPoliciesRequest($marketplace_id, $filter, $contentType);
 
@@ -3046,7 +3003,7 @@ class MarketplaceApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3092,8 +3049,7 @@ class MarketplaceApi
         string $marketplace_id,
         ?string $filter = null,
         string $contentType = self::contentTypes['getReturnPolicies'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'marketplace_id' is set
         if ($marketplace_id === null || (is_array($marketplace_id) && count($marketplace_id) === 0)) {

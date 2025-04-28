@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CompatibilitiesApi
  * PHP version 8.1
@@ -149,8 +150,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\SpecificationRequest $specification_request = null,
         string $contentType = self::contentTypes['getCompatibilitiesBySpecification'][0]
-    ): \eBay\Sell\Metadata\Model\SpecificationResponse
-    {
+    ): \eBay\Sell\Metadata\Model\SpecificationResponse {
         list($response) = $this->getCompatibilitiesBySpecificationWithHttpInfo($x_ebay_c_marketplace_id, $specification_request, $contentType);
         return $response;
     }
@@ -170,8 +170,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\SpecificationRequest $specification_request = null,
         string $contentType = self::contentTypes['getCompatibilitiesBySpecification'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getCompatibilitiesBySpecificationRequest($x_ebay_c_marketplace_id, $specification_request, $contentType);
 
         try {
@@ -197,9 +196,9 @@ class CompatibilitiesApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\SpecificationResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\SpecificationResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -241,7 +240,7 @@ class CompatibilitiesApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\SpecificationResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -297,8 +296,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\SpecificationRequest $specification_request = null,
         string $contentType = self::contentTypes['getCompatibilitiesBySpecification'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getCompatibilitiesBySpecificationAsyncWithHttpInfo($x_ebay_c_marketplace_id, $specification_request, $contentType)
             ->then(
                 function ($response) {
@@ -321,8 +319,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\SpecificationRequest $specification_request = null,
         string $contentType = self::contentTypes['getCompatibilitiesBySpecification'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\SpecificationResponse';
         $request = $this->getCompatibilitiesBySpecificationRequest($x_ebay_c_marketplace_id, $specification_request, $contentType);
 
@@ -330,7 +327,7 @@ class CompatibilitiesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -376,8 +373,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\SpecificationRequest $specification_request = null,
         string $contentType = self::contentTypes['getCompatibilitiesBySpecification'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'x_ebay_c_marketplace_id' is set
         if ($x_ebay_c_marketplace_id === null || (is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {
@@ -486,8 +482,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyNamesRequest $property_names_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyNames'][0]
-    ): \eBay\Sell\Metadata\Model\PropertyNamesResponse
-    {
+    ): \eBay\Sell\Metadata\Model\PropertyNamesResponse {
         list($response) = $this->getCompatibilityPropertyNamesWithHttpInfo($x_ebay_c_marketplace_id, $property_names_request, $contentType);
         return $response;
     }
@@ -507,8 +502,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyNamesRequest $property_names_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyNames'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getCompatibilityPropertyNamesRequest($x_ebay_c_marketplace_id, $property_names_request, $contentType);
 
         try {
@@ -534,9 +528,9 @@ class CompatibilitiesApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\PropertyNamesResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\PropertyNamesResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -578,7 +572,7 @@ class CompatibilitiesApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\PropertyNamesResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -634,8 +628,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyNamesRequest $property_names_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyNames'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getCompatibilityPropertyNamesAsyncWithHttpInfo($x_ebay_c_marketplace_id, $property_names_request, $contentType)
             ->then(
                 function ($response) {
@@ -658,8 +651,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyNamesRequest $property_names_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyNames'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\PropertyNamesResponse';
         $request = $this->getCompatibilityPropertyNamesRequest($x_ebay_c_marketplace_id, $property_names_request, $contentType);
 
@@ -667,7 +659,7 @@ class CompatibilitiesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -713,8 +705,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyNamesRequest $property_names_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyNames'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'x_ebay_c_marketplace_id' is set
         if ($x_ebay_c_marketplace_id === null || (is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {
@@ -823,8 +814,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyValuesRequest $property_values_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyValues'][0]
-    ): \eBay\Sell\Metadata\Model\PropertyValuesResponse
-    {
+    ): \eBay\Sell\Metadata\Model\PropertyValuesResponse {
         list($response) = $this->getCompatibilityPropertyValuesWithHttpInfo($x_ebay_c_marketplace_id, $property_values_request, $contentType);
         return $response;
     }
@@ -844,8 +834,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyValuesRequest $property_values_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyValues'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getCompatibilityPropertyValuesRequest($x_ebay_c_marketplace_id, $property_values_request, $contentType);
 
         try {
@@ -871,9 +860,9 @@ class CompatibilitiesApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\PropertyValuesResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\PropertyValuesResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -915,7 +904,7 @@ class CompatibilitiesApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\PropertyValuesResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -971,8 +960,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyValuesRequest $property_values_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyValues'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getCompatibilityPropertyValuesAsyncWithHttpInfo($x_ebay_c_marketplace_id, $property_values_request, $contentType)
             ->then(
                 function ($response) {
@@ -995,8 +983,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyValuesRequest $property_values_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyValues'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\PropertyValuesResponse';
         $request = $this->getCompatibilityPropertyValuesRequest($x_ebay_c_marketplace_id, $property_values_request, $contentType);
 
@@ -1004,7 +991,7 @@ class CompatibilitiesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1050,8 +1037,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\PropertyValuesRequest $property_values_request = null,
         string $contentType = self::contentTypes['getCompatibilityPropertyValues'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'x_ebay_c_marketplace_id' is set
         if ($x_ebay_c_marketplace_id === null || (is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {
@@ -1160,8 +1146,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesRequest $multi_compatibility_property_values_request = null,
         string $contentType = self::contentTypes['getMultiCompatibilityPropertyValues'][0]
-    ): \eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesResponse
-    {
+    ): \eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesResponse {
         list($response) = $this->getMultiCompatibilityPropertyValuesWithHttpInfo($x_ebay_c_marketplace_id, $multi_compatibility_property_values_request, $contentType);
         return $response;
     }
@@ -1181,8 +1166,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesRequest $multi_compatibility_property_values_request = null,
         string $contentType = self::contentTypes['getMultiCompatibilityPropertyValues'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getMultiCompatibilityPropertyValuesRequest($x_ebay_c_marketplace_id, $multi_compatibility_property_values_request, $contentType);
 
         try {
@@ -1208,9 +1192,9 @@ class CompatibilitiesApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1252,7 +1236,7 @@ class CompatibilitiesApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -1308,8 +1292,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesRequest $multi_compatibility_property_values_request = null,
         string $contentType = self::contentTypes['getMultiCompatibilityPropertyValues'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getMultiCompatibilityPropertyValuesAsyncWithHttpInfo($x_ebay_c_marketplace_id, $multi_compatibility_property_values_request, $contentType)
             ->then(
                 function ($response) {
@@ -1332,8 +1315,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesRequest $multi_compatibility_property_values_request = null,
         string $contentType = self::contentTypes['getMultiCompatibilityPropertyValues'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesResponse';
         $request = $this->getMultiCompatibilityPropertyValuesRequest($x_ebay_c_marketplace_id, $multi_compatibility_property_values_request, $contentType);
 
@@ -1341,7 +1323,7 @@ class CompatibilitiesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1387,8 +1369,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesRequest $multi_compatibility_property_values_request = null,
         string $contentType = self::contentTypes['getMultiCompatibilityPropertyValues'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'x_ebay_c_marketplace_id' is set
         if ($x_ebay_c_marketplace_id === null || (is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {
@@ -1497,8 +1478,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\ProductRequest $product_request = null,
         string $contentType = self::contentTypes['getProductCompatibilities'][0]
-    ): \eBay\Sell\Metadata\Model\ProductResponse
-    {
+    ): \eBay\Sell\Metadata\Model\ProductResponse {
         list($response) = $this->getProductCompatibilitiesWithHttpInfo($x_ebay_c_marketplace_id, $product_request, $contentType);
         return $response;
     }
@@ -1518,8 +1498,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\ProductRequest $product_request = null,
         string $contentType = self::contentTypes['getProductCompatibilities'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getProductCompatibilitiesRequest($x_ebay_c_marketplace_id, $product_request, $contentType);
 
         try {
@@ -1545,9 +1524,9 @@ class CompatibilitiesApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\ProductResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\ProductResponse', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1589,7 +1568,7 @@ class CompatibilitiesApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\ProductResponse';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -1645,8 +1624,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\ProductRequest $product_request = null,
         string $contentType = self::contentTypes['getProductCompatibilities'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getProductCompatibilitiesAsyncWithHttpInfo($x_ebay_c_marketplace_id, $product_request, $contentType)
             ->then(
                 function ($response) {
@@ -1669,8 +1647,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\ProductRequest $product_request = null,
         string $contentType = self::contentTypes['getProductCompatibilities'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\ProductResponse';
         $request = $this->getProductCompatibilitiesRequest($x_ebay_c_marketplace_id, $product_request, $contentType);
 
@@ -1678,7 +1655,7 @@ class CompatibilitiesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1724,8 +1701,7 @@ class CompatibilitiesApi
         string $x_ebay_c_marketplace_id,
         ?\eBay\Sell\Metadata\Model\ProductRequest $product_request = null,
         string $contentType = self::contentTypes['getProductCompatibilities'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'x_ebay_c_marketplace_id' is set
         if ($x_ebay_c_marketplace_id === null || (is_array($x_ebay_c_marketplace_id) && count($x_ebay_c_marketplace_id) === 0)) {

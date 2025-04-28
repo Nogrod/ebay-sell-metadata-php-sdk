@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PropertyNamesRequest
  *
@@ -412,7 +413,7 @@ class PropertyNamesRequest implements ModelInterface, ArrayAccess, JsonSerializa
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

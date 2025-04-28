@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CountryApi
  * PHP version 8.1
@@ -135,8 +136,7 @@ class CountryApi
     public function getSalesTaxJurisdictions(
         string $country_code,
         string $contentType = self::contentTypes['getSalesTaxJurisdictions'][0]
-    ): \eBay\Sell\Metadata\Model\SalesTaxJurisdictions
-    {
+    ): \eBay\Sell\Metadata\Model\SalesTaxJurisdictions {
         list($response) = $this->getSalesTaxJurisdictionsWithHttpInfo($country_code, $contentType);
         return $response;
     }
@@ -154,8 +154,7 @@ class CountryApi
     public function getSalesTaxJurisdictionsWithHttpInfo(
         string $country_code,
         string $contentType = self::contentTypes['getSalesTaxJurisdictions'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getSalesTaxJurisdictionsRequest($country_code, $contentType);
 
         try {
@@ -181,9 +180,9 @@ class CountryApi
             $statusCode = $response->getStatusCode();
 
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
-                    if (in_array('\eBay\Sell\Metadata\Model\SalesTaxJurisdictions', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array('\eBay\Sell\Metadata\Model\SalesTaxJurisdictions', ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -225,7 +224,7 @@ class CountryApi
             }
 
             $returnType = '\eBay\Sell\Metadata\Model\SalesTaxJurisdictions';
-            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+            if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
                 $content = (string) $response->getBody();
@@ -279,8 +278,7 @@ class CountryApi
     public function getSalesTaxJurisdictionsAsync(
         string $country_code,
         string $contentType = self::contentTypes['getSalesTaxJurisdictions'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getSalesTaxJurisdictionsAsyncWithHttpInfo($country_code, $contentType)
             ->then(
                 function ($response) {
@@ -301,8 +299,7 @@ class CountryApi
     public function getSalesTaxJurisdictionsAsyncWithHttpInfo(
         string $country_code,
         string $contentType = self::contentTypes['getSalesTaxJurisdictions'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\eBay\Sell\Metadata\Model\SalesTaxJurisdictions';
         $request = $this->getSalesTaxJurisdictionsRequest($country_code, $contentType);
 
@@ -310,7 +307,7 @@ class CountryApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -354,8 +351,7 @@ class CountryApi
     public function getSalesTaxJurisdictionsRequest(
         string $country_code,
         string $contentType = self::contentTypes['getSalesTaxJurisdictions'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'country_code' is set
         if ($country_code === null || (is_array($country_code) && count($country_code) === 0)) {

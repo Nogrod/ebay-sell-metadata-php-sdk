@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PropertyNamesResponsePropertyNameMetadata
  *
@@ -378,7 +379,7 @@ class PropertyNamesResponsePropertyNameMetadata implements ModelInterface, Array
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**
