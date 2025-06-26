@@ -5,20 +5,27 @@ All URIs are relative to https://api.ebay.com/sell/metadata/v1, except if the op
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**getAutomotivePartsCompatibilityPolicies()**](MarketplaceApi.md#getAutomotivePartsCompatibilityPolicies) | **GET** /marketplace/{marketplace_id}/get_automotive_parts_compatibility_policies |  |
+| [**getCategoryPolicies()**](MarketplaceApi.md#getCategoryPolicies) | **GET** /marketplace/{marketplace_id}/get_category_policies |  |
+| [**getClassifiedAdPolicies()**](MarketplaceApi.md#getClassifiedAdPolicies) | **GET** /marketplace/{marketplace_id}/get_classified_ad_policies |  |
+| [**getCurrencies()**](MarketplaceApi.md#getCurrencies) | **GET** /marketplace/{marketplace_id}/get_currencies |  |
 | [**getExtendedProducerResponsibilityPolicies()**](MarketplaceApi.md#getExtendedProducerResponsibilityPolicies) | **GET** /marketplace/{marketplace_id}/get_extended_producer_responsibility_policies |  |
 | [**getHazardousMaterialsLabels()**](MarketplaceApi.md#getHazardousMaterialsLabels) | **GET** /marketplace/{marketplace_id}/get_hazardous_materials_labels |  |
 | [**getItemConditionPolicies()**](MarketplaceApi.md#getItemConditionPolicies) | **GET** /marketplace/{marketplace_id}/get_item_condition_policies |  |
 | [**getListingStructurePolicies()**](MarketplaceApi.md#getListingStructurePolicies) | **GET** /marketplace/{marketplace_id}/get_listing_structure_policies |  |
+| [**getListingTypePolicies()**](MarketplaceApi.md#getListingTypePolicies) | **GET** /marketplace/{marketplace_id}/get_listing_type_policies |  |
+| [**getMotorsListingPolicies()**](MarketplaceApi.md#getMotorsListingPolicies) | **GET** /marketplace/{marketplace_id}/get_motors_listing_policies |  |
 | [**getNegotiatedPricePolicies()**](MarketplaceApi.md#getNegotiatedPricePolicies) | **GET** /marketplace/{marketplace_id}/get_negotiated_price_policies |  |
 | [**getProductSafetyLabels()**](MarketplaceApi.md#getProductSafetyLabels) | **GET** /marketplace/{marketplace_id}/get_product_safety_labels |  |
 | [**getRegulatoryPolicies()**](MarketplaceApi.md#getRegulatoryPolicies) | **GET** /marketplace/{marketplace_id}/get_regulatory_policies |  |
 | [**getReturnPolicies()**](MarketplaceApi.md#getReturnPolicies) | **GET** /marketplace/{marketplace_id}/get_return_policies |  |
+| [**getShippingPolicies()**](MarketplaceApi.md#getShippingPolicies) | **GET** /marketplace/{marketplace_id}/get_shipping_policies |  |
+| [**getSiteVisibilityPolicies()**](MarketplaceApi.md#getSiteVisibilityPolicies) | **GET** /marketplace/{marketplace_id}/get_site_visibility_policies |  |
 
 
 ## `getAutomotivePartsCompatibilityPolicies()`
 
 ```php
-getAutomotivePartsCompatibilityPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse
+getAutomotivePartsCompatibilityPolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\AutomotivePartsCompatibilityPolicyResponse
 ```
 
 
@@ -46,10 +53,11 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     $config
 );
 $marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.  <br><br><span class=\"tablenote\"><b>Note: </b>Only the following eBay marketplaces support automotive parts compatibility: <ul> <li>EBAY_MOTORS_US</li> <li>EBAY_AU</li> <li>EBAY_CA</li> <li>EBAY_DE</li> <li>EBAY_ES</li> <li>EBAY_FR</li> <li>EBAY_GB</li> <li>EBAY_IT</li></ul></span>
-$filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned. Use the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> to retrieve category ID values.<br><br>When you specify a <b>categoryId</b> value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below the at parent node.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{183521|183523|183524}</code>  <br><br><span class=\"tablenote\"><b>Note: </b>URL-encoding of the parameter list is no longer required.</span>
+$filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned. Use the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> to retrieve category ID values.<br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{183521|183523|183524}</code>  <br><br><span class=\"tablenote\"><b>Note: </b>URL-encoding of the parameter list is no longer required.</span>
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 
 try {
-    $result = $apiInstance->getAutomotivePartsCompatibilityPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getAutomotivePartsCompatibilityPolicies($marketplace_id, $filter, $accept_encoding);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getAutomotivePartsCompatibilityPolicies: ', $e->getMessage(), PHP_EOL;
@@ -61,7 +69,8 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.  &lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Only the following eBay marketplaces support automotive parts compatibility: &lt;ul&gt; &lt;li&gt;EBAY_MOTORS_US&lt;/li&gt; &lt;li&gt;EBAY_AU&lt;/li&gt; &lt;li&gt;EBAY_CA&lt;/li&gt; &lt;li&gt;EBAY_DE&lt;/li&gt; &lt;li&gt;EBAY_ES&lt;/li&gt; &lt;li&gt;EBAY_FR&lt;/li&gt; &lt;li&gt;EBAY_GB&lt;/li&gt; &lt;li&gt;EBAY_IT&lt;/li&gt;&lt;/ul&gt;&lt;/span&gt; | |
-| **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned. Use the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; to retrieve category ID values.&lt;br&gt;&lt;br&gt;When you specify a &lt;b&gt;categoryId&lt;/b&gt; value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below the at parent node.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{183521|183523|183524}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;URL-encoding of the parameter list is no longer required.&lt;/span&gt; | [optional] |
+| **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned. Use the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; to retrieve category ID values.&lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{183521|183523|183524}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;URL-encoding of the parameter list is no longer required.&lt;/span&gt; | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
 
 ### Return type
 
@@ -80,10 +89,205 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getCategoryPolicies()`
+
+```php
+getCategoryPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\CategoryPolicyResponse
+```
+
+
+
+This method returns eBay category policy metadata for all leaf categories on the specified marketplace.<p>By default, this method returns metadata on all leaf categories. You can limit the size of the result set by using the <b>filter</b> query parameter to specify only the leaf category IDs you want to review.</p><p>If you specify a valid marketplace ID but that marketplace does not contain policy information, or if you filter out all results, a successful call returns a <b>204 No content</b> status code with an empty response body.</p>
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b> <code>filter=categoryIds:{3767|171784}</code>
+
+try {
+    $result = $apiInstance->getCategoryPolicies($marketplace_id, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MarketplaceApi->getCategoryPolicies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+
+### Return type
+
+[**\eBay\Sell\Metadata\Model\CategoryPolicyResponse**](../Model/CategoryPolicyResponse.md)
+
+### Authorization
+
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getClassifiedAdPolicies()`
+
+```php
+getClassifiedAdPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ClassifiedAdPolicyResponse
+```
+
+
+
+This method returns eBay classified ad policy metadata for all leaf categories on the specified marketplace.<p>By default, this method returns metadata on all leaf categories. You can limit the size of the result set by using the <b>filter</b> query parameter to specify only the leaf category IDs you want to review.</p><p>If you specify a valid marketplace ID but that marketplace does not contain policy information, or if you filter out all results, a successful call returns a <b>204 No content</b> status code with an empty response body.</p><p><span class=\"tablenote\"><span style=\"color:#004680\"><strong>Note: </strong>This method does not support classified ads for eBay US Motors categories (EBAY_MOTORS_US). For eBay Motors Pro users, use <a href=\"/api-docs/sell/metadata/resources/marketplace/methods/getMotorsListingPolicies\"  target=\"_blank\">getMotorsListingPolicies</a>.</span></p>
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/sell/metadata/types/bas:MarketplaceIdEnum\" target=\"_blank\">MarketplaceIdEnum</a> for a list of supported eBay marketplace ID values.
+$filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag.   <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b><code>filter=categoryIds:{3767|171784}</code>
+
+try {
+    $result = $apiInstance->getClassifiedAdPolicies($marketplace_id, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MarketplaceApi->getClassifiedAdPolicies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/types/bas:MarketplaceIdEnum\&quot; target&#x3D;\&quot;_blank\&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag.   &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt;&lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+
+### Return type
+
+[**\eBay\Sell\Metadata\Model\ClassifiedAdPolicyResponse**](../Model/ClassifiedAdPolicyResponse.md)
+
+### Authorization
+
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getCurrencies()`
+
+```php
+getCurrencies($marketplace_id, $accept_language): \eBay\Sell\Metadata\Model\GetCurrenciesResponse
+```
+
+
+
+This method returns the default currency used by the eBay marketplace specified in the request. This is the currency that the seller should use when providing price data for this marketplace through listing APIs.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which currency information is retrieved.<br><br>See the <a href=\"/api-docs/sell/metadata/types/bas:MarketplaceIdEnum\" target=\"_blank\">MarketplaceIdEnum</a> type for a list of supported eBay marketplace ID values.
+$accept_language = 'accept_language_example'; // string | This header is used to indicate the natural language and locale for the response and is used when targeting a specific locale of a marketplace that supports multiple locales. <br><br>For the eBay Belgium and eBay Canada marketplaces, make sure to add this header as required. For example:<ul><li>When targeting the French locale of the Belgium marketplace, pass in <code>fr-BE</code> to specify this. If this locale is not specified, the language will default to Dutch.</li><li>When targeting the French locale of the Canadian marketplace, pass in <code>fr-CA</code> to specify this. If this locale is not specified, the language will default to English.</li></ul>
+
+try {
+    $result = $apiInstance->getCurrencies($marketplace_id, $accept_language);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MarketplaceApi->getCurrencies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which currency information is retrieved.&lt;br&gt;&lt;br&gt;See the &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/types/bas:MarketplaceIdEnum\&quot; target&#x3D;\&quot;_blank\&quot;&gt;MarketplaceIdEnum&lt;/a&gt; type for a list of supported eBay marketplace ID values. | |
+| **accept_language** | **string**| This header is used to indicate the natural language and locale for the response and is used when targeting a specific locale of a marketplace that supports multiple locales. &lt;br&gt;&lt;br&gt;For the eBay Belgium and eBay Canada marketplaces, make sure to add this header as required. For example:&lt;ul&gt;&lt;li&gt;When targeting the French locale of the Belgium marketplace, pass in &lt;code&gt;fr-BE&lt;/code&gt; to specify this. If this locale is not specified, the language will default to Dutch.&lt;/li&gt;&lt;li&gt;When targeting the French locale of the Canadian marketplace, pass in &lt;code&gt;fr-CA&lt;/code&gt; to specify this. If this locale is not specified, the language will default to English.&lt;/li&gt;&lt;/ul&gt; | [optional] |
+
+### Return type
+
+[**\eBay\Sell\Metadata\Model\GetCurrenciesResponse**](../Model/GetCurrenciesResponse.md)
+
+### Authorization
+
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getExtendedProducerResponsibilityPolicies()`
 
 ```php
-getExtendedProducerResponsibilityPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse
+getExtendedProducerResponsibilityPolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse
 ```
 
 
@@ -112,9 +316,10 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
 );
 $marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information shall be retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | A query parameter that can be used to limit the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree that should be returned.<br><br>When a <b>categoryId</b> value is specified, the returned category tree includes the policies for that parent node, as well as the policies for any child nodes below that parent node.<br><br>Pass in the <b>categoryId</b> values using a URL-encoded, pipe-separated ('|') list. For example:<br><br><code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code><br><br><b>Maximum:</b> 50
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 
 try {
-    $result = $apiInstance->getExtendedProducerResponsibilityPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getExtendedProducerResponsibilityPolicies($marketplace_id, $filter, $accept_encoding);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getExtendedProducerResponsibilityPolicies: ', $e->getMessage(), PHP_EOL;
@@ -127,6 +332,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information shall be retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| A query parameter that can be used to limit the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree that should be returned.&lt;br&gt;&lt;br&gt;When a &lt;b&gt;categoryId&lt;/b&gt; value is specified, the returned category tree includes the policies for that parent node, as well as the policies for any child nodes below that parent node.&lt;br&gt;&lt;br&gt;Pass in the &lt;b&gt;categoryId&lt;/b&gt; values using a URL-encoded, pipe-separated (&#39;|&#39;) list. For example:&lt;br&gt;&lt;br&gt;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum:&lt;/b&gt; 50 | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
 
 ### Return type
 
@@ -211,7 +417,7 @@ try {
 ## `getItemConditionPolicies()`
 
 ```php
-getItemConditionPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ItemConditionPolicyResponse
+getItemConditionPolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\ItemConditionPolicyResponse
 ```
 
 
@@ -240,9 +446,10 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
 );
 $marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned.  <br><br>When you specify a <b>categoryId</b> value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{100|101|102}</code>  <br><br>Note that you must URL-encode the parameter list, which results in the following filter for the above example: <br><br> &nbsp;&nbsp;<code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code>
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 
 try {
-    $result = $apiInstance->getItemConditionPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getItemConditionPolicies($marketplace_id, $filter, $accept_encoding);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getItemConditionPolicies: ', $e->getMessage(), PHP_EOL;
@@ -255,6 +462,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned.  &lt;br&gt;&lt;br&gt;When you specify a &lt;b&gt;categoryId&lt;/b&gt; value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{100|101|102}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;Note that you must URL-encode the parameter list, which results in the following filter for the above example: &lt;br&gt;&lt;br&gt; &amp;nbsp;&amp;nbsp;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt; | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
 
 ### Return type
 
@@ -276,7 +484,7 @@ try {
 ## `getListingStructurePolicies()`
 
 ```php
-getListingStructurePolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ListingStructurePolicyResponse
+getListingStructurePolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\ListingStructurePolicyResponse
 ```
 
 
@@ -305,9 +513,10 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
 );
 $marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved. <br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned.  <br><br>When you specify a <b>categoryId</b> value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{100|101|102}</code>  <br><br>Note that you must URL-encode the parameter list, which results in the following filter for the above example: <br><br> &nbsp;&nbsp;<code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code>
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 
 try {
-    $result = $apiInstance->getListingStructurePolicies($marketplace_id, $filter);
+    $result = $apiInstance->getListingStructurePolicies($marketplace_id, $filter, $accept_encoding);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getListingStructurePolicies: ', $e->getMessage(), PHP_EOL;
@@ -320,6 +529,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved. &lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned.  &lt;br&gt;&lt;br&gt;When you specify a &lt;b&gt;categoryId&lt;/b&gt; value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{100|101|102}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;Note that you must URL-encode the parameter list, which results in the following filter for the above example: &lt;br&gt;&lt;br&gt; &amp;nbsp;&amp;nbsp;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt; | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
 
 ### Return type
 
@@ -338,10 +548,140 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getListingTypePolicies()`
+
+```php
+getListingTypePolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ListingTypePoliciesResponse
+```
+
+
+
+This method returns eBay listing type policy metadata for all leaf categories on the specified marketplace. <p>By default, this method returns metadata on all leaf categories. You can limit the size of the result set by using the <b>filter</b> query parameter to specify only the leaf category IDs you want to review.</p><p>If you specify a valid marketplace ID but that marketplace does not contain policy information, or if you filter out all results, a successful call returns a <b>204 No content</b> status code with an empty response body.</p>
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag.<br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b> <code>filter=categoryIds:{3767|171784}</code>
+
+try {
+    $result = $apiInstance->getListingTypePolicies($marketplace_id, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MarketplaceApi->getListingTypePolicies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag.&lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+
+### Return type
+
+[**\eBay\Sell\Metadata\Model\ListingTypePoliciesResponse**](../Model/ListingTypePoliciesResponse.md)
+
+### Authorization
+
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMotorsListingPolicies()`
+
+```php
+getMotorsListingPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\MotorsListingPoliciesResponse
+```
+
+
+
+This method returns eBay Motors policy metadata for all leaf categories on the specified marketplace. <p>By default, this method returns metadata on all leaf categories. You can limit the size of the result set by using the <b>filter</b> query parameter to specify only the leaf category IDs you want to review.</p><p>If you specify a valid marketplace ID but that marketplace does not contain policy information, or if you filter out all results, a successful call returns a <b>204 No content</b> status code with an empty response body.</p><p><span class=\"tablenote\"><span style=\"color:#004680\"><strong>Note:</strong></span> To return policy information for eBay US Motors categories, specify <b>marketplace_id</b> as <code>EBAY_MOTORS_US</code>.</span></p>
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag. <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b> <code>filter=categoryIds:{3767|171784}</code>
+
+try {
+    $result = $apiInstance->getMotorsListingPolicies($marketplace_id, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MarketplaceApi->getMotorsListingPolicies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag. &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+
+### Return type
+
+[**\eBay\Sell\Metadata\Model\MotorsListingPoliciesResponse**](../Model/MotorsListingPoliciesResponse.md)
+
+### Authorization
+
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `getNegotiatedPricePolicies()`
 
 ```php
-getNegotiatedPricePolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse
+getNegotiatedPricePolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse
 ```
 
 
@@ -370,9 +710,10 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
 );
 $marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned.  <br><br>When you specify a <b>categoryId</b> value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{100|101|102}</code>  <br><br>Note that you must URL-encode the parameter list, which results in the following filter for the above example: <br><br> &nbsp;&nbsp;<code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code>
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 
 try {
-    $result = $apiInstance->getNegotiatedPricePolicies($marketplace_id, $filter);
+    $result = $apiInstance->getNegotiatedPricePolicies($marketplace_id, $filter, $accept_encoding);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getNegotiatedPricePolicies: ', $e->getMessage(), PHP_EOL;
@@ -385,6 +726,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned.  &lt;br&gt;&lt;br&gt;When you specify a &lt;b&gt;categoryId&lt;/b&gt; value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{100|101|102}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;Note that you must URL-encode the parameter list, which results in the following filter for the above example: &lt;br&gt;&lt;br&gt; &amp;nbsp;&amp;nbsp;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt; | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
 
 ### Return type
 
@@ -534,7 +876,7 @@ try {
 ## `getReturnPolicies()`
 
 ```php
-getReturnPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ReturnPolicyResponse
+getReturnPolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\ReturnPolicyResponse
 ```
 
 
@@ -563,9 +905,10 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
 );
 $marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned.  <br><br>When you specify a <b>categoryId</b> value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{100|101|102}</code>  <br><br>Note that you must URL-encode the parameter list, which results in the following filter for the above example: <br><br> &nbsp;&nbsp;<code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code>
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
 
 try {
-    $result = $apiInstance->getReturnPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getReturnPolicies($marketplace_id, $filter, $accept_encoding);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getReturnPolicies: ', $e->getMessage(), PHP_EOL;
@@ -578,10 +921,141 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned.  &lt;br&gt;&lt;br&gt;When you specify a &lt;b&gt;categoryId&lt;/b&gt; value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{100|101|102}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;Note that you must URL-encode the parameter list, which results in the following filter for the above example: &lt;br&gt;&lt;br&gt; &amp;nbsp;&amp;nbsp;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt; | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
 
 ### Return type
 
 [**\eBay\Sell\Metadata\Model\ReturnPolicyResponse**](../Model/ReturnPolicyResponse.md)
+
+### Authorization
+
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getShippingPolicies()`
+
+```php
+getShippingPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ShippingPoliciesResponse
+```
+
+
+
+This method returns eBay shipping policy metadata for all leaf categories on the specified marketplace.<p>By default, this method returns metadata on all leaf categories. You can limit the size of the result set by using the <b>filter</b> query parameter to specify only the leaf category IDs you want to review.</p><p>If you specify a valid marketplace ID but that marketplace does not contain policy information, or if you filter out all results, a successful call returns a <b>204 No content</b> status code with an empty response body.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag. <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b> <code>filter=categoryIds:{3767|171784}</code>
+
+try {
+    $result = $apiInstance->getShippingPolicies($marketplace_id, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MarketplaceApi->getShippingPolicies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag. &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+
+### Return type
+
+[**\eBay\Sell\Metadata\Model\ShippingPoliciesResponse**](../Model/ShippingPoliciesResponse.md)
+
+### Authorization
+
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getSiteVisibilityPolicies()`
+
+```php
+getSiteVisibilityPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\SiteVisibilityPoliciesResponse
+```
+
+
+
+This method returns eBay international site visibility policy metadata for all leaf categories on the specified marketplace.<p>By default, this method returns metadata on all leaf categories. You can limit the size of the result set by using the <b>filter</b> query parameter to specify only the leaf category IDs you want to review.</p><p>If you specify a valid marketplace ID but that marketplace does not contain policy information, or if you filter out all results, a successful call returns a <b>204 No content</b> status code with an empty response body.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag. <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b><code>filter=categoryIds:{3767|171784}</code>
+
+try {
+    $result = $apiInstance->getSiteVisibilityPolicies($marketplace_id, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MarketplaceApi->getSiteVisibilityPolicies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag. &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt;&lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+
+### Return type
+
+[**\eBay\Sell\Metadata\Model\SiteVisibilityPoliciesResponse**](../Model/SiteVisibilityPoliciesResponse.md)
 
 ### Authorization
 

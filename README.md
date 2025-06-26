@@ -86,27 +86,41 @@ Class | Method | HTTP request | Description
 *CompatibilitiesApi* | [**getProductCompatibilities**](docs/Api/CompatibilitiesApi.md#getproductcompatibilities) | **POST** /compatibilities/get_product_compatibilities | 
 *CountryApi* | [**getSalesTaxJurisdictions**](docs/Api/CountryApi.md#getsalestaxjurisdictions) | **GET** /country/{countryCode}/sales_tax_jurisdiction | 
 *MarketplaceApi* | [**getAutomotivePartsCompatibilityPolicies**](docs/Api/MarketplaceApi.md#getautomotivepartscompatibilitypolicies) | **GET** /marketplace/{marketplace_id}/get_automotive_parts_compatibility_policies | 
+*MarketplaceApi* | [**getCategoryPolicies**](docs/Api/MarketplaceApi.md#getcategorypolicies) | **GET** /marketplace/{marketplace_id}/get_category_policies | 
+*MarketplaceApi* | [**getClassifiedAdPolicies**](docs/Api/MarketplaceApi.md#getclassifiedadpolicies) | **GET** /marketplace/{marketplace_id}/get_classified_ad_policies | 
+*MarketplaceApi* | [**getCurrencies**](docs/Api/MarketplaceApi.md#getcurrencies) | **GET** /marketplace/{marketplace_id}/get_currencies | 
 *MarketplaceApi* | [**getExtendedProducerResponsibilityPolicies**](docs/Api/MarketplaceApi.md#getextendedproducerresponsibilitypolicies) | **GET** /marketplace/{marketplace_id}/get_extended_producer_responsibility_policies | 
 *MarketplaceApi* | [**getHazardousMaterialsLabels**](docs/Api/MarketplaceApi.md#gethazardousmaterialslabels) | **GET** /marketplace/{marketplace_id}/get_hazardous_materials_labels | 
 *MarketplaceApi* | [**getItemConditionPolicies**](docs/Api/MarketplaceApi.md#getitemconditionpolicies) | **GET** /marketplace/{marketplace_id}/get_item_condition_policies | 
 *MarketplaceApi* | [**getListingStructurePolicies**](docs/Api/MarketplaceApi.md#getlistingstructurepolicies) | **GET** /marketplace/{marketplace_id}/get_listing_structure_policies | 
+*MarketplaceApi* | [**getListingTypePolicies**](docs/Api/MarketplaceApi.md#getlistingtypepolicies) | **GET** /marketplace/{marketplace_id}/get_listing_type_policies | 
+*MarketplaceApi* | [**getMotorsListingPolicies**](docs/Api/MarketplaceApi.md#getmotorslistingpolicies) | **GET** /marketplace/{marketplace_id}/get_motors_listing_policies | 
 *MarketplaceApi* | [**getNegotiatedPricePolicies**](docs/Api/MarketplaceApi.md#getnegotiatedpricepolicies) | **GET** /marketplace/{marketplace_id}/get_negotiated_price_policies | 
 *MarketplaceApi* | [**getProductSafetyLabels**](docs/Api/MarketplaceApi.md#getproductsafetylabels) | **GET** /marketplace/{marketplace_id}/get_product_safety_labels | 
 *MarketplaceApi* | [**getRegulatoryPolicies**](docs/Api/MarketplaceApi.md#getregulatorypolicies) | **GET** /marketplace/{marketplace_id}/get_regulatory_policies | 
 *MarketplaceApi* | [**getReturnPolicies**](docs/Api/MarketplaceApi.md#getreturnpolicies) | **GET** /marketplace/{marketplace_id}/get_return_policies | 
+*MarketplaceApi* | [**getShippingPolicies**](docs/Api/MarketplaceApi.md#getshippingpolicies) | **GET** /marketplace/{marketplace_id}/get_shipping_policies | 
+*MarketplaceApi* | [**getSiteVisibilityPolicies**](docs/Api/MarketplaceApi.md#getsitevisibilitypolicies) | **GET** /marketplace/{marketplace_id}/get_site_visibility_policies | 
 
 ## Models
 
+- [Amount](docs/Model/Amount.md)
 - [AutomotivePartsCompatibilityPolicy](docs/Model/AutomotivePartsCompatibilityPolicy.md)
 - [AutomotivePartsCompatibilityPolicyResponse](docs/Model/AutomotivePartsCompatibilityPolicyResponse.md)
+- [CategoryPolicy](docs/Model/CategoryPolicy.md)
+- [CategoryPolicyResponse](docs/Model/CategoryPolicyResponse.md)
+- [ClassifiedAdPolicy](docs/Model/ClassifiedAdPolicy.md)
+- [ClassifiedAdPolicyResponse](docs/Model/ClassifiedAdPolicyResponse.md)
 - [Compatibility](docs/Model/Compatibility.md)
 - [CompatibilityDetails](docs/Model/CompatibilityDetails.md)
+- [Currency](docs/Model/Currency.md)
 - [DisabledProductFilter](docs/Model/DisabledProductFilter.md)
 - [Error](docs/Model/Error.md)
 - [ErrorParameter](docs/Model/ErrorParameter.md)
 - [ExtendedProducerResponsibility](docs/Model/ExtendedProducerResponsibility.md)
 - [ExtendedProducerResponsibilityPolicy](docs/Model/ExtendedProducerResponsibilityPolicy.md)
 - [ExtendedProducerResponsibilityPolicyResponse](docs/Model/ExtendedProducerResponsibilityPolicyResponse.md)
+- [GetCurrenciesResponse](docs/Model/GetCurrenciesResponse.md)
 - [HazardStatement](docs/Model/HazardStatement.md)
 - [HazardousMaterialDetailsResponse](docs/Model/HazardousMaterialDetailsResponse.md)
 - [ItemCondition](docs/Model/ItemCondition.md)
@@ -116,8 +130,14 @@ Class | Method | HTTP request | Description
 - [ItemConditionDescriptorValueConstraint](docs/Model/ItemConditionDescriptorValueConstraint.md)
 - [ItemConditionPolicy](docs/Model/ItemConditionPolicy.md)
 - [ItemConditionPolicyResponse](docs/Model/ItemConditionPolicyResponse.md)
+- [ListingDuration](docs/Model/ListingDuration.md)
 - [ListingStructurePolicy](docs/Model/ListingStructurePolicy.md)
 - [ListingStructurePolicyResponse](docs/Model/ListingStructurePolicyResponse.md)
+- [ListingTypePoliciesResponse](docs/Model/ListingTypePoliciesResponse.md)
+- [ListingTypePolicy](docs/Model/ListingTypePolicy.md)
+- [LocalListingDistance](docs/Model/LocalListingDistance.md)
+- [MotorsListingPoliciesResponse](docs/Model/MotorsListingPoliciesResponse.md)
+- [MotorsListingPolicy](docs/Model/MotorsListingPolicy.md)
 - [MultiCompatibilityPropertyValuesRequest](docs/Model/MultiCompatibilityPropertyValuesRequest.md)
 - [MultiCompatibilityPropertyValuesResponse](docs/Model/MultiCompatibilityPropertyValuesResponse.md)
 - [NegotiatedPricePolicy](docs/Model/NegotiatedPricePolicy.md)
@@ -149,7 +169,11 @@ Class | Method | HTTP request | Description
 - [ReturnPolicyResponse](docs/Model/ReturnPolicyResponse.md)
 - [SalesTaxJurisdiction](docs/Model/SalesTaxJurisdiction.md)
 - [SalesTaxJurisdictions](docs/Model/SalesTaxJurisdictions.md)
+- [ShippingPoliciesResponse](docs/Model/ShippingPoliciesResponse.md)
+- [ShippingPolicy](docs/Model/ShippingPolicy.md)
 - [SignalWord](docs/Model/SignalWord.md)
+- [SiteVisibilityPoliciesResponse](docs/Model/SiteVisibilityPoliciesResponse.md)
+- [SiteVisibilityPolicy](docs/Model/SiteVisibilityPolicy.md)
 - [SortOrderInner](docs/Model/SortOrderInner.md)
 - [SortOrderProperties](docs/Model/SortOrderProperties.md)
 - [SpecificationRequest](docs/Model/SpecificationRequest.md)
@@ -192,6 +216,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `v1.9.0`
-    - Generator version: `7.12.0`
+- API version: `v1.11.0`
+    - Generator version: `7.14.0`
 - Build package: `org.openapitools.codegen.languages.PhpNextgenClientCodegen`
