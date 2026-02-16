@@ -1,0 +1,20 @@
+# # PackageLimits
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**dimension_unit** | **string** | Unit of dimensional measurement, for example &lt;code&gt;INCH&lt;/code&gt; or &lt;code&gt;CENTIMETER&lt;/code&gt;. | [optional]
+**max_girth** | **float** | The maximum girth allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit\&quot;&gt;dimensionUnit&lt;/a&gt;. | [optional]
+**max_height** | **float** | The maximum height allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit\&quot;&gt;dimensionUnit&lt;/a&gt;. | [optional]
+**max_length** | **float** | The maximum length allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit\&quot;&gt;dimensionUnit&lt;/a&gt;. | [optional]
+**max_weight** | **float** | The maximum weight allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.weightUnit\&quot;&gt;weightUnit&lt;/a&gt;. | [optional]
+**max_width** | **float** | The maximum width allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit\&quot;&gt;dimensionUnit&lt;/a&gt;. | [optional]
+**min_girth** | **float** | The minimum girth allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit\&quot;&gt;dimensionUnit&lt;/a&gt;. | [optional]
+**min_height** | **float** | The minimum height allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit\&quot;&gt;dimensionUnit&lt;/a&gt;. | [optional]
+**min_length** | **float** | The minimum length allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit\&quot;&gt;dimensionUnit&lt;/a&gt;. | [optional]
+**min_weight** | **float** | The minimum weight allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.weightUnit\&quot;&gt;weightUnit&lt;/a&gt;. | [optional]
+**min_width** | **float** | The minimum width allowed for a package shipped through the corresponding shipping service, as measured in units of &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/resources/shipping:marketplace/methods/getShippingServices#response.shippingServices.packageLimits.dimensionUnit\&quot;&gt;dimensionUnit&lt;/a&gt;. | [optional]
+**weight_unit** | **string** | Unit of weight measurement, for example &lt;code&gt;KILOGRAM&lt;/code&gt; or &lt;code&gt;OUNCE&lt;/code&gt;. | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
