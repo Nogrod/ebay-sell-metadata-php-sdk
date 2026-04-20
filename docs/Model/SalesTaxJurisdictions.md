@@ -1,4 +1,4 @@
-# # SalesTaxJurisdictions
+# SalesTaxJurisdictions
 
 ## Properties
 

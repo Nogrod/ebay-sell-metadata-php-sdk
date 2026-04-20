@@ -1,4 +1,4 @@
-# # ProductResponseCompatibilityDetails
+# ProductResponseCompatibilityDetails
 
 ## Properties
 

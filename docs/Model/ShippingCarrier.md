@@ -1,4 +1,4 @@
-# # ShippingCarrier
+# ShippingCarrier
 
 ## Properties
 

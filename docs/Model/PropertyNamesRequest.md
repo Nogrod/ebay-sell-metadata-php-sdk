@@ -1,4 +1,4 @@
-# # PropertyNamesRequest
+# PropertyNamesRequest
 
 ## Properties
 

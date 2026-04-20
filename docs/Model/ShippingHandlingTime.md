@@ -1,4 +1,4 @@
-# # ShippingHandlingTime
+# ShippingHandlingTime
 
 ## Properties
 

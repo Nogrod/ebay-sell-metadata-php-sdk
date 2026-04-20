@@ -1,4 +1,4 @@
-# # ReturnPolicyResponse
+# ReturnPolicyResponse
 
 ## Properties
 

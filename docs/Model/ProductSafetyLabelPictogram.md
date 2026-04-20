@@ -1,4 +1,4 @@
-# # ProductSafetyLabelPictogram
+# ProductSafetyLabelPictogram
 
 ## Properties
 

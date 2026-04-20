@@ -1,4 +1,4 @@
-# # AutomotivePartsCompatibilityPolicy
+# AutomotivePartsCompatibilityPolicy
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ShippingCarrierResponse
+# ShippingCarrierResponse
 
 ## Properties
 

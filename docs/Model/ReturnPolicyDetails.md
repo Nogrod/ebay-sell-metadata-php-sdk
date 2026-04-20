@@ -1,4 +1,4 @@
-# # ReturnPolicyDetails
+# ReturnPolicyDetails
 
 ## Properties
 

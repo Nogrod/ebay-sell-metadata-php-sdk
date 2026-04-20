@@ -1,4 +1,4 @@
-# # ShippingLocation
+# ShippingLocation
 
 ## Properties
 

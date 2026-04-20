@@ -1,4 +1,4 @@
-# # ListingDuration
+# ListingDuration
 
 ## Properties
 

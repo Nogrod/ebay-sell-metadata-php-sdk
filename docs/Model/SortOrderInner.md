@@ -1,4 +1,4 @@
-# # SortOrderInner
+# SortOrderInner
 
 ## Properties
 

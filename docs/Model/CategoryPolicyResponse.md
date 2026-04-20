@@ -1,4 +1,4 @@
-# # CategoryPolicyResponse
+# CategoryPolicyResponse
 
 ## Properties
 

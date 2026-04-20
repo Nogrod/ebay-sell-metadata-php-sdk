@@ -1,4 +1,4 @@
-# # DisabledProductFilter
+# DisabledProductFilter
 
 ## Properties
 

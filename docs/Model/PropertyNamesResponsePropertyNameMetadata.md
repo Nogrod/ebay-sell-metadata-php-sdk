@@ -1,4 +1,4 @@
-# # PropertyNamesResponsePropertyNameMetadata
+# PropertyNamesResponsePropertyNameMetadata
 
 ## Properties
 

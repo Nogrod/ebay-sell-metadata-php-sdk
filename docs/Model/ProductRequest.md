@@ -1,4 +1,4 @@
-# # ProductRequest
+# ProductRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # GetCurrenciesResponse
+# GetCurrenciesResponse
 
 ## Properties
 

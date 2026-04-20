@@ -1,4 +1,4 @@
-# # SignalWord
+# SignalWord
 
 ## Properties
 

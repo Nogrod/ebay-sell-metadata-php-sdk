@@ -1,4 +1,4 @@
-# # MultiCompatibilityPropertyValuesResponse
+# MultiCompatibilityPropertyValuesResponse
 
 ## Properties
 

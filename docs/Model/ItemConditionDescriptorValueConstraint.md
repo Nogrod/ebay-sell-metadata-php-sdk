@@ -1,4 +1,4 @@
-# # ItemConditionDescriptorValueConstraint
+# ItemConditionDescriptorValueConstraint
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ItemCondition
+# ItemCondition
 
 ## Properties
 

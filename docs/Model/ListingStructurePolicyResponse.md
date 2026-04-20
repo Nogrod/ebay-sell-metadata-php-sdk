@@ -1,4 +1,4 @@
-# # ListingStructurePolicyResponse
+# ListingStructurePolicyResponse
 
 ## Properties
 

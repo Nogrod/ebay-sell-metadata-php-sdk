@@ -1,4 +1,4 @@
-# # TimeDuration
+# TimeDuration
 
 ## Properties
 

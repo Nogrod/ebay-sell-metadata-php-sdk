@@ -1,4 +1,4 @@
-# # HazardousMaterialDetailsResponse
+# HazardousMaterialDetailsResponse
 
 ## Properties
 

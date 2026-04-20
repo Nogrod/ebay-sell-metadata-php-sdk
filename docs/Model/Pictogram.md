@@ -1,4 +1,4 @@
-# # Pictogram
+# Pictogram
 
 ## Properties
 

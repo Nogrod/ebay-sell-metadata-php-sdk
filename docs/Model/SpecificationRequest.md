@@ -1,4 +1,4 @@
-# # SpecificationRequest
+# SpecificationRequest
 
 ## Properties
 

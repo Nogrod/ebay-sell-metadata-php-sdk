@@ -1,4 +1,4 @@
-# # SpecificationResponse
+# SpecificationResponse
 
 ## Properties
 

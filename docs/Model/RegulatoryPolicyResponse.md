@@ -1,4 +1,4 @@
-# # RegulatoryPolicyResponse
+# RegulatoryPolicyResponse
 
 ## Properties
 

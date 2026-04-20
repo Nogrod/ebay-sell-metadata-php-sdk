@@ -1,4 +1,4 @@
-# # MotorsListingPoliciesResponse
+# MotorsListingPoliciesResponse
 
 ## Properties
 

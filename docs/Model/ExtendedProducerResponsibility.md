@@ -1,4 +1,4 @@
-# # ExtendedProducerResponsibility
+# ExtendedProducerResponsibility
 
 ## Properties
 

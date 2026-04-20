@@ -1,4 +1,4 @@
-# # ShippingExcludeLocationResponse
+# ShippingExcludeLocationResponse
 
 ## Properties
 

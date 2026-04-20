@@ -1,4 +1,4 @@
-# # ItemConditionDescriptorValue
+# ItemConditionDescriptorValue
 
 ## Properties
 

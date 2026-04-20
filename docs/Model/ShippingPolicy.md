@@ -1,4 +1,4 @@
-# # ShippingPolicy
+# ShippingPolicy
 
 ## Properties
 

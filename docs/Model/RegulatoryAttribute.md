@@ -1,4 +1,4 @@
-# # RegulatoryAttribute
+# RegulatoryAttribute
 
 ## Properties
 

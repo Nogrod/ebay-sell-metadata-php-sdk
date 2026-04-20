@@ -1,4 +1,4 @@
-# # HazardStatement
+# HazardStatement
 
 ## Properties
 

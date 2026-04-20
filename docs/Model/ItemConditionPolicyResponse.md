@@ -1,4 +1,4 @@
-# # ItemConditionPolicyResponse
+# ItemConditionPolicyResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # NegotiatedPricePolicy
+# NegotiatedPricePolicy
 
 ## Properties
 

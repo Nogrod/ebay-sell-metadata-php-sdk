@@ -1,4 +1,4 @@
-# # LocalListingDistance
+# LocalListingDistance
 
 ## Properties
 

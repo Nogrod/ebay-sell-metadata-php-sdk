@@ -1,4 +1,4 @@
-# # ShippingHandlingTimeResponse
+# ShippingHandlingTimeResponse
 
 ## Properties
 

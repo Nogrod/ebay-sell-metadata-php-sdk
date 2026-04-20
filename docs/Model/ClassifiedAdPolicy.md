@@ -1,4 +1,4 @@
-# # ClassifiedAdPolicy
+# ClassifiedAdPolicy
 
 ## Properties
 
