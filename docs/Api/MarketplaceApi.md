@@ -13,6 +13,7 @@ All URIs are relative to https://api.ebay.com/sell/metadata/v1, except if the op
 | [**getItemConditionPolicies()**](MarketplaceApi.md#getItemConditionPolicies) | **GET** /marketplace/{marketplace_id}/get_item_condition_policies |  |
 | [**getListingStructurePolicies()**](MarketplaceApi.md#getListingStructurePolicies) | **GET** /marketplace/{marketplace_id}/get_listing_structure_policies |  |
 | [**getListingTypePolicies()**](MarketplaceApi.md#getListingTypePolicies) | **GET** /marketplace/{marketplace_id}/get_listing_type_policies |  |
+| [**getMinimumListingPricePolicies()**](MarketplaceApi.md#getMinimumListingPricePolicies) | **GET** /marketplace/{marketplace_id}/get_minimum_listing_price_policies |  |
 | [**getMotorsListingPolicies()**](MarketplaceApi.md#getMotorsListingPolicies) | **GET** /marketplace/{marketplace_id}/get_motors_listing_policies |  |
 | [**getNegotiatedPricePolicies()**](MarketplaceApi.md#getNegotiatedPricePolicies) | **GET** /marketplace/{marketplace_id}/get_negotiated_price_policies |  |
 | [**getProductSafetyLabels()**](MarketplaceApi.md#getProductSafetyLabels) | **GET** /marketplace/{marketplace_id}/get_product_safety_labels |  |
@@ -45,6 +46,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -54,7 +58,7 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
 );
 $marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.  <br><br><span class=\"tablenote\"><b>Note: </b>Only the following eBay marketplaces support automotive parts compatibility: <ul> <li>EBAY_MOTORS_US</li> <li>EBAY_AU</li> <li>EBAY_CA</li> <li>EBAY_DE</li> <li>EBAY_ES</li> <li>EBAY_FR</li> <li>EBAY_GB</li> <li>EBAY_IT</li></ul></span>
 $filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned. Use the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> to retrieve category ID values.<br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{183521|183523|183524}</code>  <br><br><span class=\"tablenote\"><b>Note: </b>URL-encoding of the parameter list is no longer required.</span>
-$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/develop/api/sell/request_headers\" target=\"_blank \">Request Headers</a>.
 
 try {
     $result = $apiInstance->getAutomotivePartsCompatibilityPolicies($marketplace_id, $filter, $accept_encoding);
@@ -70,7 +74,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.  &lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Only the following eBay marketplaces support automotive parts compatibility: &lt;ul&gt; &lt;li&gt;EBAY_MOTORS_US&lt;/li&gt; &lt;li&gt;EBAY_AU&lt;/li&gt; &lt;li&gt;EBAY_CA&lt;/li&gt; &lt;li&gt;EBAY_DE&lt;/li&gt; &lt;li&gt;EBAY_ES&lt;/li&gt; &lt;li&gt;EBAY_FR&lt;/li&gt; &lt;li&gt;EBAY_GB&lt;/li&gt; &lt;li&gt;EBAY_IT&lt;/li&gt;&lt;/ul&gt;&lt;/span&gt; | |
 | **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned. Use the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; to retrieve category ID values.&lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{183521|183523|183524}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;URL-encoding of the parameter list is no longer required.&lt;/span&gt; | [optional] |
-| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt;. | [optional] |
 
 ### Return type
 
@@ -78,7 +82,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -92,7 +96,7 @@ try {
 ## `getCategoryPolicies()`
 
 ```php
-getCategoryPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\CategoryPolicyResponse
+getCategoryPolicies($marketplace_id, $filter, $accept_language): \eBay\Sell\Metadata\Model\CategoryPolicyResponse
 ```
 
 
@@ -112,6 +116,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -119,11 +126,12 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b> <code>filter=categoryIds:{3767|171784}</code>
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getCategoryPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getCategoryPolicies($marketplace_id, $filter, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getCategoryPolicies: ', $e->getMessage(), PHP_EOL;
@@ -134,8 +142,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -143,7 +152,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -157,7 +166,7 @@ try {
 ## `getClassifiedAdPolicies()`
 
 ```php
-getClassifiedAdPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ClassifiedAdPolicyResponse
+getClassifiedAdPolicies($marketplace_id, $filter, $accept_language): \eBay\Sell\Metadata\Model\ClassifiedAdPolicyResponse
 ```
 
 
@@ -177,6 +186,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -184,11 +196,12 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/sell/metadata/types/bas:MarketplaceIdEnum\" target=\"_blank\">MarketplaceIdEnum</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank\">Marketplace ID values</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag.   <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b><code>filter=categoryIds:{3767|171784}</code>
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getClassifiedAdPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getClassifiedAdPolicies($marketplace_id, $filter, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getClassifiedAdPolicies: ', $e->getMessage(), PHP_EOL;
@@ -199,8 +212,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/types/bas:MarketplaceIdEnum\&quot; target&#x3D;\&quot;_blank\&quot;&gt;MarketplaceIdEnum&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Marketplace ID values&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag.   &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt;&lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -208,7 +222,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -222,7 +236,7 @@ try {
 ## `getCurrencies()`
 
 ```php
-getCurrencies($marketplace_id): \eBay\Sell\Metadata\Model\GetCurrenciesResponse
+getCurrencies($marketplace_id, $accept_language): \eBay\Sell\Metadata\Model\GetCurrenciesResponse
 ```
 
 
@@ -242,6 +256,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -249,10 +266,11 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which currency information is retrieved.<br><br>See the <a href=\"/api-docs/sell/metadata/types/bas:MarketplaceIdEnum\" target=\"_blank\">MarketplaceIdEnum</a> type for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which currency information is retrieved.<br><br>See the <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank\">Marketplace ID values</a> type for a list of supported eBay marketplace ID values.
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada and French Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.<br><br><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_BE</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the Dutch Belgium marketplace.</span></li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code> and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span></ul>
 
 try {
-    $result = $apiInstance->getCurrencies($marketplace_id);
+    $result = $apiInstance->getCurrencies($marketplace_id, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getCurrencies: ', $e->getMessage(), PHP_EOL;
@@ -263,7 +281,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which currency information is retrieved.&lt;br&gt;&lt;br&gt;See the &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/types/bas:MarketplaceIdEnum\&quot; target&#x3D;\&quot;_blank\&quot;&gt;MarketplaceIdEnum&lt;/a&gt; type for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which currency information is retrieved.&lt;br&gt;&lt;br&gt;See the &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Marketplace ID values&lt;/a&gt; type for a list of supported eBay marketplace ID values. | |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada and French Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;br&gt;&lt;br&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_BE&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the Dutch Belgium marketplace.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt; and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt;&lt;/ul&gt; | [optional] |
 
 ### Return type
 
@@ -271,7 +290,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -285,7 +304,7 @@ try {
 ## `getExtendedProducerResponsibilityPolicies()`
 
 ```php
-getExtendedProducerResponsibilityPolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse
+getExtendedProducerResponsibilityPolicies($marketplace_id, $filter, $accept_encoding, $accept_language): \eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityPolicyResponse
 ```
 
 
@@ -305,6 +324,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -312,12 +334,13 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information shall be retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information shall be retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | A query parameter that can be used to limit the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree that should be returned.<br><br>When a <b>categoryId</b> value is specified, the returned category tree includes the policies for that parent node, as well as the policies for any child nodes below that parent node.<br><br>Pass in the <b>categoryId</b> values using a URL-encoded, pipe-separated ('|') list. For example:<br><br><code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code><br><br><b>Maximum:</b> 50
-$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/develop/api/sell/request_headers\" target=\"_blank \">Request Headers</a>.
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getExtendedProducerResponsibilityPolicies($marketplace_id, $filter, $accept_encoding);
+    $result = $apiInstance->getExtendedProducerResponsibilityPolicies($marketplace_id, $filter, $accept_encoding, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getExtendedProducerResponsibilityPolicies: ', $e->getMessage(), PHP_EOL;
@@ -328,9 +351,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information shall be retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information shall be retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| A query parameter that can be used to limit the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree that should be returned.&lt;br&gt;&lt;br&gt;When a &lt;b&gt;categoryId&lt;/b&gt; value is specified, the returned category tree includes the policies for that parent node, as well as the policies for any child nodes below that parent node.&lt;br&gt;&lt;br&gt;Pass in the &lt;b&gt;categoryId&lt;/b&gt; values using a URL-encoded, pipe-separated (&#39;|&#39;) list. For example:&lt;br&gt;&lt;br&gt;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum:&lt;/b&gt; 50 | [optional] |
-| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt;. | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -338,7 +362,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -352,7 +376,7 @@ try {
 ## `getHazardousMaterialsLabels()`
 
 ```php
-getHazardousMaterialsLabels($marketplace_id): \eBay\Sell\Metadata\Model\HazardousMaterialDetailsResponse
+getHazardousMaterialsLabels($marketplace_id, $accept_language): \eBay\Sell\Metadata\Model\HazardousMaterialDetailsResponse
 ```
 
 
@@ -372,6 +396,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -379,10 +406,11 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which hazardous materials label information shall be retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which hazardous materials label information shall be retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getHazardousMaterialsLabels($marketplace_id);
+    $result = $apiInstance->getHazardousMaterialsLabels($marketplace_id, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getHazardousMaterialsLabels: ', $e->getMessage(), PHP_EOL;
@@ -393,7 +421,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which hazardous materials label information shall be retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which hazardous materials label information shall be retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -401,7 +430,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -415,12 +444,12 @@ try {
 ## `getItemConditionPolicies()`
 
 ```php
-getItemConditionPolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\ItemConditionPolicyResponse
+getItemConditionPolicies($marketplace_id, $filter, $accept_encoding, $accept_language): \eBay\Sell\Metadata\Model\ItemConditionPolicyResponse
 ```
 
 
 
-This method returns item condition metadata on one, multiple, or all eBay categories on an eBay marketplace. This metadata consists of the different item conditions (with IDs) that an eBay category supports, and a boolean to indicate if an eBay category requires an item condition. <br><br>If applicable, this metadata also shows the different condition descriptors (with IDs) that an eBay category supports.<br><br><span class=\"tablenote\"><b>Note:</b> Currently, condition grading is only applicable to the following trading card categories: <ul><li>Non-Sport Trading Card Singles</li><li>CCG Individual Cards</li><li>Sports Trading Cards Singles</li></ul></span><br>The identifier of the eBay marketplace is passed in as a path parameter, and unless one or more eBay category IDs are passed in through the <b>filter</b> query parameter, this method will return metadata on every single category for the specified marketplace. If you only want to view item condition metadata for one eBay category or a select group of eBay categories, you can pass in up to 50 eBay category ID through the <b>filter</b> query parameter.<br><br><span class=\"tablenote\"><span style=\"color:#FF0000\"><strong>Important:</strong></span> <b>Certified - Refurbished</b>-eligible sellers, and sellers who are eligible to list with the new values (EXCELLENT_REFURBISHED, VERY_GOOD_REFURBISHED, and GOOD_REFURBISHED) must use an OAuth token created with the <a href=\"/api-docs/static/oauth-authorization-code-grant.html\" target=\"_blank\">authorization code grant flow</a> and <b>https://api.ebay.com/oauth/api_scope/sell.inventory</b> scope in order to retrieve the refurbished conditions for the relevant categories.<br/><br/>Refurbished item conditions are only supported in the Australia, Canada, French Canada, Germany, France, Italy, UK, and US marketplaces. See the <a href=\"https://www.ebay.com/sellercenter/ebay-for-business/ebay-refurbished-program\" target=\"_blank\">eBay Refurbished Program</a> page in help center for the categories that support refurbished conditions. <br/><br/>These restricted item conditions will not be returned if an OAuth token created with the <a href=\"/api-docs/static/oauth-client-credentials-grant.html\" target=\"_blank\">client credentials grant flow</a> and <b>https://api.ebay.com/oauth/api_scope</b> scope is used, or if any seller is not eligible to list with that item condition. <br/><br/> See the <a href=\"/api-docs/static/oauth-scopes.html\" target=\"_blank\">Specifying OAuth scopes</a> topic for more information about specifying scopes.</span><br><br><span class=\"tablenote\"><span style=\"color:#478415\"><strong>Tip:</strong></span> This method can potentially return a very large response payload. eBay recommends that the response payload be compressed by passing in the <b>Accept-Encoding</b> request header and setting the value to <code>gzip</code>.</span>
+This method returns item condition metadata on one, multiple, or all eBay categories on an eBay marketplace. This metadata consists of the different item conditions (with IDs) that an eBay category supports, and a boolean to indicate if an eBay category requires an item condition. <br><br>If applicable, this metadata also shows the different condition descriptors (with IDs) that an eBay category supports.<br><br><span class=\"tablenote\"><b>Note:</b> Currently, condition grading is only applicable to the following trading card leaf categories: <ul><li>Non-Sport Trading Card Singles</li><li>CCG Individual Cards</li><li>Sports Trading Cards Singles</li></ul>and the following coin categories:<ul><li>Coins: US</li><li>Coins: World</li><li>Coins: Canada</li><li>Coins: Ancient</li><li>Coins: Medieval</li></ul>Note that these coin categories are not leaf categories, so condition grading is available for all leaf categories descending from the above categories (except for rolls, sets, and lots).<br><br>Additionally, condition grading is available for Salvage items in select categories for eligible users. Use the <b>getItemConditionPolicies</b> method to see supported categories.</span><br>The identifier of the eBay marketplace is passed in as a path parameter, and unless one or more eBay category IDs are passed in through the <b>filter</b> query parameter, this method will return metadata on every single category for the specified marketplace. If you only want to view item condition metadata for one eBay category or a select group of eBay categories, you can pass in up to 50 eBay category ID through the <b>filter</b> query parameter.<br><br><span class=\"tablenote\"><span style=\"color:#FF0000\"><strong>Important:</strong></span> <b>Certified - Refurbished</b>-eligible sellers, and sellers who are eligible to list with the new values (EXCELLENT_REFURBISHED, VERY_GOOD_REFURBISHED, and GOOD_REFURBISHED) must use an OAuth token created with the <a href=\"/api-docs/static/oauth-authorization-code-grant.html\" target=\"_blank\">authorization code grant flow</a> and <b>https://api.ebay.com/oauth/api_scope/sell.inventory</b> scope in order to retrieve the refurbished conditions for the relevant categories.<br/><br/>Refurbished item conditions are only supported in the Australia, Canada, French Canada, Germany, France, Italy, UK, and US marketplaces. See the <a href=\"https://www.ebay.com/sellercenter/ebay-for-business/ebay-refurbished-program\" target=\"_blank\">eBay Refurbished Program</a> page in help center for the categories that support refurbished conditions. <br/><br/>These restricted item conditions will not be returned if an OAuth token created with the <a href=\"/api-docs/static/oauth-client-credentials-grant.html\" target=\"_blank\">client credentials grant flow</a> and <b>https://api.ebay.com/oauth/api_scope</b> scope is used, or if any seller is not eligible to list with that item condition. <br/><br/> See the <a href=\"/api-docs/static/oauth-scopes.html\" target=\"_blank\">Specifying OAuth scopes</a> topic for more information about specifying scopes.</span><br><span class=\"tablenote\"><span style=\"color:#478415\"><strong>Tip:</strong></span> This method can potentially return a very large response payload. eBay recommends that the response payload be compressed by passing in the <b>Accept-Encoding</b> request header and setting the value to <code>gzip</code>.</span>
 
 ### Example
 
@@ -435,6 +464,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -442,12 +474,13 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned.  <br><br>When you specify a <b>categoryId</b> value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{100|101|102}</code>  <br><br>Note that you must URL-encode the parameter list, which results in the following filter for the above example: <br><br> &nbsp;&nbsp;<code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code>
-$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/develop/api/sell/request_headers\" target=\"_blank \">Request Headers</a>.
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getItemConditionPolicies($marketplace_id, $filter, $accept_encoding);
+    $result = $apiInstance->getItemConditionPolicies($marketplace_id, $filter, $accept_encoding, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getItemConditionPolicies: ', $e->getMessage(), PHP_EOL;
@@ -458,9 +491,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned.  &lt;br&gt;&lt;br&gt;When you specify a &lt;b&gt;categoryId&lt;/b&gt; value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{100|101|102}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;Note that you must URL-encode the parameter list, which results in the following filter for the above example: &lt;br&gt;&lt;br&gt; &amp;nbsp;&amp;nbsp;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt; | [optional] |
-| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt;. | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -468,7 +502,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -482,7 +516,7 @@ try {
 ## `getListingStructurePolicies()`
 
 ```php
-getListingStructurePolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\ListingStructurePolicyResponse
+getListingStructurePolicies($marketplace_id, $filter, $accept_encoding, $accept_language): \eBay\Sell\Metadata\Model\ListingStructurePolicyResponse
 ```
 
 
@@ -502,6 +536,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -509,12 +546,13 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved. <br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved. <br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned.  <br><br>When you specify a <b>categoryId</b> value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{100|101|102}</code>  <br><br>Note that you must URL-encode the parameter list, which results in the following filter for the above example: <br><br> &nbsp;&nbsp;<code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code>
-$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/develop/api/sell/request_headers\" target=\"_blank \">Request Headers</a>.
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getListingStructurePolicies($marketplace_id, $filter, $accept_encoding);
+    $result = $apiInstance->getListingStructurePolicies($marketplace_id, $filter, $accept_encoding, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getListingStructurePolicies: ', $e->getMessage(), PHP_EOL;
@@ -525,9 +563,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved. &lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved. &lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned.  &lt;br&gt;&lt;br&gt;When you specify a &lt;b&gt;categoryId&lt;/b&gt; value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{100|101|102}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;Note that you must URL-encode the parameter list, which results in the following filter for the above example: &lt;br&gt;&lt;br&gt; &amp;nbsp;&amp;nbsp;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt; | [optional] |
-| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt;. | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -535,7 +574,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -549,7 +588,7 @@ try {
 ## `getListingTypePolicies()`
 
 ```php
-getListingTypePolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ListingTypePoliciesResponse
+getListingTypePolicies($marketplace_id, $filter, $accept_language): \eBay\Sell\Metadata\Model\ListingTypePoliciesResponse
 ```
 
 
@@ -569,6 +608,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -576,11 +618,12 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag.<br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b> <code>filter=categoryIds:{3767|171784}</code>
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getListingTypePolicies($marketplace_id, $filter);
+    $result = $apiInstance->getListingTypePolicies($marketplace_id, $filter, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getListingTypePolicies: ', $e->getMessage(), PHP_EOL;
@@ -591,8 +634,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag.&lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -600,7 +644,73 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMinimumListingPricePolicies()`
+
+```php
+getMinimumListingPricePolicies($marketplace_id): \eBay\Sell\Metadata\Model\GetMinimumListingPricePoliciesResponse
+```
+
+
+
+This method returns minimum listing price policies for supported types of listings on a specific marketplace. This includes the minimum start price for auction listings, the minimum sale price for fixed-price listings, and the minimum percentage value that a Buy It Now or auction listing must be above the minimum start price for the same listing.<br><br><span class=\"tablenote\"><b>Note:</b> The only applicable listing type values for this method are <code>AUCTION</code> and <code>FIXED_PRICE_ITEM</code>.</span><br>The identifier of the eBay marketplace for which to retrieve supported minimum listing price policies is passed through the <b>marketplace_id</b> path parameter.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: api_auth
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which minimum listing price policy information will be retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank\">Marketplace ID values</a> for a list of supported eBay marketplace ID values.
+
+try {
+    $result = $apiInstance->getMinimumListingPricePolicies($marketplace_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MarketplaceApi->getMinimumListingPricePolicies: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which minimum listing price policy information will be retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Marketplace ID values&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+
+### Return type
+
+[**\eBay\Sell\Metadata\Model\GetMinimumListingPricePoliciesResponse**](../Model/GetMinimumListingPricePoliciesResponse.md)
+
+### Authorization
+
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -614,7 +724,7 @@ try {
 ## `getMotorsListingPolicies()`
 
 ```php
-getMotorsListingPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\MotorsListingPoliciesResponse
+getMotorsListingPolicies($marketplace_id, $filter, $accept_language): \eBay\Sell\Metadata\Model\MotorsListingPoliciesResponse
 ```
 
 
@@ -634,6 +744,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -641,11 +754,12 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag. <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b> <code>filter=categoryIds:{3767|171784}</code>
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getMotorsListingPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getMotorsListingPolicies($marketplace_id, $filter, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getMotorsListingPolicies: ', $e->getMessage(), PHP_EOL;
@@ -656,8 +770,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag. &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -665,7 +780,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -679,7 +794,7 @@ try {
 ## `getNegotiatedPricePolicies()`
 
 ```php
-getNegotiatedPricePolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse
+getNegotiatedPricePolicies($marketplace_id, $filter, $accept_encoding, $accept_language): \eBay\Sell\Metadata\Model\NegotiatedPricePolicyResponse
 ```
 
 
@@ -699,6 +814,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -706,12 +824,13 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned.  <br><br>When you specify a <b>categoryId</b> value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{100|101|102}</code>  <br><br>Note that you must URL-encode the parameter list, which results in the following filter for the above example: <br><br> &nbsp;&nbsp;<code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code>
-$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/develop/api/sell/request_headers\" target=\"_blank \">Request Headers</a>.
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getNegotiatedPricePolicies($marketplace_id, $filter, $accept_encoding);
+    $result = $apiInstance->getNegotiatedPricePolicies($marketplace_id, $filter, $accept_encoding, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getNegotiatedPricePolicies: ', $e->getMessage(), PHP_EOL;
@@ -722,9 +841,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned.  &lt;br&gt;&lt;br&gt;When you specify a &lt;b&gt;categoryId&lt;/b&gt; value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{100|101|102}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;Note that you must URL-encode the parameter list, which results in the following filter for the above example: &lt;br&gt;&lt;br&gt; &amp;nbsp;&amp;nbsp;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt; | [optional] |
-| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt;. | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -732,7 +852,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -751,7 +871,7 @@ getProductSafetyLabels($marketplace_id): \eBay\Sell\Metadata\Model\ProductSafety
 
 
 
-This method returns product safety label information for the specified eBay marketplace. The information includes IDs, descriptions, and URLs (as applicable) for the available statements and pictograms. The returned statements are localized for the default language of the marketplace. If a marketplace does not support product safety label information, no response payload is returned, but only a <b>204 No content</b> status code.<p>This information is used by the seller to add product safety label related information to their listings. The <a href=\"/api-docs/sell/metadata/resources/marketplace/methods/getRegulatoryPolicies\" target=\"_blank\">getRegulatoryPolicies</a> method can be used to see which categories recommend or require product safety labels.</p>
+This method returns product safety label information for the specified eBay marketplace. The information includes IDs, descriptions, and URLs (as applicable) for the available statements and pictograms. The returned statements are localized for the default language of the marketplace. If a marketplace does not support product safety label information, no response payload is returned, but only a <b>204 No content</b> status code.<p>This information is used by the seller to add product safety label related information to their listings. The <a href='/develop/api/sell/metadata_api#sell-metadata_api-marketplace-getregulatorypolicies'>getRegulatoryPolicies</a> method can be used to see which categories recommend or require product safety labels.</p>
 
 ### Example
 
@@ -766,6 +886,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -773,7 +896,7 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values. See the following note for exceptions.<span class=\"tablenote\"><span style=\"color:#478415\"><strong>Note: </strong></span>This method is not supported in the <code>EBAY_HK</code>, <code>EBAY_MY</code>, <code>EBAY_TW</code>, or <code>EBAY_PH</code> marketplaces.</span>
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values. See the following note for exceptions.<span class=\"tablenote\"><span style=\"color:#478415\"><strong>Note: </strong></span>This method is not supported in the <code>EBAY_HK</code>, <code>EBAY_MY</code>, <code>EBAY_TW</code>, or <code>EBAY_PH</code> marketplaces.</span>
 
 try {
     $result = $apiInstance->getProductSafetyLabels($marketplace_id);
@@ -787,7 +910,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. See the following note for exceptions.&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;span style&#x3D;\&quot;color:#478415\&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/span&gt;This method is not supported in the &lt;code&gt;EBAY_HK&lt;/code&gt;, &lt;code&gt;EBAY_MY&lt;/code&gt;, &lt;code&gt;EBAY_TW&lt;/code&gt;, or &lt;code&gt;EBAY_PH&lt;/code&gt; marketplaces.&lt;/span&gt; | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. See the following note for exceptions.&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;span style&#x3D;\&quot;color:#478415\&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/span&gt;This method is not supported in the &lt;code&gt;EBAY_HK&lt;/code&gt;, &lt;code&gt;EBAY_MY&lt;/code&gt;, &lt;code&gt;EBAY_TW&lt;/code&gt;, or &lt;code&gt;EBAY_PH&lt;/code&gt; marketplaces.&lt;/span&gt; | |
 
 ### Return type
 
@@ -795,7 +918,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -809,7 +932,7 @@ try {
 ## `getRegulatoryPolicies()`
 
 ```php
-getRegulatoryPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\RegulatoryPolicyResponse
+getRegulatoryPolicies($marketplace_id, $filter, $accept_language): \eBay\Sell\Metadata\Model\RegulatoryPolicyResponse
 ```
 
 
@@ -829,6 +952,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -836,11 +962,12 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information shall be retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.<span class=\"tablenote\"><span style=\"color:#478415\"><strong>Note: </strong></span>This method is not supported in the <code>EBAY_HK</code>, <code>EBAY_MY</code>, <code>EBAY_TW</code>, or <code>EBAY_PH</code> marketplaces.</span>
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information shall be retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.<span class=\"tablenote\"><span style=\"color:#478415\"><strong>Note: </strong></span>This method is not supported in the <code>EBAY_HK</code>, <code>EBAY_MY</code>, <code>EBAY_TW</code>, or <code>EBAY_PH</code> marketplaces.</span>
 $filter = 'filter_example'; // string | A query parameter that can be used to limit the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree that should be returned.<br><br>Pass in the <b>categoryId</b> values using a URL-encoded, pipe-separated ('|') list. For example: <br><br><code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code><br><br><b>Maximum:</b> 50
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getRegulatoryPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getRegulatoryPolicies($marketplace_id, $filter, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getRegulatoryPolicies: ', $e->getMessage(), PHP_EOL;
@@ -851,8 +978,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information shall be retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values.&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;span style&#x3D;\&quot;color:#478415\&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/span&gt;This method is not supported in the &lt;code&gt;EBAY_HK&lt;/code&gt;, &lt;code&gt;EBAY_MY&lt;/code&gt;, &lt;code&gt;EBAY_TW&lt;/code&gt;, or &lt;code&gt;EBAY_PH&lt;/code&gt; marketplaces.&lt;/span&gt; | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information shall be retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values.&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;span style&#x3D;\&quot;color:#478415\&quot;&gt;&lt;strong&gt;Note: &lt;/strong&gt;&lt;/span&gt;This method is not supported in the &lt;code&gt;EBAY_HK&lt;/code&gt;, &lt;code&gt;EBAY_MY&lt;/code&gt;, &lt;code&gt;EBAY_TW&lt;/code&gt;, or &lt;code&gt;EBAY_PH&lt;/code&gt; marketplaces.&lt;/span&gt; | |
 | **filter** | **string**| A query parameter that can be used to limit the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree that should be returned.&lt;br&gt;&lt;br&gt;Pass in the &lt;b&gt;categoryId&lt;/b&gt; values using a URL-encoded, pipe-separated (&#39;|&#39;) list. For example: &lt;br&gt;&lt;br&gt;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Maximum:&lt;/b&gt; 50 | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -860,7 +988,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -874,7 +1002,7 @@ try {
 ## `getReturnPolicies()`
 
 ```php
-getReturnPolicies($marketplace_id, $filter, $accept_encoding): \eBay\Sell\Metadata\Model\ReturnPolicyResponse
+getReturnPolicies($marketplace_id, $filter, $accept_encoding, $accept_language): \eBay\Sell\Metadata\Model\ReturnPolicyResponse
 ```
 
 
@@ -894,6 +1022,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -901,12 +1032,13 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply <b>categoryId</b> values for the sections of the tree you want returned.  <br><br>When you specify a <b>categoryId</b> value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  <br><br><b>Example:</b> <code>filter=categoryIds:{100|101|102}</code>  <br><br>Note that you must URL-encode the parameter list, which results in the following filter for the above example: <br><br> &nbsp;&nbsp;<code>filter=categoryIds%3A%7B100%7C101%7C102%7D</code>
-$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/api-docs/static/rest-request-components.html#HTTP\" target=\"_blank \">HTTP request headers</a>.
+$accept_encoding = 'accept_encoding_example'; // string | This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to <code>gzip</code>. <br><br> For more information, refer to <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a>.
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getReturnPolicies($marketplace_id, $filter, $accept_encoding);
+    $result = $apiInstance->getReturnPolicies($marketplace_id, $filter, $accept_encoding, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getReturnPolicies: ', $e->getMessage(), PHP_EOL;
@@ -917,9 +1049,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by returning policy information for only the selected sections of the category tree. Supply &lt;b&gt;categoryId&lt;/b&gt; values for the sections of the tree you want returned.  &lt;br&gt;&lt;br&gt;When you specify a &lt;b&gt;categoryId&lt;/b&gt; value, the returned category tree includes the policies for that parent node, plus the policies for any leaf nodes below that parent node.  &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{100|101|102}&lt;/code&gt;  &lt;br&gt;&lt;br&gt;Note that you must URL-encode the parameter list, which results in the following filter for the above example: &lt;br&gt;&lt;br&gt; &amp;nbsp;&amp;nbsp;&lt;code&gt;filter&#x3D;categoryIds%3A%7B100%7C101%7C102%7D&lt;/code&gt; | [optional] |
-| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#HTTP\&quot; target&#x3D;\&quot;_blank \&quot;&gt;HTTP request headers&lt;/a&gt;. | [optional] |
+| **accept_encoding** | **string**| This header indicates the compression-encoding algorithms the client accepts for the response. This value should be set to &lt;code&gt;gzip&lt;/code&gt;. &lt;br&gt;&lt;br&gt; For more information, refer to &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt;. | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -927,7 +1060,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -941,7 +1074,7 @@ try {
 ## `getShippingPolicies()`
 
 ```php
-getShippingPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\ShippingPoliciesResponse
+getShippingPolicies($marketplace_id, $filter, $accept_language): \eBay\Sell\Metadata\Model\ShippingPoliciesResponse
 ```
 
 
@@ -961,6 +1094,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -968,11 +1104,12 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag. <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b> <code>filter=categoryIds:{3767|171784}</code>
+$accept_language = 'accept_language_example'; // string | This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.<br><br>Follow the instructions below to retrieve metadata for these three marketplaces:<ul><li><b>French Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-BE</code>.</li><li><b>Dutch Belgium</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_BE</code>, and include the <b>Accept-Language</b> header with a value of <code>nl-BE</code>.</li><li><b>French Canada</b>: Set the <b>marketplace_id</b> path parameter value to <code>EBAY_CA</code>, and include the <b>Accept-Language</b> header with a value of <code>fr-CA</code>.</li></ul><span class=\"tablenote\"><b>Note:</b> If <code>EBAY_CA</code> is set as the <b>marketplace_id</b> path parameter and the <b>Accept-Language</b> header is not used, the marketplace will default to the English Canada marketplace.</span>
 
 try {
-    $result = $apiInstance->getShippingPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getShippingPolicies($marketplace_id, $filter, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getShippingPolicies: ', $e->getMessage(), PHP_EOL;
@@ -983,8 +1120,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag. &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt; &lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+| **accept_language** | **string**| This header is required to retrieve metadata for the French Canada, French Belgium, and Dutch Belgium marketplaces.&lt;br&gt;&lt;br&gt;Follow the instructions below to retrieve metadata for these three marketplaces:&lt;ul&gt;&lt;li&gt;&lt;b&gt;French Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Dutch Belgium&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_BE&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;nl-BE&lt;/code&gt;.&lt;/li&gt;&lt;li&gt;&lt;b&gt;French Canada&lt;/b&gt;: Set the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter value to &lt;code&gt;EBAY_CA&lt;/code&gt;, and include the &lt;b&gt;Accept-Language&lt;/b&gt; header with a value of &lt;code&gt;fr-CA&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;EBAY_CA&lt;/code&gt; is set as the &lt;b&gt;marketplace_id&lt;/b&gt; path parameter and the &lt;b&gt;Accept-Language&lt;/b&gt; header is not used, the marketplace will default to the English Canada marketplace.&lt;/span&gt; | [optional] |
 
 ### Return type
 
@@ -992,7 +1130,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 
@@ -1006,7 +1144,7 @@ try {
 ## `getSiteVisibilityPolicies()`
 
 ```php
-getSiteVisibilityPolicies($marketplace_id, $filter): \eBay\Sell\Metadata\Model\SiteVisibilityPoliciesResponse
+getSiteVisibilityPolicies($marketplace_id, $filter, $accept_language): \eBay\Sell\Metadata\Model\SiteVisibilityPoliciesResponse
 ```
 
 
@@ -1026,6 +1164,9 @@ $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccess
 // Configure OAuth2 access token for authorization: api_auth
 $config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = eBay\Sell\Metadata\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1033,11 +1174,12 @@ $apiInstance = new eBay\Sell\Metadata\Api\MarketplaceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/api-docs/static/rest-request-components.html#marketpl\" target=\"_blank\">HTTP Request Headers</a> for a list of supported eBay marketplace ID values.
+$marketplace_id = 'marketplace_id_example'; // string | This path parameter specifies the eBay marketplace for which policy information is retrieved.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Request Headers</a> for a list of supported eBay marketplace ID values.
 $filter = 'filter_example'; // string | This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the <b>categoryId</b> for one or more leaf categories. You can verify if a category is a leaf category by using the <a href=\"/api-docs/commerce/taxonomy/overview.html\" target=\"_blank \">Taxonomy API</a> and looking for a <code>\"leafCategory\": true</code> tag. <br><br>The parameter takes a list of <b>categoryId</b> values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character ('|'). If you specify more than 50 <code>categoryId</code> values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.<br><br><b>Example:</b><code>filter=categoryIds:{3767|171784}</code>
+$accept_language = 'accept_language_example'; // string | This header advertises which natural language the client prefers.
 
 try {
-    $result = $apiInstance->getSiteVisibilityPolicies($marketplace_id, $filter);
+    $result = $apiInstance->getSiteVisibilityPolicies($marketplace_id, $filter, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MarketplaceApi->getSiteVisibilityPolicies: ', $e->getMessage(), PHP_EOL;
@@ -1048,8 +1190,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/static/rest-request-components.html#marketpl\&quot; target&#x3D;\&quot;_blank\&quot;&gt;HTTP Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
+| **marketplace_id** | **string**| This path parameter specifies the eBay marketplace for which policy information is retrieved.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Request Headers&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **filter** | **string**| This query parameter limits the response by only returning metadata for the specified leaf categories. Supply the &lt;b&gt;categoryId&lt;/b&gt; for one or more leaf categories. You can verify if a category is a leaf category by using the &lt;a href&#x3D;\&quot;/api-docs/commerce/taxonomy/overview.html\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Taxonomy API&lt;/a&gt; and looking for a &lt;code&gt;\&quot;leafCategory\&quot;: true&lt;/code&gt; tag. &lt;br&gt;&lt;br&gt;The parameter takes a list of &lt;b&gt;categoryId&lt;/b&gt; values and you can specify up to 50 separate category IDs. Separate multiple values with a pipe character (&#39;|&#39;). If you specify more than 50 &lt;code&gt;categoryId&lt;/code&gt; values, eBay returns the policies for the first 50 IDs and a warning that not all categories were returned.&lt;br&gt;&lt;br&gt;&lt;b&gt;Example:&lt;/b&gt;&lt;code&gt;filter&#x3D;categoryIds:{3767|171784}&lt;/code&gt; | [optional] |
+| **accept_language** | **string**| This header advertises which natural language the client prefers. | [optional] |
 
 ### Return type
 
@@ -1057,7 +1200,7 @@ try {
 
 ### Authorization
 
-[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth)
+[api_auth](../../README.md#api_auth), [api_auth](../../README.md#api_auth), [ClientCredentials](../../README.md#ClientCredentials)
 
 ### HTTP request headers
 

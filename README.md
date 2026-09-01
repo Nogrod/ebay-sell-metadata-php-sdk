@@ -1,6 +1,6 @@
 # OpenAPIClient-php
 
-The Metadata API has operations that retrieve configuration details pertaining to the different eBay marketplaces. In addition to marketplace information, the API also has operations that get information that helps sellers list items on eBay.
+The Metadata API provides crucial configuration details necessary for managing listings across various eBay marketplaces. This includes retrieving detailed eBay category listing policies, such as supported item conditions and multiple-variation structures; accessing sales tax jurisdiction information for setting up tax tables in supported countries; and obtaining hazardous material and product safety label data for regulatory compliance in listing flows. The API is essential for sellers and developers needing up-to-date, marketplace-specific policy and jurisdictional information to accurately create and manage their listings.
 
 
 ## Installation & Usage
@@ -61,7 +61,7 @@ $apiInstance = new eBay\Sell\Metadata\Api\CompatibilitiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/api-docs/sell/metadata/overview.html#requirements\" target=\"_blank \">Metadata API requirements and restrictions</a> for supported values.
+$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Marketplace ID values</a> for a list of supported eBay marketplace ID values.
 $specification_request = new \eBay\Sell\Metadata\Model\SpecificationRequest(); // \eBay\Sell\Metadata\Model\SpecificationRequest | This type defines the properties and specifications to use to search for compatibilities.
 
 try {
@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *MarketplaceApi* | [**getItemConditionPolicies**](docs/Api/MarketplaceApi.md#getitemconditionpolicies) | **GET** /marketplace/{marketplace_id}/get_item_condition_policies | 
 *MarketplaceApi* | [**getListingStructurePolicies**](docs/Api/MarketplaceApi.md#getlistingstructurepolicies) | **GET** /marketplace/{marketplace_id}/get_listing_structure_policies | 
 *MarketplaceApi* | [**getListingTypePolicies**](docs/Api/MarketplaceApi.md#getlistingtypepolicies) | **GET** /marketplace/{marketplace_id}/get_listing_type_policies | 
+*MarketplaceApi* | [**getMinimumListingPricePolicies**](docs/Api/MarketplaceApi.md#getminimumlistingpricepolicies) | **GET** /marketplace/{marketplace_id}/get_minimum_listing_price_policies | 
 *MarketplaceApi* | [**getMotorsListingPolicies**](docs/Api/MarketplaceApi.md#getmotorslistingpolicies) | **GET** /marketplace/{marketplace_id}/get_motors_listing_policies | 
 *MarketplaceApi* | [**getNegotiatedPricePolicies**](docs/Api/MarketplaceApi.md#getnegotiatedpricepolicies) | **GET** /marketplace/{marketplace_id}/get_negotiated_price_policies | 
 *MarketplaceApi* | [**getProductSafetyLabels**](docs/Api/MarketplaceApi.md#getproductsafetylabels) | **GET** /marketplace/{marketplace_id}/get_product_safety_labels | 
@@ -109,23 +110,41 @@ Class | Method | HTTP request | Description
 
 ## Models
 
+- [AdFormatEnabledEnum](docs/Model/AdFormatEnabledEnum.md)
 - [Amount](docs/Model/Amount.md)
 - [AutomotivePartsCompatibilityPolicy](docs/Model/AutomotivePartsCompatibilityPolicy.md)
 - [AutomotivePartsCompatibilityPolicyResponse](docs/Model/AutomotivePartsCompatibilityPolicyResponse.md)
+- [CardinalityEnum](docs/Model/CardinalityEnum.md)
 - [CategoryPolicy](docs/Model/CategoryPolicy.md)
 - [CategoryPolicyResponse](docs/Model/CategoryPolicyResponse.md)
+- [ClassifiedAdBestOfferEnabledEnum](docs/Model/ClassifiedAdBestOfferEnabledEnum.md)
+- [ClassifiedAdPaymentMethodEnabledEnum](docs/Model/ClassifiedAdPaymentMethodEnabledEnum.md)
 - [ClassifiedAdPolicy](docs/Model/ClassifiedAdPolicy.md)
 - [ClassifiedAdPolicyResponse](docs/Model/ClassifiedAdPolicyResponse.md)
 - [Compatibility](docs/Model/Compatibility.md)
 - [CompatibilityDetails](docs/Model/CompatibilityDetails.md)
+- [CompatibilityTypeEnum](docs/Model/CompatibilityTypeEnum.md)
+- [CompatibleVehicleTypeEnum](docs/Model/CompatibleVehicleTypeEnum.md)
+- [CountryCodeEnum](docs/Model/CountryCodeEnum.md)
 - [Currency](docs/Model/Currency.md)
+- [CurrencyCodeEnum](docs/Model/CurrencyCodeEnum.md)
+- [DescriptorUsageEnum](docs/Model/DescriptorUsageEnum.md)
 - [DisabledProductFilter](docs/Model/DisabledProductFilter.md)
+- [DistanceType](docs/Model/DistanceType.md)
+- [DurationEnum](docs/Model/DurationEnum.md)
 - [Error](docs/Model/Error.md)
+- [ErrorDetailV3](docs/Model/ErrorDetailV3.md)
 - [ErrorParameter](docs/Model/ErrorParameter.md)
+- [ErrorParameterV3](docs/Model/ErrorParameterV3.md)
+- [ErrorSeverityEnum](docs/Model/ErrorSeverityEnum.md)
 - [ExtendedProducerResponsibility](docs/Model/ExtendedProducerResponsibility.md)
+- [ExtendedProducerResponsibilityEnum](docs/Model/ExtendedProducerResponsibilityEnum.md)
 - [ExtendedProducerResponsibilityPolicy](docs/Model/ExtendedProducerResponsibilityPolicy.md)
 - [ExtendedProducerResponsibilityPolicyResponse](docs/Model/ExtendedProducerResponsibilityPolicyResponse.md)
+- [GenericUsageEnum](docs/Model/GenericUsageEnum.md)
+- [GeographicExposureEnum](docs/Model/GeographicExposureEnum.md)
 - [GetCurrenciesResponse](docs/Model/GetCurrenciesResponse.md)
+- [GetMinimumListingPricePoliciesResponse](docs/Model/GetMinimumListingPricePoliciesResponse.md)
 - [HazardStatement](docs/Model/HazardStatement.md)
 - [HazardousMaterialDetailsResponse](docs/Model/HazardousMaterialDetailsResponse.md)
 - [ItemCondition](docs/Model/ItemCondition.md)
@@ -138,9 +157,13 @@ Class | Method | HTTP request | Description
 - [ListingDuration](docs/Model/ListingDuration.md)
 - [ListingStructurePolicy](docs/Model/ListingStructurePolicy.md)
 - [ListingStructurePolicyResponse](docs/Model/ListingStructurePolicyResponse.md)
+- [ListingTypeEnum](docs/Model/ListingTypeEnum.md)
 - [ListingTypePoliciesResponse](docs/Model/ListingTypePoliciesResponse.md)
 - [ListingTypePolicy](docs/Model/ListingTypePolicy.md)
 - [LocalListingDistance](docs/Model/LocalListingDistance.md)
+- [MarketplaceIdEnum](docs/Model/MarketplaceIdEnum.md)
+- [MinimumListingPricePoliciesType](docs/Model/MinimumListingPricePoliciesType.md)
+- [ModeEnum](docs/Model/ModeEnum.md)
 - [MotorsListingPoliciesResponse](docs/Model/MotorsListingPoliciesResponse.md)
 - [MotorsListingPolicy](docs/Model/MotorsListingPolicy.md)
 - [MultiCompatibilityPropertyValuesRequest](docs/Model/MultiCompatibilityPropertyValuesRequest.md)
@@ -150,7 +173,9 @@ Class | Method | HTTP request | Description
 - [PackageLimits](docs/Model/PackageLimits.md)
 - [Pagination](docs/Model/Pagination.md)
 - [PaginationInput](docs/Model/PaginationInput.md)
+- [PaymentEnum](docs/Model/PaymentEnum.md)
 - [Pictogram](docs/Model/Pictogram.md)
+- [ProductIdentiferEnabledEnum](docs/Model/ProductIdentiferEnabledEnum.md)
 - [ProductIdentifier](docs/Model/ProductIdentifier.md)
 - [ProductRequest](docs/Model/ProductRequest.md)
 - [ProductResponse](docs/Model/ProductResponse.md)
@@ -167,12 +192,16 @@ Class | Method | HTTP request | Description
 - [PropertyValues](docs/Model/PropertyValues.md)
 - [PropertyValuesRequest](docs/Model/PropertyValuesRequest.md)
 - [PropertyValuesResponse](docs/Model/PropertyValuesResponse.md)
+- [RefundMethodEnum](docs/Model/RefundMethodEnum.md)
 - [RegulatoryAttribute](docs/Model/RegulatoryAttribute.md)
+- [RegulatoryAttributeEnum](docs/Model/RegulatoryAttributeEnum.md)
 - [RegulatoryPolicy](docs/Model/RegulatoryPolicy.md)
 - [RegulatoryPolicyResponse](docs/Model/RegulatoryPolicyResponse.md)
+- [ReturnMethodEnum](docs/Model/ReturnMethodEnum.md)
 - [ReturnPolicy](docs/Model/ReturnPolicy.md)
 - [ReturnPolicyDetails](docs/Model/ReturnPolicyDetails.md)
 - [ReturnPolicyResponse](docs/Model/ReturnPolicyResponse.md)
+- [ReturnShippingCostPayerEnum](docs/Model/ReturnShippingCostPayerEnum.md)
 - [SalesTaxJurisdiction](docs/Model/SalesTaxJurisdiction.md)
 - [SalesTaxJurisdictions](docs/Model/SalesTaxJurisdictions.md)
 - [ShippingCarrier](docs/Model/ShippingCarrier.md)
@@ -195,6 +224,8 @@ Class | Method | HTTP request | Description
 - [SpecificationRequest](docs/Model/SpecificationRequest.md)
 - [SpecificationResponse](docs/Model/SpecificationResponse.md)
 - [TimeDuration](docs/Model/TimeDuration.md)
+- [TimeDurationUnitEnum](docs/Model/TimeDurationUnitEnum.md)
+- [UsageEnum](docs/Model/UsageEnum.md)
 
 ## Authorization
 
@@ -215,6 +246,21 @@ Class | Method | HTTP request | Description
 - **Scopes**: 
     - **https://api.ebay.com/oauth/api_scope/sell.inventory**: View and manage your inventory and offers
 
+
+### bearerAuth
+
+- **Type**: Bearer authentication
+
+
+### ClientCredentials
+
+- **Type**: `OAuth`
+- **Flow**: `application`
+- **Authorization URL**: ``
+- **Scopes**: 
+    - **https://api.ebay.com/oauth/api_scope**: View public data from eBay
+    - **https://api.ebay.com/oauth/api_scope/sell.inventory**: View and manage your inventory and offers
+
 ## Tests
 
 To run the tests, use:
@@ -232,6 +278,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `v1.12.1`
-    - Generator version: `7.21.0`
+- API version: `v1.13.0`
+    - Generator version: `7.25.0`
 - Build package: `org.openapitools.codegen.languages.PhpNextgenClientCodegen`

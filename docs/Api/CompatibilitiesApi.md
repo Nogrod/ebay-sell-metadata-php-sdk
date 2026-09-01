@@ -19,7 +19,7 @@ getCompatibilitiesBySpecification($x_ebay_c_marketplace_id, $specification_reque
 
 
 
-This method is used to retrieve all compatible application name-value pairs for a part based on the provided specification(s).<br><br>The part's relevant dimensions and/or characteristics can be provided through the <b>specifications</b> container. For example, when retrieving compatible application name-value pairs for a tire, the tire's dimensions (such as the section width or rim diameter) should be provided.<br><br>By default, all compatible application name-value pairs for the specifications are returned. You can limit the size of the result set by using the <b>compatibilityPropertyFilters</b> array to specify the properties (such as make, model, year, or trim) you wish to be included in the response.<br><br><span class=\"tablenote\"><b>Note:</b> The <a href=\"/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames\" target=\"_blank \">getCompatibilityPropertyNames</a> and <a href=\"/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyValues\" target=\"_blank \">getCompatibilityPropertyValues</a> methods can be used to retrieve valid property names and values that can be used as the name-value pairs to define specifications.</span>
+This method is used to retrieve all compatible application name-value pairs for a part based on the provided specification(s).<br><br>The part's relevant dimensions and/or characteristics can be provided through the <b>specifications</b> container. For example, when retrieving compatible application name-value pairs for a tire, the tire's dimensions (such as the section width or rim diameter) should be provided.<br><br>By default, all compatible application name-value pairs for the specifications are returned. You can limit the size of the result set by using the <b>compatibilityPropertyFilters</b> array to specify the properties (such as make, model, year, or trim) you wish to be included in the response.<br><br><span class=\"tablenote\"><b>Note:</b> The <a href=\"/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertynames\">getCompatibilityPropertyNames</a> and <a href=\"/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertyvalues\">getCompatibilityPropertyValues</a> methods can be used to retrieve valid property names and values that can be used as the name-value pairs to define specifications.</span>
 
 ### Example
 
@@ -41,7 +41,7 @@ $apiInstance = new eBay\Sell\Metadata\Api\CompatibilitiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/api-docs/sell/metadata/overview.html#requirements\" target=\"_blank \">Metadata API requirements and restrictions</a> for supported values.
+$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Marketplace ID values</a> for a list of supported eBay marketplace ID values.
 $specification_request = new \eBay\Sell\Metadata\Model\SpecificationRequest(); // \eBay\Sell\Metadata\Model\SpecificationRequest | This type defines the properties and specifications to use to search for compatibilities.
 
 try {
@@ -56,7 +56,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/overview.html#requirements\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Metadata API requirements and restrictions&lt;/a&gt; for supported values. | |
+| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Marketplace ID values&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **specification_request** | [**\eBay\Sell\Metadata\Model\SpecificationRequest**](../Model/SpecificationRequest.md)| This type defines the properties and specifications to use to search for compatibilities. | [optional] |
 
 ### Return type
@@ -84,7 +84,7 @@ getCompatibilityPropertyNames($x_ebay_c_marketplace_id, $property_names_request)
 
 
 
-This method is used to retrieve product compatibility property names for the specified compatibility-enabled category.<br><br>Compatibility property names can be used alongside the corresponding compatibility property value (retrieved using the <a href=\"/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyValues\" target=\"_blank \">getCompatibilityPropertyValues</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property names is required in the request body.<br><br>By default, all property names within the compatibility category of the specified compatibility-enable category are returned. You can limit the size of the result set by using the <b>dataset</b> array to specify the types of properties you want returned.
+This method is used to retrieve product compatibility property names for the specified compatibility-enabled category.<br><br>Compatibility property names can be used alongside the corresponding compatibility property value (retrieved using the <a href=\"/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertyvalues\" >getCompatibilityPropertyValues</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property names is required in the request body.<br><br>By default, all property names within the compatibility category of the specified compatibility-enable category are returned. You can limit the size of the result set by using the <b>dataset</b> array to specify the types of properties you want returned.
 
 ### Example
 
@@ -106,7 +106,7 @@ $apiInstance = new eBay\Sell\Metadata\Api\CompatibilitiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/api-docs/sell/metadata/overview.html#requirements\" target=\"_blank \">Metadata API requirements and restrictions</a> for supported values.
+$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Marketplace ID values</a> for a list of supported eBay marketplace ID values.
 $property_names_request = new \eBay\Sell\Metadata\Model\PropertyNamesRequest(); // \eBay\Sell\Metadata\Model\PropertyNamesRequest | This type defines the properties used to retrieve compatibility property names.
 
 try {
@@ -121,7 +121,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/overview.html#requirements\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Metadata API requirements and restrictions&lt;/a&gt; for supported values. | |
+| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Marketplace ID values&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **property_names_request** | [**\eBay\Sell\Metadata\Model\PropertyNamesRequest**](../Model/PropertyNamesRequest.md)| This type defines the properties used to retrieve compatibility property names. | [optional] |
 
 ### Return type
@@ -149,7 +149,7 @@ getCompatibilityPropertyValues($x_ebay_c_marketplace_id, $property_values_reques
 
 
 
-This method is used to retrieve product compatibility property values associated with a single property name, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href=\"/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames\" target=\"_blank \">getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyName</b> for which you wish to retrieve associated values.<br><br>By default, all property values associated with the specified <b>propertyName</b> are returned. You can limit the size of the result set by using the <b>propertyFilter</b> array. Only property values associated with the specified name-value pairs will be returned.
+This method is used to retrieve product compatibility property values associated with a single property name, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href=\"/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertynames\">getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyName</b> for which you wish to retrieve associated values.<br><br>By default, all property values associated with the specified <b>propertyName</b> are returned. You can limit the size of the result set by using the <b>propertyFilter</b> array. Only property values associated with the specified name-value pairs will be returned.
 
 ### Example
 
@@ -171,7 +171,7 @@ $apiInstance = new eBay\Sell\Metadata\Api\CompatibilitiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/api-docs/sell/metadata/overview.html#requirements\" target=\"_blank \">Metadata API requirements and restrictions</a> for supported values.
+$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Marketplace ID values</a> for a list of supported eBay marketplace ID values.
 $property_values_request = new \eBay\Sell\Metadata\Model\PropertyValuesRequest(); // \eBay\Sell\Metadata\Model\PropertyValuesRequest | This type defines the category ID and property name for which to retrieve values.
 
 try {
@@ -186,7 +186,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/overview.html#requirements\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Metadata API requirements and restrictions&lt;/a&gt; for supported values. | |
+| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Marketplace ID values&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **property_values_request** | [**\eBay\Sell\Metadata\Model\PropertyValuesRequest**](../Model/PropertyValuesRequest.md)| This type defines the category ID and property name for which to retrieve values. | [optional] |
 
 ### Return type
@@ -214,7 +214,7 @@ getMultiCompatibilityPropertyValues($x_ebay_c_marketplace_id, $multi_compatibili
 
 
 
-This method is used to retrieve product compatibility property values associated with multiple property names, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href=\"/api-docs/sell/metadata/resources/compatibilities/methods/getCompatibilityPropertyNames\" target=\"_blank \">getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyNames</b> for which you wish to retrieve associated property values. The <b>propertyFilter</b> array is also required to constrain the output. Only property values associated with the specified name-value pairs will be returned.
+This method is used to retrieve product compatibility property values associated with multiple property names, in the specified category.<br><br>Compatibility property values can be used alongside the corresponding compatibility property name (retrieved using the <a href=\"/develop/api/sell/metadata_api#sell-metadata_api-compatibilities-getcompatibilitypropertynames\" >getCompatibilityPropertyNames</a> method) to describe the assembly for which an item is compatible.<br><br>The <b>categoryId</b> of the compatibility-enabled category for which to retrieve compatibility property values is required in the request body, as well as the <b>propertyNames</b> for which you wish to retrieve associated property values. The <b>propertyFilter</b> array is also required to constrain the output. Only property values associated with the specified name-value pairs will be returned.
 
 ### Example
 
@@ -236,7 +236,7 @@ $apiInstance = new eBay\Sell\Metadata\Api\CompatibilitiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/api-docs/sell/metadata/overview.html#requirements\" target=\"_blank \">Metadata API requirements and restrictions</a> for supported values.
+$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Marketplace ID values</a> for a list of supported eBay marketplace ID values.
 $multi_compatibility_property_values_request = new \eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesRequest(); // \eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesRequest | This type defines the category ID and property names for which to retrieve values.
 
 try {
@@ -251,7 +251,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/overview.html#requirements\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Metadata API requirements and restrictions&lt;/a&gt; for supported values. | |
+| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Marketplace ID values&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **multi_compatibility_property_values_request** | [**\eBay\Sell\Metadata\Model\MultiCompatibilityPropertyValuesRequest**](../Model/MultiCompatibilityPropertyValuesRequest.md)| This type defines the category ID and property names for which to retrieve values. | [optional] |
 
 ### Return type
@@ -301,7 +301,7 @@ $apiInstance = new eBay\Sell\Metadata\Api\CompatibilitiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/api-docs/sell/metadata/overview.html#requirements\" target=\"_blank \">Metadata API requirements and restrictions</a> for supported values.
+$x_ebay_c_marketplace_id = 'x_ebay_c_marketplace_id_example'; // string | This header identifies the seller's eBay marketplace.<br><br>See <a href=\"/develop/api/sell/request_headers#marketplace-id-values\" target=\"_blank \">Marketplace ID values</a> for a list of supported eBay marketplace ID values.
 $product_request = new \eBay\Sell\Metadata\Model\ProductRequest(); // \eBay\Sell\Metadata\Model\ProductRequest | This type defines properties for which to find compatibilities.
 
 try {
@@ -316,7 +316,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/api-docs/sell/metadata/overview.html#requirements\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Metadata API requirements and restrictions&lt;/a&gt; for supported values. | |
+| **x_ebay_c_marketplace_id** | **string**| This header identifies the seller&#39;s eBay marketplace.&lt;br&gt;&lt;br&gt;See &lt;a href&#x3D;\&quot;/develop/api/sell/request_headers#marketplace-id-values\&quot; target&#x3D;\&quot;_blank \&quot;&gt;Marketplace ID values&lt;/a&gt; for a list of supported eBay marketplace ID values. | |
 | **product_request** | [**\eBay\Sell\Metadata\Model\ProductRequest**](../Model/ProductRequest.md)| This type defines properties for which to find compatibilities. | [optional] |
 
 ### Return type
