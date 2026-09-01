@@ -60,8 +60,8 @@ class ListingDuration implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'duration_values' => '\eBay\Sell\Metadata\Model\DurationEnum[]',
-        'listing_type' => '\eBay\Sell\Metadata\Model\ListingTypeEnum'
+        'duration_values' => 'string[]',
+        'listing_type' => 'string'
     ];
 
     /**
@@ -275,7 +275,7 @@ class ListingDuration implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets duration_values
      *
-     * @return \eBay\Sell\Metadata\Model\DurationEnum[]|null
+     * @return string[]|null
      */
     public function getDurationValues(): ?array
     {
@@ -285,7 +285,7 @@ class ListingDuration implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets duration_values
      *
-     * @param \eBay\Sell\Metadata\Model\DurationEnum[]|null $duration_values This array defines the supported time duration options available for the listing type.
+     * @param string[]|null $duration_values This array defines the supported time duration options available for the listing type.
      *
      * @return $this
      */
@@ -302,9 +302,9 @@ class ListingDuration implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets listing_type
      *
-     * @return \eBay\Sell\Metadata\Model\ListingTypeEnum|null
+     * @return string|null
      */
-    public function getListingType(): ?\eBay\Sell\Metadata\Model\ListingTypeEnum
+    public function getListingType(): ?string
     {
         return $this->container['listing_type'];
     }
@@ -312,11 +312,11 @@ class ListingDuration implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets listing_type
      *
-     * @param \eBay\Sell\Metadata\Model\ListingTypeEnum|null $listing_type The enumerated value returned in this field indicates the listing type for the duration value(s).
+     * @param string|null $listing_type The enumerated value returned in this field indicates the listing type for the duration value(s).
      *
      * @return $this
      */
-    public function setListingType(?\eBay\Sell\Metadata\Model\ListingTypeEnum $listing_type): static
+    public function setListingType(?string $listing_type): static
     {
         if (is_null($listing_type)) {
             throw new InvalidArgumentException('non-nullable listing_type cannot be null');

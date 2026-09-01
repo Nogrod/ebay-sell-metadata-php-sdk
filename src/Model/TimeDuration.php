@@ -60,7 +60,7 @@ class TimeDuration implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'unit' => '\eBay\Sell\Metadata\Model\TimeDurationUnitEnum',
+        'unit' => 'string',
         'value' => 'int'
     ];
 
@@ -275,9 +275,9 @@ class TimeDuration implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets unit
      *
-     * @return \eBay\Sell\Metadata\Model\TimeDurationUnitEnum|null
+     * @return string|null
      */
-    public function getUnit(): ?\eBay\Sell\Metadata\Model\TimeDurationUnitEnum
+    public function getUnit(): ?string
     {
         return $this->container['unit'];
     }
@@ -285,11 +285,11 @@ class TimeDuration implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets unit
      *
-     * @param \eBay\Sell\Metadata\Model\TimeDurationUnitEnum|null $unit A time-measurement unit that specifies a singular period of time.  <br><br>A span of time is defined when you apply the value specified in the <b>value</b> field to the value specified for <b>unit</b>.  <br><br>Time-measurement units can be YEAR, MONTH, DAY, and so on. See <b>TimeDurationUnitEnum</b> for a complete list of possible time-measurement units.
+     * @param string|null $unit A time-measurement unit that specifies a singular period of time.  <br><br>A span of time is defined when you apply the value specified in the <b>value</b> field to the value specified for <b>unit</b>.  <br><br>Time-measurement units can be YEAR, MONTH, DAY, and so on. See <b>TimeDurationUnitEnum</b> for a complete list of possible time-measurement units.
      *
      * @return $this
      */
-    public function setUnit(?\eBay\Sell\Metadata\Model\TimeDurationUnitEnum $unit): static
+    public function setUnit(?string $unit): static
     {
         if (is_null($unit)) {
             throw new InvalidArgumentException('non-nullable unit cannot be null');

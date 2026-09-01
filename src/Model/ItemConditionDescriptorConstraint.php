@@ -61,11 +61,11 @@ class ItemConditionDescriptorConstraint implements ModelInterface, ArrayAccess, 
      */
     protected static array $openAPITypes = [
         'applicable_to_condition_descriptor_ids' => 'string[]',
-        'cardinality' => '\eBay\Sell\Metadata\Model\CardinalityEnum',
+        'cardinality' => 'string',
         'default_condition_descriptor_value_id' => 'string',
         'max_length' => 'int',
-        'mode' => '\eBay\Sell\Metadata\Model\ModeEnum',
-        'usage' => '\eBay\Sell\Metadata\Model\DescriptorUsageEnum'
+        'mode' => 'string',
+        'usage' => 'string'
     ];
 
     /**
@@ -330,9 +330,9 @@ class ItemConditionDescriptorConstraint implements ModelInterface, ArrayAccess, 
     /**
      * Gets cardinality
      *
-     * @return \eBay\Sell\Metadata\Model\CardinalityEnum|null
+     * @return string|null
      */
-    public function getCardinality(): ?\eBay\Sell\Metadata\Model\CardinalityEnum
+    public function getCardinality(): ?string
     {
         return $this->container['cardinality'];
     }
@@ -340,11 +340,11 @@ class ItemConditionDescriptorConstraint implements ModelInterface, ArrayAccess, 
     /**
      * Sets cardinality
      *
-     * @param \eBay\Sell\Metadata\Model\CardinalityEnum|null $cardinality The value returned in this field indicates whether a condition descriptor can have a single value or multiple values.
+     * @param string|null $cardinality The value returned in this field indicates whether a condition descriptor can have a single value or multiple values.
      *
      * @return $this
      */
-    public function setCardinality(?\eBay\Sell\Metadata\Model\CardinalityEnum $cardinality): static
+    public function setCardinality(?string $cardinality): static
     {
         if (is_null($cardinality)) {
             throw new InvalidArgumentException('non-nullable cardinality cannot be null');
@@ -411,9 +411,9 @@ class ItemConditionDescriptorConstraint implements ModelInterface, ArrayAccess, 
     /**
      * Gets mode
      *
-     * @return \eBay\Sell\Metadata\Model\ModeEnum|null
+     * @return string|null
      */
-    public function getMode(): ?\eBay\Sell\Metadata\Model\ModeEnum
+    public function getMode(): ?string
     {
         return $this->container['mode'];
     }
@@ -421,11 +421,11 @@ class ItemConditionDescriptorConstraint implements ModelInterface, ArrayAccess, 
     /**
      * Sets mode
      *
-     * @param \eBay\Sell\Metadata\Model\ModeEnum|null $mode The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class=\"tablenote\"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span>
+     * @param string|null $mode The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class=\"tablenote\"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span>
      *
      * @return $this
      */
-    public function setMode(?\eBay\Sell\Metadata\Model\ModeEnum $mode): static
+    public function setMode(?string $mode): static
     {
         if (is_null($mode)) {
             throw new InvalidArgumentException('non-nullable mode cannot be null');
@@ -438,9 +438,9 @@ class ItemConditionDescriptorConstraint implements ModelInterface, ArrayAccess, 
     /**
      * Gets usage
      *
-     * @return \eBay\Sell\Metadata\Model\DescriptorUsageEnum|null
+     * @return string|null
      */
-    public function getUsage(): ?\eBay\Sell\Metadata\Model\DescriptorUsageEnum
+    public function getUsage(): ?string
     {
         return $this->container['usage'];
     }
@@ -448,11 +448,11 @@ class ItemConditionDescriptorConstraint implements ModelInterface, ArrayAccess, 
     /**
      * Sets usage
      *
-     * @param \eBay\Sell\Metadata\Model\DescriptorUsageEnum|null $usage This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition.
+     * @param string|null $usage This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition.
      *
      * @return $this
      */
-    public function setUsage(?\eBay\Sell\Metadata\Model\DescriptorUsageEnum $usage): static
+    public function setUsage(?string $usage): static
     {
         if (is_null($usage)) {
             throw new InvalidArgumentException('non-nullable usage cannot be null');

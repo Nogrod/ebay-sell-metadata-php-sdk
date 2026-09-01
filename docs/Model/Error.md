@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **parameters** | [**\eBay\Sell\Metadata\Model\ErrorParameter[]**](ErrorParameter.md) | An array of name/value pairs that provide further details about the error condition. | [optional]
 **subdomain** | **string** | The name of the subdomain where the error or warning occurred. | [optional]
 **input_ref_infos** | [**\eBay\Sell\Metadata\Model\ErrorParameter[]**](ErrorParameter.md) | An array of reference IDs and associated values that indicate the specific value(s) that caused this error or warning. | [optional]
-**severity** | [**\eBay\Sell\Metadata\Model\ErrorSeverityEnum**](ErrorSeverityEnum.md) |  | [optional]
+**severity** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

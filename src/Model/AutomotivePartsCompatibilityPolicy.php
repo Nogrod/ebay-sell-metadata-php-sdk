@@ -62,8 +62,8 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     protected static array $openAPITypes = [
         'category_id' => 'string',
         'category_tree_id' => 'string',
-        'compatibility_based_on' => '\eBay\Sell\Metadata\Model\CompatibilityTypeEnum',
-        'compatible_vehicle_types' => '\eBay\Sell\Metadata\Model\CompatibleVehicleTypeEnum[]',
+        'compatibility_based_on' => 'string',
+        'compatible_vehicle_types' => 'string[]',
         'max_number_of_compatible_vehicles' => 'int'
     ];
 
@@ -350,9 +350,9 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     /**
      * Gets compatibility_based_on
      *
-     * @return \eBay\Sell\Metadata\Model\CompatibilityTypeEnum|null
+     * @return string|null
      */
-    public function getCompatibilityBasedOn(): ?\eBay\Sell\Metadata\Model\CompatibilityTypeEnum
+    public function getCompatibilityBasedOn(): ?string
     {
         return $this->container['compatibility_based_on'];
     }
@@ -360,11 +360,11 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     /**
      * Sets compatibility_based_on
      *
-     * @param \eBay\Sell\Metadata\Model\CompatibilityTypeEnum|null $compatibility_based_on Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>.<br><br><span class=\"tablenote\"><b>Note:</b> Only categories returning the <b>compatibilityBasedOn</b> field support compatibility. Categories where all compatibility fields are missing, or where only <b>compatibilityBasedOn</b> is missing, should be considered as not supporting compatibility.</span>
+     * @param string|null $compatibility_based_on Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>.<br><br><span class=\"tablenote\"><b>Note:</b> Only categories returning the <b>compatibilityBasedOn</b> field support compatibility. Categories where all compatibility fields are missing, or where only <b>compatibilityBasedOn</b> is missing, should be considered as not supporting compatibility.</span>
      *
      * @return $this
      */
-    public function setCompatibilityBasedOn(?\eBay\Sell\Metadata\Model\CompatibilityTypeEnum $compatibility_based_on): static
+    public function setCompatibilityBasedOn(?string $compatibility_based_on): static
     {
         if (is_null($compatibility_based_on)) {
             throw new InvalidArgumentException('non-nullable compatibility_based_on cannot be null');
@@ -377,7 +377,7 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     /**
      * Gets compatible_vehicle_types
      *
-     * @return \eBay\Sell\Metadata\Model\CompatibleVehicleTypeEnum[]|null
+     * @return string[]|null
      */
     public function getCompatibleVehicleTypes(): ?array
     {
@@ -387,7 +387,7 @@ class AutomotivePartsCompatibilityPolicy implements ModelInterface, ArrayAccess,
     /**
      * Sets compatible_vehicle_types
      *
-     * @param \eBay\Sell\Metadata\Model\CompatibleVehicleTypeEnum[]|null $compatible_vehicle_types Indicates the compatibility classification of the part based on high-level vehicle types.
+     * @param string[]|null $compatible_vehicle_types Indicates the compatibility classification of the part based on high-level vehicle types.
      *
      * @return $this
      */

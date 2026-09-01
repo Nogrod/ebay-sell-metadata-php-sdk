@@ -60,18 +60,18 @@ class ClassifiedAdPolicy implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'ad_format_enabled' => '\eBay\Sell\Metadata\Model\AdFormatEnabledEnum',
+        'ad_format_enabled' => 'string',
         'category_id' => 'string',
         'category_tree_id' => 'string',
         'classified_ad_auto_accept_enabled' => 'bool',
         'classified_ad_auto_decline_enabled' => 'bool',
-        'classified_ad_best_offer_enabled' => '\eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum',
+        'classified_ad_best_offer_enabled' => 'string',
         'classified_ad_company_name_enabled' => 'bool',
         'classified_ad_contact_by_address_enabled' => 'bool',
         'classified_ad_contact_by_email_enabled' => 'bool',
         'classified_ad_contact_by_phone_enabled' => 'bool',
         'classified_ad_counter_offer_enabled' => 'bool',
-        'classified_ad_payment_method_enabled' => '\eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum',
+        'classified_ad_payment_method_enabled' => 'string',
         'classified_ad_phone_count' => 'int',
         'classified_ad_shipping_method_enabled' => 'bool',
         'classified_ad_street_count' => 'int',
@@ -373,9 +373,9 @@ class ClassifiedAdPolicy implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets ad_format_enabled
      *
-     * @return \eBay\Sell\Metadata\Model\AdFormatEnabledEnum|null
+     * @return string|null
      */
-    public function getAdFormatEnabled(): ?\eBay\Sell\Metadata\Model\AdFormatEnabledEnum
+    public function getAdFormatEnabled(): ?string
     {
         return $this->container['ad_format_enabled'];
     }
@@ -383,11 +383,11 @@ class ClassifiedAdPolicy implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets ad_format_enabled
      *
-     * @param \eBay\Sell\Metadata\Model\AdFormatEnabledEnum|null $ad_format_enabled This enumerated value indicates the type or status of available Classified Ad formats for this category.
+     * @param string|null $ad_format_enabled This enumerated value indicates the type or status of available Classified Ad formats for this category.
      *
      * @return $this
      */
-    public function setAdFormatEnabled(?\eBay\Sell\Metadata\Model\AdFormatEnabledEnum $ad_format_enabled): static
+    public function setAdFormatEnabled(?string $ad_format_enabled): static
     {
         if (is_null($ad_format_enabled)) {
             throw new InvalidArgumentException('non-nullable ad_format_enabled cannot be null');
@@ -508,9 +508,9 @@ class ClassifiedAdPolicy implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets classified_ad_best_offer_enabled
      *
-     * @return \eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum|null
+     * @return string|null
      */
-    public function getClassifiedAdBestOfferEnabled(): ?\eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum
+    public function getClassifiedAdBestOfferEnabled(): ?string
     {
         return $this->container['classified_ad_best_offer_enabled'];
     }
@@ -518,11 +518,11 @@ class ClassifiedAdPolicy implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets classified_ad_best_offer_enabled
      *
-     * @param \eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum|null $classified_ad_best_offer_enabled This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category.
+     * @param string|null $classified_ad_best_offer_enabled This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category.
      *
      * @return $this
      */
-    public function setClassifiedAdBestOfferEnabled(?\eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum $classified_ad_best_offer_enabled): static
+    public function setClassifiedAdBestOfferEnabled(?string $classified_ad_best_offer_enabled): static
     {
         if (is_null($classified_ad_best_offer_enabled)) {
             throw new InvalidArgumentException('non-nullable classified_ad_best_offer_enabled cannot be null');
@@ -670,9 +670,9 @@ class ClassifiedAdPolicy implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets classified_ad_payment_method_enabled
      *
-     * @return \eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum|null
+     * @return string|null
      */
-    public function getClassifiedAdPaymentMethodEnabled(): ?\eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum
+    public function getClassifiedAdPaymentMethodEnabled(): ?string
     {
         return $this->container['classified_ad_payment_method_enabled'];
     }
@@ -680,11 +680,11 @@ class ClassifiedAdPolicy implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets classified_ad_payment_method_enabled
      *
-     * @param \eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum|null $classified_ad_payment_method_enabled This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled.
+     * @param string|null $classified_ad_payment_method_enabled This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled.
      *
      * @return $this
      */
-    public function setClassifiedAdPaymentMethodEnabled(?\eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum $classified_ad_payment_method_enabled): static
+    public function setClassifiedAdPaymentMethodEnabled(?string $classified_ad_payment_method_enabled): static
     {
         if (is_null($classified_ad_payment_method_enabled)) {
             throw new InvalidArgumentException('non-nullable classified_ad_payment_method_enabled cannot be null');

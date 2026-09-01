@@ -61,8 +61,8 @@ class ExtendedProducerResponsibility implements ModelInterface, ArrayAccess, Jso
      */
     protected static array $openAPITypes = [
         'enabled_for_variations' => 'bool',
-        'name' => '\eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityEnum',
-        'usage' => '\eBay\Sell\Metadata\Model\GenericUsageEnum'
+        'name' => 'string',
+        'usage' => 'string'
     ];
 
     /**
@@ -309,9 +309,9 @@ class ExtendedProducerResponsibility implements ModelInterface, ArrayAccess, Jso
     /**
      * Gets name
      *
-     * @return \eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityEnum|null
+     * @return string|null
      */
-    public function getName(): ?\eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityEnum
+    public function getName(): ?string
     {
         return $this->container['name'];
     }
@@ -319,11 +319,11 @@ class ExtendedProducerResponsibility implements ModelInterface, ArrayAccess, Jso
     /**
      * Sets name
      *
-     * @param \eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityEnum|null $name The name of the attribute included in the policy.
+     * @param string|null $name The name of the attribute included in the policy.
      *
      * @return $this
      */
-    public function setName(?\eBay\Sell\Metadata\Model\ExtendedProducerResponsibilityEnum $name): static
+    public function setName(?string $name): static
     {
         if (is_null($name)) {
             throw new InvalidArgumentException('non-nullable name cannot be null');
@@ -336,9 +336,9 @@ class ExtendedProducerResponsibility implements ModelInterface, ArrayAccess, Jso
     /**
      * Gets usage
      *
-     * @return \eBay\Sell\Metadata\Model\GenericUsageEnum|null
+     * @return string|null
      */
-    public function getUsage(): ?\eBay\Sell\Metadata\Model\GenericUsageEnum
+    public function getUsage(): ?string
     {
         return $this->container['usage'];
     }
@@ -346,11 +346,11 @@ class ExtendedProducerResponsibility implements ModelInterface, ArrayAccess, Jso
     /**
      * Sets usage
      *
-     * @param \eBay\Sell\Metadata\Model\GenericUsageEnum|null $usage The usage guidelines for the attribute, in the specified marketplace.
+     * @param string|null $usage The usage guidelines for the attribute, in the specified marketplace.
      *
      * @return $this
      */
-    public function setUsage(?\eBay\Sell\Metadata\Model\GenericUsageEnum $usage): static
+    public function setUsage(?string $usage): static
     {
         if (is_null($usage)) {
             throw new InvalidArgumentException('non-nullable usage cannot be null');

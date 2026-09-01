@@ -70,7 +70,7 @@ class Error implements ModelInterface, ArrayAccess, JsonSerializable
         'parameters' => '\eBay\Sell\Metadata\Model\ErrorParameter[]',
         'subdomain' => 'string',
         'input_ref_infos' => '\eBay\Sell\Metadata\Model\ErrorParameter[]',
-        'severity' => '\eBay\Sell\Metadata\Model\ErrorSeverityEnum'
+        'severity' => 'string'
     ];
 
     /**
@@ -608,9 +608,9 @@ class Error implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets severity
      *
-     * @return \eBay\Sell\Metadata\Model\ErrorSeverityEnum|null
+     * @return string|null
      */
-    public function getSeverity(): ?\eBay\Sell\Metadata\Model\ErrorSeverityEnum
+    public function getSeverity(): ?string
     {
         return $this->container['severity'];
     }
@@ -618,11 +618,11 @@ class Error implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets severity
      *
-     * @param \eBay\Sell\Metadata\Model\ErrorSeverityEnum|null $severity severity
+     * @param string|null $severity severity
      *
      * @return $this
      */
-    public function setSeverity(?\eBay\Sell\Metadata\Model\ErrorSeverityEnum $severity): static
+    public function setSeverity(?string $severity): static
     {
         if (is_null($severity)) {
             throw new InvalidArgumentException('non-nullable severity cannot be null');

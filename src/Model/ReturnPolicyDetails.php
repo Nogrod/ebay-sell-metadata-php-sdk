@@ -61,11 +61,11 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, JsonSerializab
      */
     protected static array $openAPITypes = [
         'policy_description_enabled' => 'bool',
-        'refund_methods' => '\eBay\Sell\Metadata\Model\RefundMethodEnum[]',
-        'return_methods' => '\eBay\Sell\Metadata\Model\ReturnMethodEnum[]',
+        'refund_methods' => 'string[]',
+        'return_methods' => 'string[]',
         'return_periods' => '\eBay\Sell\Metadata\Model\TimeDuration[]',
         'returns_acceptance_enabled' => 'bool',
-        'return_shipping_cost_payers' => '\eBay\Sell\Metadata\Model\ReturnShippingCostPayerEnum[]'
+        'return_shipping_cost_payers' => 'string[]'
     ];
 
     /**
@@ -330,7 +330,7 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets refund_methods
      *
-     * @return \eBay\Sell\Metadata\Model\RefundMethodEnum[]|null
+     * @return string[]|null
      */
     public function getRefundMethods(): ?array
     {
@@ -340,7 +340,7 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets refund_methods
      *
-     * @param \eBay\Sell\Metadata\Model\RefundMethodEnum[]|null $refund_methods A list of refund methods allowed for the associated category.<br/><br/><span class=\"tablenote\"><strong>Note:</strong> Depending on the API used to setup your return policy, available refund methods are defined differently.<ul><li><b>Account v1 API</b><br/>When using the <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy\" target=\"_blank\">createReturnPolicy</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy\" target=\"_blank\">updateReturnPolicy</a> methods to create/manage business policies, use the appropriate <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy#request.refundMethod\" target=\"_blank\">refundMethod</a> field to specify the refund method for both domestic and international returns for the business policy.</li><li><b>Trading API or Sell Feed API</b><br/><br.>When using legacy <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy\" target=\"_blank\">ReturnPolicy</a> fields, use <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.RefundOption\" target=\"_blank\">RefundOption</a> and <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.InternationalRefundOption\" target=\"_blank\">InternationalRefundOption</a> to specify the domestic and international refund method, respectively, for returns for the business policy.<br/><br/>Note that if <b>MONEY_BACK</b> is returned by <b>getReturnPolicies</b>, use <b>MoneyBack</b> in <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.RefundOption\" target=\"_blank\">RefundOption</a> and <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.InternationalRefundOption\" target=\"_blank\">InternationalRefundOption</a>.</li></ul></span>
+     * @param string[]|null $refund_methods A list of refund methods allowed for the associated category.<br/><br/><span class=\"tablenote\"><strong>Note:</strong> Depending on the API used to setup your return policy, available refund methods are defined differently.<ul><li><b>Account v1 API</b><br/>When using the <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy\" target=\"_blank\">createReturnPolicy</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy\" target=\"_blank\">updateReturnPolicy</a> methods to create/manage business policies, use the appropriate <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy#request.refundMethod\" target=\"_blank\">refundMethod</a> field to specify the refund method for both domestic and international returns for the business policy.</li><li><b>Trading API or Sell Feed API</b><br/><br.>When using legacy <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy\" target=\"_blank\">ReturnPolicy</a> fields, use <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.RefundOption\" target=\"_blank\">RefundOption</a> and <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.InternationalRefundOption\" target=\"_blank\">InternationalRefundOption</a> to specify the domestic and international refund method, respectively, for returns for the business policy.<br/><br/>Note that if <b>MONEY_BACK</b> is returned by <b>getReturnPolicies</b>, use <b>MoneyBack</b> in <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.RefundOption\" target=\"_blank\">RefundOption</a> and <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.InternationalRefundOption\" target=\"_blank\">InternationalRefundOption</a>.</li></ul></span>
      *
      * @return $this
      */
@@ -357,7 +357,7 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets return_methods
      *
-     * @return \eBay\Sell\Metadata\Model\ReturnMethodEnum[]|null
+     * @return string[]|null
      */
     public function getReturnMethods(): ?array
     {
@@ -367,7 +367,7 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets return_methods
      *
-     * @param \eBay\Sell\Metadata\Model\ReturnMethodEnum[]|null $return_methods A list of return methods allowed for the associated category.<br/><br/><span class=\"tablenote\"><strong>Note:</strong> Depending on the API used to setup your return policy, available return methods are defined differently.<ul><li><b>Account v1 API</b><br/>When using <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy\" target=\"_blank\">createReturnPolicy</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy\" target=\"_blank\">updateReturnPolicy</a> to create/manage business policies, use <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy#request.returnMethod\" target=\"_blank\">returnMethod</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy#request.internationalOverride.returnMethod\" target=\"_blank\">internationalOverride.returnMethod</a> to specify the domestic and international return method, respectively, for the business policy.</li></ul></span>
+     * @param string[]|null $return_methods A list of return methods allowed for the associated category.<br/><br/><span class=\"tablenote\"><strong>Note:</strong> Depending on the API used to setup your return policy, available return methods are defined differently.<ul><li><b>Account v1 API</b><br/>When using <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy\" target=\"_blank\">createReturnPolicy</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy\" target=\"_blank\">updateReturnPolicy</a> to create/manage business policies, use <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy#request.returnMethod\" target=\"_blank\">returnMethod</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy#request.internationalOverride.returnMethod\" target=\"_blank\">internationalOverride.returnMethod</a> to specify the domestic and international return method, respectively, for the business policy.</li></ul></span>
      *
      * @return $this
      */
@@ -438,7 +438,7 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets return_shipping_cost_payers
      *
-     * @return \eBay\Sell\Metadata\Model\ReturnShippingCostPayerEnum[]|null
+     * @return string[]|null
      */
     public function getReturnShippingCostPayers(): ?array
     {
@@ -448,7 +448,7 @@ class ReturnPolicyDetails implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets return_shipping_cost_payers
      *
-     * @param \eBay\Sell\Metadata\Model\ReturnShippingCostPayerEnum[]|null $return_shipping_cost_payers A list of allowed values for who pays for the return shipping cost.<br><br>Note that for SNAD returns, the seller is always responsible for the return shipping cost.<br/><br/><span class=\"tablenote\"><strong>Note:</strong> Depending on the API used to setup your return policy, specifiying that the buyer or seller is responsible for paying for return shipping costs is defined differently.<ul><li><b>Account v1 API</b><br/>When using <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy\" target=\"_blank\">createReturnPolicy</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy\" target=\"_blank\">updateReturnPolicy</a> to create/manage business policies, use <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy#request.returnShippingCostPayer\" target=\"_blank\">returnShippingCostPayer</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy#request.internationalOverride.returnShippingCostPayer\" target=\"_blank\">internationalOverride.returnShippingCostPayer</a> to specify if the buyer or seller is responsible for paying return shipping charges for the business policy.</li><li><b>Trading API or Sell Feed API</b><br/><br.>When using legacy <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy\" target=\"_blank\">ReturnPolicy</a> fields, use <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.ShippingCostPaidByOption\" target=\"_blank\">ShippingCostPaidByOption</a> and <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.InternationalShippingCostPaidByOption\" target=\"_blank\">InternationalShippingCostPaidByOption</a> fields to specify if the buyer or seller is responsible for paying return shipping charges for the business policy.</li></ul></span>
+     * @param string[]|null $return_shipping_cost_payers A list of allowed values for who pays for the return shipping cost.<br><br>Note that for SNAD returns, the seller is always responsible for the return shipping cost.<br/><br/><span class=\"tablenote\"><strong>Note:</strong> Depending on the API used to setup your return policy, specifiying that the buyer or seller is responsible for paying for return shipping costs is defined differently.<ul><li><b>Account v1 API</b><br/>When using <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy\" target=\"_blank\">createReturnPolicy</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy\" target=\"_blank\">updateReturnPolicy</a> to create/manage business policies, use <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy#request.returnShippingCostPayer\" target=\"_blank\">returnShippingCostPayer</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy#request.internationalOverride.returnShippingCostPayer\" target=\"_blank\">internationalOverride.returnShippingCostPayer</a> to specify if the buyer or seller is responsible for paying return shipping charges for the business policy.</li><li><b>Trading API or Sell Feed API</b><br/><br.>When using legacy <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy\" target=\"_blank\">ReturnPolicy</a> fields, use <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.ShippingCostPaidByOption\" target=\"_blank\">ShippingCostPaidByOption</a> and <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.InternationalShippingCostPaidByOption\" target=\"_blank\">InternationalShippingCostPaidByOption</a> fields to specify if the buyer or seller is responsible for paying return shipping charges for the business policy.</li></ul></span>
      *
      * @return $this
      */

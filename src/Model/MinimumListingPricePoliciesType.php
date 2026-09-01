@@ -61,7 +61,7 @@ class MinimumListingPricePoliciesType implements ModelInterface, ArrayAccess, Js
      */
     protected static array $openAPITypes = [
         'description' => 'string',
-        'listing_type' => '\eBay\Sell\Metadata\Model\ListingTypeEnum',
+        'listing_type' => 'string',
         'min_buy_it_now_price_percent' => 'string',
         'start_price' => '\eBay\Sell\Metadata\Model\Amount'
     ];
@@ -316,9 +316,9 @@ class MinimumListingPricePoliciesType implements ModelInterface, ArrayAccess, Js
     /**
      * Gets listing_type
      *
-     * @return \eBay\Sell\Metadata\Model\ListingTypeEnum|null
+     * @return string|null
      */
-    public function getListingType(): ?\eBay\Sell\Metadata\Model\ListingTypeEnum
+    public function getListingType(): ?string
     {
         return $this->container['listing_type'];
     }
@@ -326,11 +326,11 @@ class MinimumListingPricePoliciesType implements ModelInterface, ArrayAccess, Js
     /**
      * Sets listing_type
      *
-     * @param \eBay\Sell\Metadata\Model\ListingTypeEnum|null $listing_type This enum value indicates the listing type for which minimum starting price policies are being returned.<br><br><span class=\"tablenote\"><b>Note:</b> The only applicable values for this method are <code>AUCTION</code> and <code>FIXED_PRICE_ITEM</code>.</span>
+     * @param string|null $listing_type This enum value indicates the listing type for which minimum starting price policies are being returned.<br><br><span class=\"tablenote\"><b>Note:</b> The only applicable values for this method are <code>AUCTION</code> and <code>FIXED_PRICE_ITEM</code>.</span>
      *
      * @return $this
      */
-    public function setListingType(?\eBay\Sell\Metadata\Model\ListingTypeEnum $listing_type): static
+    public function setListingType(?string $listing_type): static
     {
         if (is_null($listing_type)) {
             throw new InvalidArgumentException('non-nullable listing_type cannot be null');

@@ -64,18 +64,18 @@ class CategoryPolicy implements ModelInterface, ArrayAccess, JsonSerializable
         'b2b_vat_enabled' => 'bool',
         'category_id' => 'string',
         'category_tree_id' => 'string',
-        'ean_support' => '\eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum',
+        'ean_support' => 'string',
         'expired' => 'bool',
         'intangible_enabled' => 'bool',
-        'isbn_support' => '\eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum',
+        'isbn_support' => 'string',
         'lsd' => 'bool',
         'minimum_reserve_price' => 'float',
         'orpa' => 'bool',
         'orra' => 'bool',
-        'payment_methods' => '\eBay\Sell\Metadata\Model\PaymentEnum[]',
+        'payment_methods' => 'string[]',
         'reduce_reserve_allowed' => 'bool',
         'reserve_price_allowed' => 'bool',
-        'upc_support' => '\eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum',
+        'upc_support' => 'string',
         'value_category' => 'bool',
         'virtual' => 'bool'
     ];
@@ -495,9 +495,9 @@ class CategoryPolicy implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets ean_support
      *
-     * @return \eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum|null
+     * @return string|null
      */
-    public function getEanSupport(): ?\eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum
+    public function getEanSupport(): ?string
     {
         return $this->container['ean_support'];
     }
@@ -505,11 +505,11 @@ class CategoryPolicy implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets ean_support
      *
-     * @param \eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum|null $ean_support This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category.
+     * @param string|null $ean_support This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category.
      *
      * @return $this
      */
-    public function setEanSupport(?\eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum $ean_support): static
+    public function setEanSupport(?string $ean_support): static
     {
         if (is_null($ean_support)) {
             throw new InvalidArgumentException('non-nullable ean_support cannot be null');
@@ -576,9 +576,9 @@ class CategoryPolicy implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets isbn_support
      *
-     * @return \eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum|null
+     * @return string|null
      */
-    public function getIsbnSupport(): ?\eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum
+    public function getIsbnSupport(): ?string
     {
         return $this->container['isbn_support'];
     }
@@ -586,11 +586,11 @@ class CategoryPolicy implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets isbn_support
      *
-     * @param \eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum|null $isbn_support This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category.
+     * @param string|null $isbn_support This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category.
      *
      * @return $this
      */
-    public function setIsbnSupport(?\eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum $isbn_support): static
+    public function setIsbnSupport(?string $isbn_support): static
     {
         if (is_null($isbn_support)) {
             throw new InvalidArgumentException('non-nullable isbn_support cannot be null');
@@ -711,7 +711,7 @@ class CategoryPolicy implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets payment_methods
      *
-     * @return \eBay\Sell\Metadata\Model\PaymentEnum[]|null
+     * @return string[]|null
      */
     public function getPaymentMethods(): ?array
     {
@@ -721,7 +721,7 @@ class CategoryPolicy implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets payment_methods
      *
-     * @param \eBay\Sell\Metadata\Model\PaymentEnum[]|null $payment_methods An array that indicates the acceptable offline payment methods that can be used when listing an item for sale in the corresponding category.
+     * @param string[]|null $payment_methods An array that indicates the acceptable offline payment methods that can be used when listing an item for sale in the corresponding category.
      *
      * @return $this
      */
@@ -792,9 +792,9 @@ class CategoryPolicy implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets upc_support
      *
-     * @return \eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum|null
+     * @return string|null
      */
-    public function getUpcSupport(): ?\eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum
+    public function getUpcSupport(): ?string
     {
         return $this->container['upc_support'];
     }
@@ -802,11 +802,11 @@ class CategoryPolicy implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets upc_support
      *
-     * @param \eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum|null $upc_support This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing.
+     * @param string|null $upc_support This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing.
      *
      * @return $this
      */
-    public function setUpcSupport(?\eBay\Sell\Metadata\Model\ProductIdentiferEnabledEnum $upc_support): static
+    public function setUpcSupport(?string $upc_support): static
     {
         if (is_null($upc_support)) {
             throw new InvalidArgumentException('non-nullable upc_support cannot be null');

@@ -61,7 +61,7 @@ class GetCurrenciesResponse implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static array $openAPITypes = [
         'default_currency' => '\eBay\Sell\Metadata\Model\Currency',
-        'marketplace_id' => '\eBay\Sell\Metadata\Model\MarketplaceIdEnum'
+        'marketplace_id' => 'string'
     ];
 
     /**
@@ -302,9 +302,9 @@ class GetCurrenciesResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets marketplace_id
      *
-     * @return \eBay\Sell\Metadata\Model\MarketplaceIdEnum|null
+     * @return string|null
      */
-    public function getMarketplaceId(): ?\eBay\Sell\Metadata\Model\MarketplaceIdEnum
+    public function getMarketplaceId(): ?string
     {
         return $this->container['marketplace_id'];
     }
@@ -312,11 +312,11 @@ class GetCurrenciesResponse implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets marketplace_id
      *
-     * @param \eBay\Sell\Metadata\Model\MarketplaceIdEnum|null $marketplace_id The ID of the eBay marketplace to which the default currency applies.
+     * @param string|null $marketplace_id The ID of the eBay marketplace to which the default currency applies.
      *
      * @return $this
      */
-    public function setMarketplaceId(?\eBay\Sell\Metadata\Model\MarketplaceIdEnum $marketplace_id): static
+    public function setMarketplaceId(?string $marketplace_id): static
     {
         if (is_null($marketplace_id)) {
             throw new InvalidArgumentException('non-nullable marketplace_id cannot be null');

@@ -3725,8 +3725,8 @@
         "type": "object",
         "properties": {
           "currency": {
-            "description": "The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html \" target=\"_blank\">ISO 4217</a> code representing the currency of the amount in the <b> value</b> field.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. For example, on the US marketplace the only currency supported is USD.",
-            "$ref": "#/components/schemas/CurrencyCodeEnum"
+            "type": "string",
+            "description": "The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html \" target=\"_blank\">ISO 4217</a> code representing the currency of the amount in the <b> value</b> field.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. For example, on the US marketplace the only currency supported is USD."
           },
           "value": {
             "type": "string",
@@ -3748,14 +3748,14 @@
             "description": "A value that indicates the root node of the category tree used for the response set. Each marketplace is based on a category tree whose root node is indicated by this unique category ID value. All category policy information returned by this call pertains to the categories included below this root node of the tree.    <br><br>A <i>category tree</i> is a hierarchical framework of eBay categories that begins at the root node of the tree and extends to include all the child nodes in the tree. Each child node in the tree is an eBay category that is represented by a unique <b>categoryId</b> value. Within a category tree, the root node has no parent node and <i>leaf nodes</i> are nodes that have no child nodes."
           },
           "compatibilityBasedOn": {
-            "description": "Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>.<br><br><span class=\"tablenote\"><b>Note:</b> Only categories returning the <b>compatibilityBasedOn</b> field support compatibility. Categories where all compatibility fields are missing, or where only <b>compatibilityBasedOn</b> is missing, should be considered as not supporting compatibility.</span>",
-            "$ref": "#/components/schemas/CompatibilityTypeEnum"
+            "type": "string",
+            "description": "Indicates whether the category supports parts compatibility by either <code>ASSEMBLY</code> or by <code>SPECIFICATION</code>.<br><br><span class=\"tablenote\"><b>Note:</b> Only categories returning the <b>compatibilityBasedOn</b> field support compatibility. Categories where all compatibility fields are missing, or where only <b>compatibilityBasedOn</b> is missing, should be considered as not supporting compatibility.</span>"
           },
           "compatibleVehicleTypes": {
             "type": "array",
             "description": "Indicates the compatibility classification of the part based on high-level vehicle types.",
             "items": {
-              "$ref": "#/components/schemas/CompatibleVehicleTypeEnum"
+              "type": "string"
             }
           },
           "maxNumberOfCompatibleVehicles": {
@@ -3813,8 +3813,8 @@
             "description": "The unique identifier of the category tree."
           },
           "eanSupport": {
-            "description": "This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category.",
-            "$ref": "#/components/schemas/ProductIdentiferEnabledEnum"
+            "type": "string",
+            "description": "This enumerated value indicates whether or not European Article Numbers (EANs) are supported/required when listing products in the category."
           },
           "expired": {
             "type": "boolean",
@@ -3825,8 +3825,8 @@
             "description": "If this field is returned as true, the category supports the listing of intangible goods or services."
           },
           "isbnSupport": {
-            "description": "This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category.",
-            "$ref": "#/components/schemas/ProductIdentiferEnabledEnum"
+            "type": "string",
+            "description": "This enumerated value indicates whether or not International Standard Book Numbers (ISBNs) are supported/required when listing products in the specified category."
           },
           "lsd": {
             "type": "boolean",
@@ -3848,7 +3848,7 @@
             "type": "array",
             "description": "An array that indicates the acceptable offline payment methods that can be used when listing an item for sale in the corresponding category.",
             "items": {
-              "$ref": "#/components/schemas/PaymentEnum"
+              "type": "string"
             }
           },
           "reduceReserveAllowed": {
@@ -3860,8 +3860,8 @@
             "description": "This field indicates whether reserve prices are allowed for auction listings in this category. This field returns as true when the category supports reserve prices, or false if the eBay marketplace does not permit reserve prices or the category override blocks reserve prices (orpa is true)."
           },
           "upcSupport": {
-            "description": "This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing.",
-            "$ref": "#/components/schemas/ProductIdentiferEnabledEnum"
+            "type": "string",
+            "description": "This enumerated value indicates whether or not the category on the specified eBay site supports the use of Universal Product Codes (UPCs) to help create a listing."
           },
           "valueCategory": {
             "type": "boolean",
@@ -3916,8 +3916,8 @@
         "type": "object",
         "properties": {
           "adFormatEnabled": {
-            "description": "This enumerated value indicates the type or status of available Classified Ad formats for this category.",
-            "$ref": "#/components/schemas/AdFormatEnabledEnum"
+            "type": "string",
+            "description": "This enumerated value indicates the type or status of available Classified Ad formats for this category."
           },
           "categoryId": {
             "type": "string",
@@ -3936,8 +3936,8 @@
             "description": "Indicates whether the category supports the Best Offer Automatic Reject feature for Classified Ad listings."
           },
           "classifiedAdBestOfferEnabled": {
-            "description": "This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category.",
-            "$ref": "#/components/schemas/ClassifiedAdBestOfferEnabledEnum"
+            "type": "string",
+            "description": "This enumerated value indicates if Best Offer is enabled, disabled, or required for Classified Ad listings in this category."
           },
           "classifiedAdCompanyNameEnabled": {
             "type": "boolean",
@@ -3960,8 +3960,8 @@
             "description": "Indicates whether counter offers are allowed on Best Offers for most categories."
           },
           "classifiedAdPaymentMethodEnabled": {
-            "description": "This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled.",
-            "$ref": "#/components/schemas/ClassifiedAdPaymentMethodEnabledEnum"
+            "type": "string",
+            "description": "This enumerated value indicates support for the payment method being displayed to the user for the category. Even if enabled, checkout may or may not be enabled."
           },
           "classifiedAdPhoneCount": {
             "type": "integer",
@@ -4326,8 +4326,8 @@
         "type": "object",
         "properties": {
           "code": {
-            "description": "The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html \" target=\"_blank\">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>.",
-            "$ref": "#/components/schemas/CurrencyCodeEnum"
+            "type": "string",
+            "description": "The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html \" target=\"_blank\">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>."
           },
           "description": {
             "type": "string",
@@ -4598,7 +4598,7 @@
             }
           },
           "severity": {
-            "$ref": "#/components/schemas/ErrorSeverityEnum"
+            "type": "string"
           }
         },
         "description": "This type defines the fields that can be returned in an error."
@@ -4690,12 +4690,12 @@
             "description": "An indication of whether the attribute can be enabled for listing variations.<br><br>If the value is <code>true</code>, the attribute may be specified at the variation level."
           },
           "name": {
-            "description": "The name of the attribute included in the policy.",
-            "$ref": "#/components/schemas/ExtendedProducerResponsibilityEnum"
+            "type": "string",
+            "description": "The name of the attribute included in the policy."
           },
           "usage": {
-            "description": "The usage guidelines for the attribute, in the specified marketplace.",
-            "$ref": "#/components/schemas/GenericUsageEnum"
+            "type": "string",
+            "description": "The usage guidelines for the attribute, in the specified marketplace."
           }
         },
         "description": "A type that defines the attributes of an Extended Producer Responsibility policy."
@@ -4776,8 +4776,8 @@
             "$ref": "#/components/schemas/Currency"
           },
           "marketplaceId": {
-            "description": "The ID of the eBay marketplace to which the default currency applies.",
-            "$ref": "#/components/schemas/MarketplaceIdEnum"
+            "type": "string",
+            "description": "The ID of the eBay marketplace to which the default currency applies."
           }
         },
         "description": "This type defines the response fields specifying the default currency for the marketplace."
@@ -4859,8 +4859,8 @@
             "description": "The ID value of the selected item condition. For information on the supported condition ID values, see <a href='/api-docs/sell/static/metadata/condition-id-values.html' target='_blank'>Item condition ID and name values</a>."
           },
           "usage": {
-            "description": "The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class=\"tablenote\"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span>",
-            "$ref": "#/components/schemas/UsageEnum"
+            "type": "string",
+            "description": "The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class=\"tablenote\"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span>"
           }
         },
         "description": "<span class=\"tablenote\"><b>Note: </b>In all eBay marketplaces, Condition ID 2000 now maps to an item condition of 'Certified Refurbished', and not 'Manufacturer Refurbished'. To list an item as 'Certified Refurbished', a seller must be pre-qualified by eBay for this feature. Any seller who is not eligible for this feature will be blocked if they try to create a new listing or revise an existing listing with this item condition. Any active listings on any eBay marketplace that had 'Manufacturer Refurbished' as the item condition should have been automatically updated by eBay to the 'Seller Refurbished' item condition (Condition ID 2500). <br><br> Any seller that is interested in eligibility requirements to list with 'Certified Refurbished' should see the <a href=\"https://pages.ebay.com/seller-center/listing-and-marketing/certified-refurbished-program.html \" target=\"_blank\">Certified refurbished program</a> page in Seller Center. </span>"
@@ -4905,8 +4905,8 @@
             }
           },
           "cardinality": {
-            "description": "The value returned in this field indicates whether a condition descriptor can have a single value or multiple values.",
-            "$ref": "#/components/schemas/CardinalityEnum"
+            "type": "string",
+            "description": "The value returned in this field indicates whether a condition descriptor can have a single value or multiple values."
           },
           "defaultConditionDescriptorValueId": {
             "type": "string",
@@ -4918,12 +4918,12 @@
             "format": "int32"
           },
           "mode": {
-            "description": "The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class=\"tablenote\"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span>",
-            "$ref": "#/components/schemas/ModeEnum"
+            "type": "string",
+            "description": "The value returned in this field indicates whether the supported values for a condition descriptor are predefined or if the seller manually specified the value.<br><br><span class=\"tablenote\"><b>Note:</b> <code>FREE_TEXT</code> is currently only applicable to the Certification Number condition descriptor.</span>"
           },
           "usage": {
-            "description": "This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition.",
-            "$ref": "#/components/schemas/DescriptorUsageEnum"
+            "type": "string",
+            "description": "This value indicates whether or not the condition descriptor is required for the item condition. Currently, this field is only returned if the condition descriptor is required for the item condition."
           }
         },
         "description": "This type specifies the constraints on a condition descriptor, such as the maximum length, default condition descriptor value ID, cardinality, mode, usage, and applicable descriptor IDs."
@@ -5029,12 +5029,12 @@
             "type": "array",
             "description": "This array defines the supported time duration options available for the listing type.",
             "items": {
-              "$ref": "#/components/schemas/DurationEnum"
+              "type": "string"
             }
           },
           "listingType": {
-            "description": "The enumerated value returned in this field indicates the listing type for the duration value(s).",
-            "$ref": "#/components/schemas/ListingTypeEnum"
+            "type": "string",
+            "description": "The enumerated value returned in this field indicates the listing type for the duration value(s)."
           }
         },
         "description": "This type identifies the kind of listing and its duration periods."
@@ -5148,8 +5148,8 @@
             }
           },
           "distanceType": {
-            "description": "This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers.",
-            "$ref": "#/components/schemas/DistanceType"
+            "type": "string",
+            "description": "This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers."
           }
         },
         "description": "This type contains the kind of distance and radius of the selling area for Local Market Vehicle listings."
@@ -5209,8 +5209,8 @@
             "description": "The description of the listing type for which the pricing data is intended."
           },
           "listingType": {
-            "description": "This enum value indicates the listing type for which minimum starting price policies are being returned.<br><br><span class=\"tablenote\"><b>Note:</b> The only applicable values for this method are <code>AUCTION</code> and <code>FIXED_PRICE_ITEM</code>.</span>",
-            "$ref": "#/components/schemas/ListingTypeEnum"
+            "type": "string",
+            "description": "This enum value indicates the listing type for which minimum starting price policies are being returned.<br><br><span class=\"tablenote\"><b>Note:</b> The only applicable values for this method are <code>AUCTION</code> and <code>FIXED_PRICE_ITEM</code>.</span>"
           },
           "minBuyItNowPricePercent": {
             "type": "string",
@@ -5268,8 +5268,8 @@
             "description": "This field is returned as <code>true</code> if the corresponding category supports the use of a deposit/down payment on a motor vehicle listing. In an AddItem call, the seller can configure a down payment for a motor vehicle listing using the PaymentDetails container."
           },
           "ebayMotorsProAdFormatEnabled": {
-            "description": "Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users.",
-            "$ref": "#/components/schemas/AdFormatEnabledEnum"
+            "type": "string",
+            "description": "Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users."
           },
           "ebayMotorsProAutoAcceptEnabled": {
             "type": "boolean",
@@ -5280,8 +5280,8 @@
             "description": "Indicates whether or not the category allows auto-decline for Best Offers for eBay Motors Classified Ad listings. This element is for eBay Motors Pro users."
           },
           "ebayMotorsProBestOfferEnabled": {
-            "description": "This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users.",
-            "$ref": "#/components/schemas/ClassifiedAdBestOfferEnabledEnum"
+            "type": "string",
+            "description": "This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users."
           },
           "ebayMotorsProCompanyNameEnabled": {
             "type": "boolean",
@@ -5304,8 +5304,8 @@
             "description": "Indicates whether counter offers are allowed on Best Offers for this category in an eBay Motors Classified Ad listing. This element is for eBay Motors Pro users."
           },
           "ebayMotorsProPaymentMethodCheckOutEnabled": {
-            "description": "This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users.",
-            "$ref": "#/components/schemas/ClassifiedAdPaymentMethodEnabledEnum"
+            "type": "string",
+            "description": "This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users."
           },
           "ebayMotorsProPhoneCount": {
             "type": "integer",
@@ -5341,8 +5341,8 @@
             }
           },
           "localMarketAdFormatEnabled": {
-            "description": "Specifies whether this category supports Motor Local Market Classified Ad listings.",
-            "$ref": "#/components/schemas/AdFormatEnabledEnum"
+            "type": "string",
+            "description": "Specifies whether this category supports Motor Local Market Classified Ad listings."
           },
           "localMarketAutoAcceptEnabled": {
             "type": "boolean",
@@ -5353,8 +5353,8 @@
             "description": "Specifies whether this category supports auto-decline for Best Offers for Motors Local Market Classified Ads."
           },
           "localMarketBestOfferEnabled": {
-            "description": "Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category. ",
-            "$ref": "#/components/schemas/ClassifiedAdBestOfferEnabledEnum"
+            "type": "string",
+            "description": "Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category. "
           },
           "localMarketCompanyNameEnabled": {
             "type": "boolean",
@@ -5381,8 +5381,8 @@
             "description": "Indicates whether the category supports a seller creating a Motors Local Market listing without a subscription. This feature is only available to licensed vehicle dealers."
           },
           "localMarketPaymentMethodCheckOutEnabled": {
-            "description": "Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled.",
-            "$ref": "#/components/schemas/ClassifiedAdPaymentMethodEnabledEnum"
+            "type": "string",
+            "description": "Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled."
           },
           "localMarketPhoneCount": {
             "type": "integer",
@@ -5430,24 +5430,24 @@
             "format": "int32"
           },
           "nonSubscription": {
-            "description": "The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription.",
-            "$ref": "#/components/schemas/GeographicExposureEnum"
+            "type": "string",
+            "description": "The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription."
           },
           "premiumSubscription": {
-            "description": "The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription.",
-            "$ref": "#/components/schemas/GeographicExposureEnum"
+            "type": "string",
+            "description": "The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription."
           },
           "regularSubscription": {
-            "description": "The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription.",
-            "$ref": "#/components/schemas/GeographicExposureEnum"
+            "type": "string",
+            "description": "The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription."
           },
           "sellerProvidedTitleSupported": {
             "type": "boolean",
             "description": "This field is returned as <code>true</code> if the corresponding category supports the use of a seller-provided title for a motor vehicle listing on the US or Canada Motors marketplaces. A seller-provided title is a descriptive title, given by the seller, that appears below eBay's pre-filled listing title for the motor vehicle. Visually, the seller-provided title is similar to a subtitle on other types of eBay listings (non-vehicle). A seller-provided title can assist in helping buyers discover the vehicle."
           },
           "specialitySubscription": {
-            "description": "The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription.",
-            "$ref": "#/components/schemas/GeographicExposureEnum"
+            "type": "string",
+            "description": "The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription."
           },
           "vinSupported": {
             "type": "boolean",
@@ -6025,12 +6025,12 @@
         "type": "object",
         "properties": {
           "name": {
-            "description": "A unique value identifying a specific regulatory attribute.",
-            "$ref": "#/components/schemas/RegulatoryAttributeEnum"
+            "type": "string",
+            "description": "A unique value identifying a specific regulatory attribute."
           },
           "usage": {
-            "description": "The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category.",
-            "$ref": "#/components/schemas/GenericUsageEnum"
+            "type": "string",
+            "description": "The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category."
           }
         },
         "description": "A type that defines the attributes of a regulatory policy."
@@ -6130,14 +6130,14 @@
             "type": "array",
             "description": "A list of refund methods allowed for the associated category.<br/><br/><span class=\"tablenote\"><strong>Note:</strong> Depending on the API used to setup your return policy, available refund methods are defined differently.<ul><li><b>Account v1 API</b><br/>When using the <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy\" target=\"_blank\">createReturnPolicy</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy\" target=\"_blank\">updateReturnPolicy</a> methods to create/manage business policies, use the appropriate <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy#request.refundMethod\" target=\"_blank\">refundMethod</a> field to specify the refund method for both domestic and international returns for the business policy.</li><li><b>Trading API or Sell Feed API</b><br/><br.>When using legacy <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy\" target=\"_blank\">ReturnPolicy</a> fields, use <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.RefundOption\" target=\"_blank\">RefundOption</a> and <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.InternationalRefundOption\" target=\"_blank\">InternationalRefundOption</a> to specify the domestic and international refund method, respectively, for returns for the business policy.<br/><br/>Note that if <b>MONEY_BACK</b> is returned by <b>getReturnPolicies</b>, use <b>MoneyBack</b> in <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.RefundOption\" target=\"_blank\">RefundOption</a> and <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.InternationalRefundOption\" target=\"_blank\">InternationalRefundOption</a>.</li></ul></span>",
             "items": {
-              "$ref": "#/components/schemas/RefundMethodEnum"
+              "type": "string"
             }
           },
           "returnMethods": {
             "type": "array",
             "description": "A list of return methods allowed for the associated category.<br/><br/><span class=\"tablenote\"><strong>Note:</strong> Depending on the API used to setup your return policy, available return methods are defined differently.<ul><li><b>Account v1 API</b><br/>When using <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy\" target=\"_blank\">createReturnPolicy</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy\" target=\"_blank\">updateReturnPolicy</a> to create/manage business policies, use <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy#request.returnMethod\" target=\"_blank\">returnMethod</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy#request.internationalOverride.returnMethod\" target=\"_blank\">internationalOverride.returnMethod</a> to specify the domestic and international return method, respectively, for the business policy.</li></ul></span>",
             "items": {
-              "$ref": "#/components/schemas/ReturnMethodEnum"
+              "type": "string"
             }
           },
           "returnPeriods": {
@@ -6155,7 +6155,7 @@
             "type": "array",
             "description": "A list of allowed values for who pays for the return shipping cost.<br><br>Note that for SNAD returns, the seller is always responsible for the return shipping cost.<br/><br/><span class=\"tablenote\"><strong>Note:</strong> Depending on the API used to setup your return policy, specifiying that the buyer or seller is responsible for paying for return shipping costs is defined differently.<ul><li><b>Account v1 API</b><br/>When using <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy\" target=\"_blank\">createReturnPolicy</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/updateReturnPolicy\" target=\"_blank\">updateReturnPolicy</a> to create/manage business policies, use <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy#request.returnShippingCostPayer\" target=\"_blank\">returnShippingCostPayer</a> and <a href=\"/api-docs/sell/account/resources/return_policy/methods/createReturnPolicy#request.internationalOverride.returnShippingCostPayer\" target=\"_blank\">internationalOverride.returnShippingCostPayer</a> to specify if the buyer or seller is responsible for paying return shipping charges for the business policy.</li><li><b>Trading API or Sell Feed API</b><br/><br.>When using legacy <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy\" target=\"_blank\">ReturnPolicy</a> fields, use <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.ShippingCostPaidByOption\" target=\"_blank\">ShippingCostPaidByOption</a> and <a href=\"/devzone/xml/docs/Reference/eBay/AddItem.html#Request.Item.ReturnPolicy.InternationalShippingCostPaidByOption\" target=\"_blank\">InternationalShippingCostPaidByOption</a> fields to specify if the buyer or seller is responsible for paying return shipping charges for the business policy.</li></ul></span>",
             "items": {
-              "$ref": "#/components/schemas/ReturnShippingCostPayerEnum"
+              "type": "string"
             }
           }
         },
@@ -6618,8 +6618,8 @@
         "type": "object",
         "properties": {
           "unit": {
-            "description": "A time-measurement unit that specifies a singular period of time.  <br><br>A span of time is defined when you apply the value specified in the <b>value</b> field to the value specified for <b>unit</b>.  <br><br>Time-measurement units can be YEAR, MONTH, DAY, and so on. See <b>TimeDurationUnitEnum</b> for a complete list of possible time-measurement units.",
-            "$ref": "#/components/schemas/TimeDurationUnitEnum"
+            "type": "string",
+            "description": "A time-measurement unit that specifies a singular period of time.  <br><br>A span of time is defined when you apply the value specified in the <b>value</b> field to the value specified for <b>unit</b>.  <br><br>Time-measurement units can be YEAR, MONTH, DAY, and so on. See <b>TimeDurationUnitEnum</b> for a complete list of possible time-measurement units."
           },
           "value": {
             "type": "integer",

@@ -61,7 +61,7 @@ class LocalListingDistance implements ModelInterface, ArrayAccess, JsonSerializa
      */
     protected static array $openAPITypes = [
         'distances' => 'int[]',
-        'distance_type' => '\eBay\Sell\Metadata\Model\DistanceType'
+        'distance_type' => 'string'
     ];
 
     /**
@@ -302,9 +302,9 @@ class LocalListingDistance implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Gets distance_type
      *
-     * @return \eBay\Sell\Metadata\Model\DistanceType|null
+     * @return string|null
      */
-    public function getDistanceType(): ?\eBay\Sell\Metadata\Model\DistanceType
+    public function getDistanceType(): ?string
     {
         return $this->container['distance_type'];
     }
@@ -312,11 +312,11 @@ class LocalListingDistance implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets distance_type
      *
-     * @param \eBay\Sell\Metadata\Model\DistanceType|null $distance_type This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers.
+     * @param string|null $distance_type This enumerated value indicates the type of local listing distances, such as non-subscription or regular, for items listed by sellers.
      *
      * @return $this
      */
-    public function setDistanceType(?\eBay\Sell\Metadata\Model\DistanceType $distance_type): static
+    public function setDistanceType(?string $distance_type): static
     {
         if (is_null($distance_type)) {
             throw new InvalidArgumentException('non-nullable distance_type cannot be null');

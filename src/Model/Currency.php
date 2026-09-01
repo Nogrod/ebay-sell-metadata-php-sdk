@@ -60,7 +60,7 @@ class Currency implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'code' => '\eBay\Sell\Metadata\Model\CurrencyCodeEnum',
+        'code' => 'string',
         'description' => 'string'
     ];
 
@@ -275,9 +275,9 @@ class Currency implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets code
      *
-     * @return \eBay\Sell\Metadata\Model\CurrencyCodeEnum|null
+     * @return string|null
      */
-    public function getCode(): ?\eBay\Sell\Metadata\Model\CurrencyCodeEnum
+    public function getCode(): ?string
     {
         return $this->container['code'];
     }
@@ -285,11 +285,11 @@ class Currency implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets code
      *
-     * @param \eBay\Sell\Metadata\Model\CurrencyCodeEnum|null $code The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html \" target=\"_blank\">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>.
+     * @param string|null $code The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html \" target=\"_blank\">ISO 4217</a> code returned.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. Examples: on the US marketplace, the only currency supported is the United States dollar, <code>USD</code>; on the Canadian marketplace, the only currency supported is the Canadian dollar, <code>CAD</code>.
      *
      * @return $this
      */
-    public function setCode(?\eBay\Sell\Metadata\Model\CurrencyCodeEnum $code): static
+    public function setCode(?string $code): static
     {
         if (is_null($code)) {
             throw new InvalidArgumentException('non-nullable code cannot be null');

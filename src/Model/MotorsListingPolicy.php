@@ -63,16 +63,16 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
         'category_id' => 'string',
         'category_tree_id' => 'string',
         'deposit_supported' => 'bool',
-        'ebay_motors_pro_ad_format_enabled' => '\eBay\Sell\Metadata\Model\AdFormatEnabledEnum',
+        'ebay_motors_pro_ad_format_enabled' => 'string',
         'ebay_motors_pro_auto_accept_enabled' => 'bool',
         'ebay_motors_pro_auto_decline_enabled' => 'bool',
-        'ebay_motors_pro_best_offer_enabled' => '\eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum',
+        'ebay_motors_pro_best_offer_enabled' => 'string',
         'ebay_motors_pro_company_name_enabled' => 'bool',
         'ebay_motors_pro_contact_by_address_enabled' => 'bool',
         'ebay_motors_pro_contact_by_email_enabled' => 'bool',
         'ebay_motors_pro_contact_by_phone_enabled' => 'bool',
         'ebay_motors_pro_counter_offer_enabled' => 'bool',
-        'ebay_motors_pro_payment_method_check_out_enabled' => '\eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum',
+        'ebay_motors_pro_payment_method_check_out_enabled' => 'string',
         'ebay_motors_pro_phone_count' => 'int',
         'ebay_motors_pro_seller_contact_details_enabled' => 'bool',
         'ebay_motors_pro_shipping_method_enabled' => 'bool',
@@ -80,17 +80,17 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
         'epid_supported' => 'bool',
         'k_type_supported' => 'bool',
         'local_listing_distances' => '\eBay\Sell\Metadata\Model\LocalListingDistance[]',
-        'local_market_ad_format_enabled' => '\eBay\Sell\Metadata\Model\AdFormatEnabledEnum',
+        'local_market_ad_format_enabled' => 'string',
         'local_market_auto_accept_enabled' => 'bool',
         'local_market_auto_decline_enabled' => 'bool',
-        'local_market_best_offer_enabled' => '\eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum',
+        'local_market_best_offer_enabled' => 'string',
         'local_market_company_name_enabled' => 'bool',
         'local_market_contact_by_address_enabled' => 'bool',
         'local_market_contact_by_email_enabled' => 'bool',
         'local_market_contact_by_phone_enabled' => 'bool',
         'local_market_counter_offer_enabled' => 'bool',
         'local_market_non_subscription' => 'bool',
-        'local_market_payment_method_check_out_enabled' => '\eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum',
+        'local_market_payment_method_check_out_enabled' => 'string',
         'local_market_phone_count' => 'int',
         'local_market_premium_subscription' => 'bool',
         'local_market_regular_subscription' => 'bool',
@@ -101,11 +101,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
         'max_granular_fitment_count' => 'int',
         'max_item_compatibility' => 'int',
         'min_item_compatibility' => 'int',
-        'non_subscription' => '\eBay\Sell\Metadata\Model\GeographicExposureEnum',
-        'premium_subscription' => '\eBay\Sell\Metadata\Model\GeographicExposureEnum',
-        'regular_subscription' => '\eBay\Sell\Metadata\Model\GeographicExposureEnum',
+        'non_subscription' => 'string',
+        'premium_subscription' => 'string',
+        'regular_subscription' => 'string',
         'seller_provided_title_supported' => 'bool',
-        'speciality_subscription' => '\eBay\Sell\Metadata\Model\GeographicExposureEnum',
+        'speciality_subscription' => 'string',
         'vin_supported' => 'bool',
         'vrm_supported' => 'bool'
     ];
@@ -678,9 +678,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets ebay_motors_pro_ad_format_enabled
      *
-     * @return \eBay\Sell\Metadata\Model\AdFormatEnabledEnum|null
+     * @return string|null
      */
-    public function getEbayMotorsProAdFormatEnabled(): ?\eBay\Sell\Metadata\Model\AdFormatEnabledEnum
+    public function getEbayMotorsProAdFormatEnabled(): ?string
     {
         return $this->container['ebay_motors_pro_ad_format_enabled'];
     }
@@ -688,11 +688,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets ebay_motors_pro_ad_format_enabled
      *
-     * @param \eBay\Sell\Metadata\Model\AdFormatEnabledEnum|null $ebay_motors_pro_ad_format_enabled Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users.
+     * @param string|null $ebay_motors_pro_ad_format_enabled Indicates whether or not eBay Motors Pro sellers can use classified ads in this category to sell their vehicles. This element is applicable for eBay Motors Pro users.
      *
      * @return $this
      */
-    public function setEbayMotorsProAdFormatEnabled(?\eBay\Sell\Metadata\Model\AdFormatEnabledEnum $ebay_motors_pro_ad_format_enabled): static
+    public function setEbayMotorsProAdFormatEnabled(?string $ebay_motors_pro_ad_format_enabled): static
     {
         if (is_null($ebay_motors_pro_ad_format_enabled)) {
             throw new InvalidArgumentException('non-nullable ebay_motors_pro_ad_format_enabled cannot be null');
@@ -759,9 +759,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets ebay_motors_pro_best_offer_enabled
      *
-     * @return \eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum|null
+     * @return string|null
      */
-    public function getEbayMotorsProBestOfferEnabled(): ?\eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum
+    public function getEbayMotorsProBestOfferEnabled(): ?string
     {
         return $this->container['ebay_motors_pro_best_offer_enabled'];
     }
@@ -769,11 +769,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets ebay_motors_pro_best_offer_enabled
      *
-     * @param \eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum|null $ebay_motors_pro_best_offer_enabled This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users.
+     * @param string|null $ebay_motors_pro_best_offer_enabled This enumerated value indicates whether or not Best Offer features are supported for eBay Motors Classified Ad listings in this category. This element is for eBay Motors Pro users.
      *
      * @return $this
      */
-    public function setEbayMotorsProBestOfferEnabled(?\eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum $ebay_motors_pro_best_offer_enabled): static
+    public function setEbayMotorsProBestOfferEnabled(?string $ebay_motors_pro_best_offer_enabled): static
     {
         if (is_null($ebay_motors_pro_best_offer_enabled)) {
             throw new InvalidArgumentException('non-nullable ebay_motors_pro_best_offer_enabled cannot be null');
@@ -921,9 +921,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets ebay_motors_pro_payment_method_check_out_enabled
      *
-     * @return \eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum|null
+     * @return string|null
      */
-    public function getEbayMotorsProPaymentMethodCheckOutEnabled(): ?\eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum
+    public function getEbayMotorsProPaymentMethodCheckOutEnabled(): ?string
     {
         return $this->container['ebay_motors_pro_payment_method_check_out_enabled'];
     }
@@ -931,11 +931,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets ebay_motors_pro_payment_method_check_out_enabled
      *
-     * @param \eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum|null $ebay_motors_pro_payment_method_check_out_enabled This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users.
+     * @param string|null $ebay_motors_pro_payment_method_check_out_enabled This enumerated value indicates whether this category supports that the payment method should be displayed to the user for this category in an eBay Motors Classified Ad listing. Even if enabled, checkout may or may not be enabled. This element is for eBay Motors Pro users.
      *
      * @return $this
      */
-    public function setEbayMotorsProPaymentMethodCheckOutEnabled(?\eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum $ebay_motors_pro_payment_method_check_out_enabled): static
+    public function setEbayMotorsProPaymentMethodCheckOutEnabled(?string $ebay_motors_pro_payment_method_check_out_enabled): static
     {
         if (is_null($ebay_motors_pro_payment_method_check_out_enabled)) {
             throw new InvalidArgumentException('non-nullable ebay_motors_pro_payment_method_check_out_enabled cannot be null');
@@ -1137,9 +1137,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets local_market_ad_format_enabled
      *
-     * @return \eBay\Sell\Metadata\Model\AdFormatEnabledEnum|null
+     * @return string|null
      */
-    public function getLocalMarketAdFormatEnabled(): ?\eBay\Sell\Metadata\Model\AdFormatEnabledEnum
+    public function getLocalMarketAdFormatEnabled(): ?string
     {
         return $this->container['local_market_ad_format_enabled'];
     }
@@ -1147,11 +1147,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets local_market_ad_format_enabled
      *
-     * @param \eBay\Sell\Metadata\Model\AdFormatEnabledEnum|null $local_market_ad_format_enabled Specifies whether this category supports Motor Local Market Classified Ad listings.
+     * @param string|null $local_market_ad_format_enabled Specifies whether this category supports Motor Local Market Classified Ad listings.
      *
      * @return $this
      */
-    public function setLocalMarketAdFormatEnabled(?\eBay\Sell\Metadata\Model\AdFormatEnabledEnum $local_market_ad_format_enabled): static
+    public function setLocalMarketAdFormatEnabled(?string $local_market_ad_format_enabled): static
     {
         if (is_null($local_market_ad_format_enabled)) {
             throw new InvalidArgumentException('non-nullable local_market_ad_format_enabled cannot be null');
@@ -1218,9 +1218,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets local_market_best_offer_enabled
      *
-     * @return \eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum|null
+     * @return string|null
      */
-    public function getLocalMarketBestOfferEnabled(): ?\eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum
+    public function getLocalMarketBestOfferEnabled(): ?string
     {
         return $this->container['local_market_best_offer_enabled'];
     }
@@ -1228,11 +1228,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets local_market_best_offer_enabled
      *
-     * @param \eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum|null $local_market_best_offer_enabled Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category.
+     * @param string|null $local_market_best_offer_enabled Indicates if Best Offer is enabled/required for Motors Local Market Classified Ad listings in this category.
      *
      * @return $this
      */
-    public function setLocalMarketBestOfferEnabled(?\eBay\Sell\Metadata\Model\ClassifiedAdBestOfferEnabledEnum $local_market_best_offer_enabled): static
+    public function setLocalMarketBestOfferEnabled(?string $local_market_best_offer_enabled): static
     {
         if (is_null($local_market_best_offer_enabled)) {
             throw new InvalidArgumentException('non-nullable local_market_best_offer_enabled cannot be null');
@@ -1407,9 +1407,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets local_market_payment_method_check_out_enabled
      *
-     * @return \eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum|null
+     * @return string|null
      */
-    public function getLocalMarketPaymentMethodCheckOutEnabled(): ?\eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum
+    public function getLocalMarketPaymentMethodCheckOutEnabled(): ?string
     {
         return $this->container['local_market_payment_method_check_out_enabled'];
     }
@@ -1417,11 +1417,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets local_market_payment_method_check_out_enabled
      *
-     * @param \eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum|null $local_market_payment_method_check_out_enabled Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled.
+     * @param string|null $local_market_payment_method_check_out_enabled Indicates if the payment method should be displayed to the user for this category in an Motors Local Market Classified Ad listing. Even if enabled, checkout may or may not be enabled.
      *
      * @return $this
      */
-    public function setLocalMarketPaymentMethodCheckOutEnabled(?\eBay\Sell\Metadata\Model\ClassifiedAdPaymentMethodEnabledEnum $local_market_payment_method_check_out_enabled): static
+    public function setLocalMarketPaymentMethodCheckOutEnabled(?string $local_market_payment_method_check_out_enabled): static
     {
         if (is_null($local_market_payment_method_check_out_enabled)) {
             throw new InvalidArgumentException('non-nullable local_market_payment_method_check_out_enabled cannot be null');
@@ -1704,9 +1704,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets non_subscription
      *
-     * @return \eBay\Sell\Metadata\Model\GeographicExposureEnum|null
+     * @return string|null
      */
-    public function getNonSubscription(): ?\eBay\Sell\Metadata\Model\GeographicExposureEnum
+    public function getNonSubscription(): ?string
     {
         return $this->container['non_subscription'];
     }
@@ -1714,11 +1714,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets non_subscription
      *
-     * @param \eBay\Sell\Metadata\Model\GeographicExposureEnum|null $non_subscription The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription.
+     * @param string|null $non_subscription The value in this field indicates whether the category supports Motors Local Market listings if the seller does not have a vehicle subscription.
      *
      * @return $this
      */
-    public function setNonSubscription(?\eBay\Sell\Metadata\Model\GeographicExposureEnum $non_subscription): static
+    public function setNonSubscription(?string $non_subscription): static
     {
         if (is_null($non_subscription)) {
             throw new InvalidArgumentException('non-nullable non_subscription cannot be null');
@@ -1731,9 +1731,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets premium_subscription
      *
-     * @return \eBay\Sell\Metadata\Model\GeographicExposureEnum|null
+     * @return string|null
      */
-    public function getPremiumSubscription(): ?\eBay\Sell\Metadata\Model\GeographicExposureEnum
+    public function getPremiumSubscription(): ?string
     {
         return $this->container['premium_subscription'];
     }
@@ -1741,11 +1741,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets premium_subscription
      *
-     * @param \eBay\Sell\Metadata\Model\GeographicExposureEnum|null $premium_subscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription.
+     * @param string|null $premium_subscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Premium vehicle subscription.
      *
      * @return $this
      */
-    public function setPremiumSubscription(?\eBay\Sell\Metadata\Model\GeographicExposureEnum $premium_subscription): static
+    public function setPremiumSubscription(?string $premium_subscription): static
     {
         if (is_null($premium_subscription)) {
             throw new InvalidArgumentException('non-nullable premium_subscription cannot be null');
@@ -1758,9 +1758,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets regular_subscription
      *
-     * @return \eBay\Sell\Metadata\Model\GeographicExposureEnum|null
+     * @return string|null
      */
-    public function getRegularSubscription(): ?\eBay\Sell\Metadata\Model\GeographicExposureEnum
+    public function getRegularSubscription(): ?string
     {
         return $this->container['regular_subscription'];
     }
@@ -1768,11 +1768,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets regular_subscription
      *
-     * @param \eBay\Sell\Metadata\Model\GeographicExposureEnum|null $regular_subscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription.
+     * @param string|null $regular_subscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Regular vehicle subscription.
      *
      * @return $this
      */
-    public function setRegularSubscription(?\eBay\Sell\Metadata\Model\GeographicExposureEnum $regular_subscription): static
+    public function setRegularSubscription(?string $regular_subscription): static
     {
         if (is_null($regular_subscription)) {
             throw new InvalidArgumentException('non-nullable regular_subscription cannot be null');
@@ -1812,9 +1812,9 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets speciality_subscription
      *
-     * @return \eBay\Sell\Metadata\Model\GeographicExposureEnum|null
+     * @return string|null
      */
-    public function getSpecialitySubscription(): ?\eBay\Sell\Metadata\Model\GeographicExposureEnum
+    public function getSpecialitySubscription(): ?string
     {
         return $this->container['speciality_subscription'];
     }
@@ -1822,11 +1822,11 @@ class MotorsListingPolicy implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets speciality_subscription
      *
-     * @param \eBay\Sell\Metadata\Model\GeographicExposureEnum|null $speciality_subscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription.
+     * @param string|null $speciality_subscription The value in this field indicates whether the category supports Motors Local Market listings if the seller has a Specialty vehicle subscription.
      *
      * @return $this
      */
-    public function setSpecialitySubscription(?\eBay\Sell\Metadata\Model\GeographicExposureEnum $speciality_subscription): static
+    public function setSpecialitySubscription(?string $speciality_subscription): static
     {
         if (is_null($speciality_subscription)) {
             throw new InvalidArgumentException('non-nullable speciality_subscription cannot be null');

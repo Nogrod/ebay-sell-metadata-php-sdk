@@ -64,7 +64,7 @@ class ItemCondition implements ModelInterface, ArrayAccess, JsonSerializable
         'condition_descriptors' => '\eBay\Sell\Metadata\Model\ItemConditionDescriptor[]',
         'condition_help_text' => 'string',
         'condition_id' => 'string',
-        'usage' => '\eBay\Sell\Metadata\Model\UsageEnum'
+        'usage' => 'string'
     ];
 
     /**
@@ -404,9 +404,9 @@ class ItemCondition implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets usage
      *
-     * @return \eBay\Sell\Metadata\Model\UsageEnum|null
+     * @return string|null
      */
-    public function getUsage(): ?\eBay\Sell\Metadata\Model\UsageEnum
+    public function getUsage(): ?string
     {
         return $this->container['usage'];
     }
@@ -414,11 +414,11 @@ class ItemCondition implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets usage
      *
-     * @param \eBay\Sell\Metadata\Model\UsageEnum|null $usage The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class=\"tablenote\"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span>
+     * @param string|null $usage The value returned in this field indicates if there are any usage restrictions or requirements for the corresponding item condition in the corresponding category.<br><br><span class=\"tablenote\"><b>Note:</b> Currently, the only supported value is 'RESTRICTED', and this field will only be returned for the following conditions: 2000, 2010, 2020, 2030. Sellers must be pre-approved to use any of these item conditions.</span>
      *
      * @return $this
      */
-    public function setUsage(?\eBay\Sell\Metadata\Model\UsageEnum $usage): static
+    public function setUsage(?string $usage): static
     {
         if (is_null($usage)) {
             throw new InvalidArgumentException('non-nullable usage cannot be null');

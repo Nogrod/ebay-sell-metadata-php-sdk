@@ -60,7 +60,7 @@ class Amount implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'currency' => '\eBay\Sell\Metadata\Model\CurrencyCodeEnum',
+        'currency' => 'string',
         'value' => 'string'
     ];
 
@@ -275,9 +275,9 @@ class Amount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets currency
      *
-     * @return \eBay\Sell\Metadata\Model\CurrencyCodeEnum|null
+     * @return string|null
      */
-    public function getCurrency(): ?\eBay\Sell\Metadata\Model\CurrencyCodeEnum
+    public function getCurrency(): ?string
     {
         return $this->container['currency'];
     }
@@ -285,11 +285,11 @@ class Amount implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets currency
      *
-     * @param \eBay\Sell\Metadata\Model\CurrencyCodeEnum|null $currency The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html \" target=\"_blank\">ISO 4217</a> code representing the currency of the amount in the <b> value</b> field.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. For example, on the US marketplace the only currency supported is USD.
+     * @param string|null $currency The three-letter <a href=\"https://www.iso.org/iso-4217-currency-codes.html \" target=\"_blank\">ISO 4217</a> code representing the currency of the amount in the <b> value</b> field.  <br /><br /><b>Restriction: </b> Only the currency of the marketplace is supported. For example, on the US marketplace the only currency supported is USD.
      *
      * @return $this
      */
-    public function setCurrency(?\eBay\Sell\Metadata\Model\CurrencyCodeEnum $currency): static
+    public function setCurrency(?string $currency): static
     {
         if (is_null($currency)) {
             throw new InvalidArgumentException('non-nullable currency cannot be null');

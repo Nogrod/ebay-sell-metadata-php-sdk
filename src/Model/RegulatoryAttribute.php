@@ -60,8 +60,8 @@ class RegulatoryAttribute implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'name' => '\eBay\Sell\Metadata\Model\RegulatoryAttributeEnum',
-        'usage' => '\eBay\Sell\Metadata\Model\GenericUsageEnum'
+        'name' => 'string',
+        'usage' => 'string'
     ];
 
     /**
@@ -275,9 +275,9 @@ class RegulatoryAttribute implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets name
      *
-     * @return \eBay\Sell\Metadata\Model\RegulatoryAttributeEnum|null
+     * @return string|null
      */
-    public function getName(): ?\eBay\Sell\Metadata\Model\RegulatoryAttributeEnum
+    public function getName(): ?string
     {
         return $this->container['name'];
     }
@@ -285,11 +285,11 @@ class RegulatoryAttribute implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets name
      *
-     * @param \eBay\Sell\Metadata\Model\RegulatoryAttributeEnum|null $name A unique value identifying a specific regulatory attribute.
+     * @param string|null $name A unique value identifying a specific regulatory attribute.
      *
      * @return $this
      */
-    public function setName(?\eBay\Sell\Metadata\Model\RegulatoryAttributeEnum $name): static
+    public function setName(?string $name): static
     {
         if (is_null($name)) {
             throw new InvalidArgumentException('non-nullable name cannot be null');
@@ -302,9 +302,9 @@ class RegulatoryAttribute implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Gets usage
      *
-     * @return \eBay\Sell\Metadata\Model\GenericUsageEnum|null
+     * @return string|null
      */
-    public function getUsage(): ?\eBay\Sell\Metadata\Model\GenericUsageEnum
+    public function getUsage(): ?string
     {
         return $this->container['usage'];
     }
@@ -312,11 +312,11 @@ class RegulatoryAttribute implements ModelInterface, ArrayAccess, JsonSerializab
     /**
      * Sets usage
      *
-     * @param \eBay\Sell\Metadata\Model\GenericUsageEnum|null $usage The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category.
+     * @param string|null $usage The enumeration value in this field indicates whether the corresponding attribute is recommended or required for the corresponding leaf category.
      *
      * @return $this
      */
-    public function setUsage(?\eBay\Sell\Metadata\Model\GenericUsageEnum $usage): static
+    public function setUsage(?string $usage): static
     {
         if (is_null($usage)) {
             throw new InvalidArgumentException('non-nullable usage cannot be null');
